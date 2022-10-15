@@ -30,6 +30,6 @@ public class Gravity : MonoBehaviour
         downVectorNormalized = downVector.normalized;
 
         // Apply force
-        rigid.velocity += downVectorNormalized * Time.deltaTime * acceleration;
+        rigid.velocity = downVectorNormalized * Time.fixedDeltaTime * acceleration;
     }
 }

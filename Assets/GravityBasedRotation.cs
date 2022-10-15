@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class GravityBasedRotation : MonoBehaviour
 {
-    public float rotationSpeed = 1f;
-
     private Gravity gravity;
 
     private void Awake()
@@ -17,18 +15,9 @@ public class GravityBasedRotation : MonoBehaviour
 
     private void Update()
     {
-        // Get polar coordinate (angle)
-        float rotation = (float)(Mathf.Atan(gravity.TopVector.y / gravity.TopVector.x) * 180.0 / Mathf.PI);
+        // Calculate angle from center to object
+        float rotation = Mathf.Atan2(gravity.TopVector.y, gravity.TopVector.x) * Mathf.Rad2Deg;
 
-        // Correct calculated coordinate
-        if (gravity.TopVector.x < 0)
-            rotation += 180;
-
-        if (gravity.TopVector.x > 0 && gravity.TopVector.y < 0)
-            rotation += 360;
-
-        float lerpRotation = Mathf.Lerp(transform.rotation.z, rotation, rotationSpeed);
-
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, lerpRotation));
+        transform.rotation = Quaternion.AngleAxis(rotation, new Vector3(0, 0, 1));
     }
 }
