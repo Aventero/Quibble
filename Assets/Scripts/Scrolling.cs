@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scrolling : MonoBehaviour
 {
-    public float ScrollSpeed = 1;
+    public float ScrollSpeed = 5;
     private Camera zoomCamera;
 
 
@@ -17,6 +17,5 @@ public class Scrolling : MonoBehaviour
     void Update()
     {
         zoomCamera.orthographicSize -= Input.GetAxisRaw("Mouse ScrollWheel") * ScrollSpeed;
-        
     }
 }

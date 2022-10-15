@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour
 {
-    public float acceleration = 1f;
+    public float acceleration = 10f;
 
     private Rigidbody2D rigid;
     private Transform gravitationCenter;
@@ -13,9 +13,9 @@ public class Gravity : MonoBehaviour
     private Vector2 downVectorNormalized;
 
     public Vector2 DownVector => downVector;
-    public Vector2 TopVector => -downVector;
+    public Vector2 UpVector => -downVector;
     public Vector2 DownVectorNormalized => downVector.normalized;
-    public Vector2 FrontVector => new Vector2(downVector.y, -downVector.x);
+    public Vector2 ForwardVector => new Vector2(downVector.y, -downVector.x);
 
     public void Awake()
     {
@@ -30,6 +30,8 @@ public class Gravity : MonoBehaviour
         downVectorNormalized = downVector.normalized;
 
         // Apply force
-        rigid.velocity = downVectorNormalized * Time.fixedDeltaTime * acceleration;
+        rigid.velocity += downVectorNormalized * Time.fixedDeltaTime * acceleration;
+
+        Debug.DrawRay(transform.position, downVectorNormalized);
     }
 }

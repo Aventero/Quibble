@@ -4,45 +4,57 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float JumpPower = 16f;
+    public float JumpPower = 2;
 
     public float horizontal;
-    public float speed = 8f;
+    public float forwardSpeed = 3f;
     public bool isFacingRight = true;
     public bool isGrounded = false;
 
     [SerializeField] private Rigidbody2D rigidbody2D;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    private BoxCollider2D collider;
+
+    private void Start()
+    {
+        collider = GetComponent<BoxCollider2D>();
+    }
 
     // Start is called before the first frame update
     private void Update()
     {
+
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, JumpPower);
+            rigidbody2D.velocity = JumpPower * transform.right;
         }
 
-        if (Input.GetButtonUp("Jump") && rigidbody2D.velocity.y > 0f)
-        {
-            Debug.Log("up");
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, rigidbody2D.velocity.y * 0.5f);
-        }
+        //if (Input.GetButtonUp("Jump") && rigidbody2D.velocity.y > 0f)
+        //{
+        //    rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, rigidbody2D.velocity.y * 0.5f);
+        //}
 
-        CheckForFlip();
+  
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        rigidbody2D.velocity = new Vector2(horizontal * speed, rigidbody2D.velocity.y);
+        if (!IsGrounded())
+        {
+            Debug.Log("Not Grounded");
+            Debug.DrawRay(transform.position, -transform.up, Color.red);
+            rigidbody2D.AddForce(-transform.up * Time.fixedDeltaTime * forwardSpeed);
+        }
+        //rigidbody2D.velocity = horizontal * speed * GetComponent<Gravity>().ForwardVector ;
     }
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.25f, groundLayer);
+        return Physics2D.BoxCast(collider.bounds.center, transform.localScale, 0f, transform.right * -1f, 0.1f, groundLayer);
     }
 
     private void CheckForFlip()
@@ -53,6 +65,14 @@ public class Movement : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f; // flip player 
             transform.localScale = localScale;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (collider != null)
+        {
+            Gizmos.DrawWireCube(collider.bounds.center + ((transform.right * -1f) * 0.1f), transform.localScale);
         }
     }
 }

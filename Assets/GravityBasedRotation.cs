@@ -16,7 +16,7 @@ public class GravityBasedRotation : MonoBehaviour
     private void Update()
     {
         // Calculate angle from center to object
-        float rotation = Mathf.Atan2(gravity.TopVector.y, gravity.TopVector.x) * Mathf.Rad2Deg;
+        float rotation = Mathf.Atan2(gravity.UpVector.y, gravity.UpVector.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.AngleAxis(rotation, new Vector3(0, 0, 1));
     }
