@@ -365,6 +365,7 @@ GameObject:
   - component: {fileID: 698695592}
   - component: {fileID: 698695591}
   - component: {fileID: 698695595}
+  - component: {fileID: 698695596}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -508,6 +509,22 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &698695596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698695590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d093c2ea6d44802a0e9ae638916152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceleration: 1
+  mass: 1
+  downVector: {x: 0, y: 0}
+  downVectorNormalized: {x: 0, y: 0}
 --- !u!1 &708700217
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +538,7 @@ GameObject:
   - component: {fileID: 708700218}
   m_Layer: 6
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

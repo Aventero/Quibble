@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Gravity))]
+
 public class GravityBasedRotation : MonoBehaviour
 {
     public float rotationSpeed = 1f;

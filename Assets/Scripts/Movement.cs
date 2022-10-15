@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public float horizontal;
     public float speed = 8f;
     public bool isFacingRight = true;
+    public bool isGrounded = false;
 
     [SerializeField] private Rigidbody2D rigidbody2D;
     [SerializeField] private Transform groundCheck;
@@ -26,6 +27,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButtonUp("Jump") && rigidbody2D.velocity.y > 0f)
         {
+            Debug.Log("up");
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, rigidbody2D.velocity.y * 0.5f);
         }
 
@@ -40,7 +42,7 @@ public class Movement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.25f, groundLayer);
     }
 
     private void CheckForFlip()
