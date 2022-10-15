@@ -5,13 +5,17 @@ using UnityEngine;
 public class Gravity : MonoBehaviour
 {
     public float acceleration = 1f;
-    public float mass = 1f;
 
     private Rigidbody2D rigid;
     private Transform gravitationCenter;
 
-    public Vector2 downVector;
-    public Vector2 downVectorNormalized;
+    private Vector2 downVector;
+    private Vector2 downVectorNormalized;
+
+    public Vector2 DownVector => downVector;
+    public Vector2 TopVector => -downVector;
+    public Vector2 DownVectorNormalized => downVector.normalized;
+    public Vector2 FrontVector => new Vector2(downVector.y, -downVector.x);
 
     public void Awake()
     {
@@ -21,11 +25,11 @@ public class Gravity : MonoBehaviour
 
     public void FixedUpdate()
     {
-        // Calc direction
+        // Calculate direction
         downVector = (gravitationCenter.transform.position - gameObject.transform.position);
         downVectorNormalized = downVector.normalized;
 
         // Apply force
-        rigid.velocity += downVector * Time.deltaTime * acceleration * mass;
+        rigid.velocity += downVectorNormalized * Time.deltaTime * acceleration;
     }
 }
