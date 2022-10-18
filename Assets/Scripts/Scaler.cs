@@ -24,11 +24,11 @@ public class Scaler : MonoBehaviour
     private void FixedUpdate()
     {
         // Update is called once per frame
-        //float distance = Vector3.Distance(this.transform.position, PivotPoint.position);
-        //this.transform.localScale = StandardScale * distance * ScalingFactor;
+        float distance = Vector3.Distance(this.transform.position, PivotPoint.position);
+        this.transform.localScale = StandardScale * distance * ScalingFactor;
 
         // Lookat in 2D 
-        //this.transform.up = -(PivotPoint.position - this.transform.position);
+        this.transform.up = -(PivotPoint.position - this.transform.position);
     }
 
     private void OnGUI()
@@ -36,11 +36,11 @@ public class Scaler : MonoBehaviour
         if (!Application.isPlaying)
         {
             // Update is called once per frame
-            //float distance = Vector3.Distance(this.transform.position, PivotPoint.position);
-            //this.transform.localScale = StandardScale * distance * ScalingFactor;
+            float distance = Vector3.Distance(this.transform.position, PivotPoint.position);
+            this.transform.localScale = StandardScale * distance * ScalingFactor;
 
             // Lookat in 2D 
-            //this.transform.up = -(PivotPoint.position - this.transform.position);
+            this.transform.up = -(PivotPoint.position - this.transform.position);
         }
     }
 }

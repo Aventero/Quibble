@@ -28,15 +28,7 @@ public class Gravity : MonoBehaviour
         pivotPoints.AddRange(GameObject.FindGameObjectsWithTag("Planet"));
 
         closestPivot = pivotPoints[0].transform;
-        foreach (GameObject pivot in pivotPoints)
-        {
-            float distanceToCurrentPivot = Vector2.Distance(transform.position, closestPivot.position);
-            float distanceToPossiblePivot = Vector2.Distance(transform.position, pivot.transform.position);
-            Debug.Log(distanceToPossiblePivot + " to " + pivot.name);
-            if (distanceToPossiblePivot < distanceToCurrentPivot)
-                closestPivot = pivot.transform;
-        }
-
+        FindClosestPivot();
         Debug.Log("Closest Pivot = " + closestPivot.name);
     }
 
