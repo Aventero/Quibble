@@ -4,75 +4,69 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float JumpPower = 2;
+    public float JumpPower = 5.0f;
+    public float MaxJumpPower = 5.0f;
+    public float ForwardSpeed = 4f;
+    [SerializeField] private float jumpStrength = 0;
 
-    public float horizontal;
-    public float forwardSpeed = 3f;
-    public bool isFacingRight = true;
     public bool isGrounded = false;
-
-    [SerializeField] private Rigidbody2D rigidbody2D;
+    [SerializeField] private new Rigidbody2D rigidbody2D;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    private BoxCollider2D collider;
 
     private void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
     }
 
     // Start is called before the first frame update
     private void Update()
     {
+        // hold jump
+        //if (Input.GetButton("Jump") && IsGrounded() && jumpStrength < MaxJumpPower)
+        //{
+        //    jumpStrength += JumpPower * Time.deltaTime;
+        //    if (jumpStrength > MaxJumpPower)
+        //        jumpStrength = MaxJumpPower;
+        //}
 
-        horizontal = Input.GetAxisRaw("Horizontal");
+        // Jump 
+        //if (Input.GetButtonUp("Jump") && IsGrounded())
+        //{
+        //    rigidbody2D.velocity = transform.up * JumpPower;
+        //    jumpStrength = 0; // Reset jumpStrenght
+        //}
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rigidbody2D.velocity = JumpPower * transform.right;
+            rigidbody2D.velocity = transform.up * JumpPower;
         }
 
-        //if (Input.GetButtonUp("Jump") && rigidbody2D.velocity.y > 0f)
-        //{
-        //    rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, rigidbody2D.velocity.y * 0.5f);
-        //}
-
-  
+        if (Input.GetButtonUp("Jump") && Vector2.Dot(rigidbody2D.velocity, transform.up) > 0.0f)
+        {
+            Debug.Log("Jump released while not falling");
+            Debug.Log(Vector2.Dot(rigidbody2D.velocity.normalized, transform.up.normalized));
+            Debug.Log(Mathf.Lerp(0.5f, 1f, Vector2.Dot(rigidbody2D.velocity.normalized, transform.up.normalized)));
+            rigidbody2D.velocity -= new Vector2(transform.up.x, transform.up.y) * Mathf.Lerp(0.5f, 1f, Vector2.Dot(rigidbody2D.velocity.normalized, transform.up.normalized));
+            // Slow the upwards momentum?
+            //rigidbody2D.velocity -= new Vector2(transform.up.x, transform.up.y) * Vector2.Dot(rigidbody2D.velocity, transform.up);
+            //rigidbody2D.velocity *= 0.5f;
+        }
     }
 
-    // Update is called once per frame
     private void FixedUpdate()
     {
-        if (!IsGrounded())
-        {
-            Debug.Log("Not Grounded");
-            Debug.DrawRay(transform.position, -transform.up, Color.red);
-            rigidbody2D.AddForce(-transform.up * Time.fixedDeltaTime * forwardSpeed);
-        }
-        //rigidbody2D.velocity = horizontal * speed * GetComponent<Gravity>().ForwardVector ;
+        rigidbody2D.velocity = Vector2.Lerp(rigidbody2D.velocity, transform.right * ForwardSpeed, Time.fixedDeltaTime);
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
-        return Physics2D.BoxCast(collider.bounds.center, transform.localScale, 0f, transform.right * -1f, 0.1f, groundLayer);
+        return isGrounded = rigidbody2D.IsTouchingLayers(groundLayer);
     }
 
-    private void CheckForFlip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f; // flip player 
-            transform.localScale = localScale;
-        }
-    }
 
     private void OnDrawGizmos()
     {
-        if (collider != null)
-        {
-            Gizmos.DrawWireCube(collider.bounds.center + ((transform.right * -1f) * 0.1f), transform.localScale);
-        }
+        //if (collider != null)
+        //    Gizmos.DrawWireCube(collider.bounds.center + (-transform.up * 0.1f), transform.localScale);
     }
 }
