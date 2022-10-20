@@ -8,6 +8,7 @@ public class Scrolling : MonoBehaviour
     private Camera zoomCamera;
     public Transform PlayerTransform;
     public Transform PivotTransform;
+    public static float CenterDistance = 0;
 
     private void Start()
     {
@@ -18,7 +19,8 @@ public class Scrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        zoomCamera.orthographicSize = Vector2.Distance(PivotTransform.position, PlayerTransform.position) + 4;
+        CenterDistance = Vector2.Distance(PivotTransform.position, PlayerTransform.position);
+        zoomCamera.orthographicSize = CenterDistance + 2;
 
         if (zoomCamera.orthographicSize < 1)
             zoomCamera.orthographicSize = 1;

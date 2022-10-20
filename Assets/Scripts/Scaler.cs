@@ -8,6 +8,7 @@ public class Scaler : MonoBehaviour
 {
     public Transform PivotPoint;
     public float ScalingFactor = 0.1f;
+    public bool ShouldScale = true;
     public Vector3 StandardScale = Vector3.one;
 
 
@@ -25,7 +26,8 @@ public class Scaler : MonoBehaviour
     {
         // Update is called once per frame
         float distance = Vector3.Distance(this.transform.position, PivotPoint.position);
-        this.transform.localScale = StandardScale * distance * ScalingFactor;
+        if (ShouldScale)
+            this.transform.localScale = StandardScale * distance * ScalingFactor;
 
         // Lookat in 2D 
         this.transform.up = -(PivotPoint.position - this.transform.position);
@@ -37,7 +39,8 @@ public class Scaler : MonoBehaviour
         {
             // Update is called once per frame
             float distance = Vector3.Distance(this.transform.position, PivotPoint.position);
-            this.transform.localScale = StandardScale * distance * ScalingFactor;
+            if (ShouldScale)
+                this.transform.localScale = StandardScale * distance * ScalingFactor;
 
             // Lookat in 2D 
             this.transform.up = -(PivotPoint.position - this.transform.position);
