@@ -5,28 +5,27 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    Vector2 MovementInput;
+    InputManager inputManager;
+    
+    public float radius = 1;
+    public float movementSpeed = 1;
 
-    public float radius;
-    public float angle = Mathf.PI / 2f;
-
-    public float speed;
+    private void Awake()
+    {
+        inputManager = GetComponent<InputManager>();
+    }
 
     private void Update()
     {
-        // Modify coordinates
-        angle -= MovementInput.x * speed * Time.deltaTime;
-        
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * angle - 90));
+        // Calculate new angles
+        StateManager.AngleRad -= inputManager.MovementInput.x * movementSpeed * Time.deltaTime;
+
+        // Rotate player
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, StateManager.AngleDeg - 90f));
 
         // Polar -> Cartesian
-        float xCoord = radius * Mathf.Cos(angle);
-        float yCoord = radius * Mathf.Sin(angle);
+        float xCoord = radius * Mathf.Cos(StateManager.AngleRad);
+        float yCoord = radius * Mathf.Sin(StateManager.AngleRad);
         transform.position = new Vector2 (xCoord, yCoord);
-    }
-
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        MovementInput = context.ReadValue<Vector2>();
     }
 }
