@@ -11,9 +11,9 @@ public class CameraMovement : MonoBehaviour
     private void Update()
     {
         // Lerp current angle to player angle
-        currentAngle = Mathf.LerpAngle(currentAngle, StateManager.AngleRad, followSpeed);
+        currentAngle = Mathf.LerpAngle(currentAngle, StateManager.AngleDeg, followSpeed);
 
         // Set rotation (-90 deg correction)
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle * Mathf.Rad2Deg - 90));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle - 90));
     }
 }
