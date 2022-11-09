@@ -7,7 +7,6 @@ public class Movement : MonoBehaviour
     public float JumpPower = 5.0f;
     public float MaxJumpPower = 5.0f;
     public float ForwardSpeed = 4f;
-    [SerializeField] private float jumpStrength = 0;
 
     public bool isGrounded = false;
     [SerializeField] private new Rigidbody2D rigidbody2D;

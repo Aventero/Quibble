@@ -6,11 +6,12 @@ public class MeteoriteSpawner : MonoBehaviour
 {
     private IEnumerator coroutine;
     public GameObject Meteor;
+    public float Spawnrate = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        coroutine = SpawnMeteorite(1f);
+        coroutine = SpawnMeteorite(Spawnrate);
         StartCoroutine(coroutine);
     }
 
