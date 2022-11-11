@@ -32,7 +32,6 @@ public class MeteoriteSpawner : MonoBehaviour
                 Mathf.Sin(randomAngle) * radius,
                 0.0f);
             Instantiate(Meteor, position, new Quaternion(0, 0, 0, 0));
-            Debug.Log("Spawning at " + position);
         }
     }
 }

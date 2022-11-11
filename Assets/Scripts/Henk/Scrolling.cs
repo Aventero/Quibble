@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Scrolling : MonoBehaviour
 {
-    public float ScrollSpeed = 0.1f;
+    public float addedDistance = 5.0f;
     private Camera zoomCamera;
     public Transform PlayerTransform;
-    public static float CenterDistance = 0;
+    private float CenterDistance = 0;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class Scrolling : MonoBehaviour
     void Update()
     {
         CenterDistance = PlayerTransform.position.magnitude;
-        zoomCamera.orthographicSize = CenterDistance + 2;
+        zoomCamera.orthographicSize = CenterDistance + addedDistance;
 
         if (zoomCamera.orthographicSize < 1)
             zoomCamera.orthographicSize = 1;

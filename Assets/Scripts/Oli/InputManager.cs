@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
 {
     public Vector2 MovementInput;
     public float Jump;
+    public bool Attack;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -16,5 +17,10 @@ public class InputManager : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         Jump = context.ReadValue<float>();
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        Attack = context.ReadValueAsButton();
     }
 }

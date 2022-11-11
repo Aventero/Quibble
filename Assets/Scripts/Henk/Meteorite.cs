@@ -12,6 +12,8 @@ public class Meteorite : MonoBehaviour
     public float gravity = 1.0f;
     public float minimumScale = 0.1f;
     public float scalingByDistance = 10.0f;
+    public float width = 1.0f;
+    public float height = 1.0f;
 
     public float AngleRad
     {
@@ -69,8 +71,8 @@ public class Meteorite : MonoBehaviour
 
     private void UpdatePosition()
     {
-        float x = radius * Mathf.Cos(AngleRad);
-        float y = radius * Mathf.Sin(AngleRad);
+        float x = width * radius * Mathf.Cos(AngleRad);
+        float y = height * radius * Mathf.Sin(AngleRad);
         transform.position = new Vector2(x, y);
     }
 
@@ -84,6 +86,11 @@ public class Meteorite : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Trigger");
+        if (collision.transform.CompareTag("Player"))
+        {
+            gravity = -20.0f; // Negate gravity, so the meteorite shoots away
+        }
+
         if (collision.transform.CompareTag("Player"))
         {
             gravity = -20.0f; // Negate gravity, so the meteorite shoots away
