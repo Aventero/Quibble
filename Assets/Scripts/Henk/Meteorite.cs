@@ -14,6 +14,7 @@ public class Meteorite : MonoBehaviour
     public float scalingByDistance = 10.0f;
     public float width = 1.0f;
     public float height = 1.0f;
+    public float deletionRadius = 20.0f;
 
     public float AngleRad
     {
@@ -52,7 +53,7 @@ public class Meteorite : MonoBehaviour
 
     private void LookForDeletion()
     {
-        if (radius <= 0 || radius >= 10.0f)
+        if (radius <= 0 || radius >= deletionRadius)
             Destroy(gameObject);
     }
 
