@@ -88,12 +88,7 @@ public class Meteorite : MonoBehaviour
         Debug.Log("Trigger");
         if (collision.transform.CompareTag("Player"))
         {
-            gravity = -20.0f; // Negate gravity, so the meteorite shoots away
-        }
-
-        if (collision.transform.CompareTag("Player"))
-        {
-            gravity = -20.0f; // Negate gravity, so the meteorite shoots away
+            gravity = -50.0f; // Negate gravity, so the meteorite shoots away
         }
     }
 }

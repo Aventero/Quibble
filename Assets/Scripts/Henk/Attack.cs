@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     public float CooldownTime = 1.0f;
     public float SwingSpeed = 5.0f;
     public float radius = 1.0f;
+    public float Angle = 720.0f;
     private InputManager inputManager;
     private IEnumerator attackCoroutine;
     private IEnumerator cooldown;
@@ -31,7 +32,7 @@ public class Attack : MonoBehaviour
             StartCoroutine(cooldown);
 
             spawnedSword = Instantiate(Sword, Player.position, Quaternion.identity);
-            attackCoroutine = AttackCoroutine(SwingSpeed, spawnedSword, Player.eulerAngles.z, Player.eulerAngles.z + 720);
+            attackCoroutine = AttackCoroutine(SwingSpeed, spawnedSword, Player.eulerAngles.z, Player.eulerAngles.z + Angle);
             StartCoroutine(attackCoroutine);
         }
     }
