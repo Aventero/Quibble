@@ -60,7 +60,7 @@ public class Meteorite : MonoBehaviour
     private void SetStartingPosition()
     {
         AngleRad = Random.Range(0, 2 * Mathf.PI);
-        radius = Random.Range(7, 9);
+        radius = Random.Range(7.0f, 9.0f);
         UpdatePosition();
     }
 
