@@ -15,6 +15,7 @@ public class Attack : MonoBehaviour
     private IEnumerator cooldown;
     private bool onCooldown = false;
     private GameObject spawnedSword;
+    private float SwordScale = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,14 @@ public class Attack : MonoBehaviour
             cooldown = Cooldown(CooldownTime);
             StartCoroutine(cooldown);
 
+            // Spawn sword
             spawnedSword = Instantiate(Sword, Player.position, Quaternion.identity);
+
+            // Change Scaling
+            radius = SwordScale / 2.0f + 0.5f;
+            spawnedSword.transform.localScale = new Vector3(spawnedSword.transform.localScale.x * SwordScale, spawnedSword.transform.localScale.y, spawnedSword.transform.localScale.z);
+            TrailRenderer trailRenderer = spawnedSword.GetComponentInChildren<TrailRenderer>();
+            trailRenderer.widthMultiplier = SwordScale;
             attackCoroutine = AttackCoroutine(SwingSpeed, spawnedSword, Player.eulerAngles.z, Player.eulerAngles.z + Angle);
             StartCoroutine(attackCoroutine);
         }
@@ -39,11 +47,11 @@ public class Attack : MonoBehaviour
 
     private IEnumerator AttackCoroutine(float swingSpeed, GameObject sword, float startAngle, float endAngle)
     {
-        for (float i = startAngle; i <= endAngle; i += swingSpeed)
+        for (float i = startAngle; i <= endAngle; i += swingSpeed * Time.deltaTime)
         {
-            //sword.transform.RotateAround(Player.transform.position, Vector3.forward, 1 * swingSpeed);   // Per frame, "angle" amount of rotation
-            // JUST USE LOOK AT. 
-            // Sword has to rotate in the player direction UFF
+            Vector3 dirToSword = sword.transform.position - Player.position;
+            float angle = Mathf.Atan2(dirToSword.y, dirToSword.x);
+            sword.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * angle));
             sword.transform.position = new Vector2(Player.position.x + radius * Mathf.Cos(Mathf.Deg2Rad * i), Player.position.y + radius * Mathf.Sin(Mathf.Deg2Rad * i));
             yield return new WaitForEndOfFrame();
         }
@@ -55,5 +63,20 @@ public class Attack : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         onCooldown = false;
+    }
+
+    public void UpgradeSwordLength(float newLength)
+    {
+        SwordScale = newLength;
+    }
+
+    public void UpgradeAttackAngle(float newAngle)
+    {
+        Angle = newAngle;
+    }
+
+    public void UpgradeCooldown(float newCooldown)
+    {
+        CooldownTime = newCooldown;
     }
 }

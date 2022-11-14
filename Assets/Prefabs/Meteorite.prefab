@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3807774013133131743}
   m_Layer: 0
   m_Name: Meteorite
-  m_TagString: Untagged
+  m_TagString: Meteorite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +135,8 @@ MonoBehaviour:
   scalingByDistance: 8
   width: 1
   height: 1
+  deletionRadius: 20
+  cameraShake: {fileID: 0}
 --- !u!96 &-126789730253380437
 TrailRenderer:
   serializedVersion: 2

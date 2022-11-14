@@ -15,6 +15,9 @@ public class Meteorite : MonoBehaviour
     public float width = 1.0f;
     public float height = 1.0f;
     public float deletionRadius = 20.0f;
+    public float shakeDuration = 0.1f;
+    public float shakePower = 0.2f;
+    private CameraShake cameraShake;
 
     public float AngleRad
     {
@@ -31,6 +34,7 @@ public class Meteorite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
         gravitationCenter = GameObject.FindGameObjectWithTag("Planet").transform;
         SetStartingPosition();
         ScaleMeteorite();
@@ -86,10 +90,46 @@ public class Meteorite : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger");
         if (collision.transform.CompareTag("Player"))
         {
             gravity = -50.0f; // Negate gravity, so the meteorite shoots away
+
+            // After hitting, change the trail color
+            ChangeTrail(Color.green);
+            StartCoroutine(cameraShake.Shake(shakeDuration, shakePower));
         }
+
+        if (collision.transform.CompareTag("Planet"))
+        {
+            StartCoroutine(FadeTrail(shakeDuration * 5.0f, this.gameObject));
+            StartCoroutine(DestoryAfter(shakeDuration * 5.0f, this.gameObject));
+        }
+    }
+
+    private void ChangeTrail(Color color)
+    {
+        TrailRenderer trailRenderer = gameObject.GetComponent<TrailRenderer>();
+        trailRenderer.startColor = color;
+        trailRenderer.endColor = color;
+    }
+
+    IEnumerator FadeTrail(float time, GameObject gameObject)
+    {
+        time += 0.000001f;  // just to make sure its not 0
+        float elapsed = 0.0f;
+        TrailRenderer trailRenderer = gameObject.GetComponent<TrailRenderer>();
+        while (elapsed < time)
+        {
+            elapsed += Time.deltaTime;
+            trailRenderer.startColor = new Color(trailRenderer.startColor.r, trailRenderer.startColor.g, trailRenderer.startColor.b, 1 - (elapsed / time));
+            trailRenderer.endColor = new Color(trailRenderer.endColor.r, trailRenderer.endColor.g, trailRenderer.endColor.b, 1 - (elapsed / time));
+            yield return null;
+        }
+    }
+
+    public IEnumerator DestoryAfter(float time, GameObject gameObject)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 }

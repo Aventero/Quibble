@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Planet
   - Scaled
+  - Meteorite
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,6 @@ public class Scrolling : MonoBehaviour
     {
         scrollVal -= inputManager.Scrollvalue.y;
         CenterDistance = transform.position.magnitude;
-        Debug.Log(inputManager.Scrollvalue);
         zoomCamera.orthographicSize = CenterDistance + addedDistance + scrollVal;
 
         if (zoomCamera.orthographicSize < 1)
