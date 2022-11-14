@@ -26,7 +26,7 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inputManager.Attack && !onCooldown)
+        if (inputManager.Attack && !onCooldown && spawnedSword == null)
         {
             onCooldown = true;
             cooldown = Cooldown(CooldownTime);
@@ -56,6 +56,7 @@ public class Attack : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Destroy(spawnedSword);
+        spawnedSword = null;
         yield return new WaitForEndOfFrame();
     }
 
