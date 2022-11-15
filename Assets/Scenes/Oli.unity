@@ -575,9 +575,9 @@ MonoBehaviour:
   Player: {fileID: 590874919}
   Sword: {fileID: 1329397306506730604, guid: ed67be377653f9e418c0d80022a1f727, type: 3}
   CooldownTime: 0.2
-  SwingSpeed: 2000
+  SwingSpeed: 1000
   radius: 0.2
-  Angle: 720
+  Angle: 180
 --- !u!114 &590874927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,8 +604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SwordLength: 1
-  AttackAngle: 720
-  AttackCooldown: 0
+  AttackAngle: 180
+  AttackCooldown: 0.25
   PlayerSpeed: 1
   JumpHeight: 2
 --- !u!1001 &668383398
@@ -625,11 +625,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6802061859540032082, guid: fb730979018a68d4ba1dd515d55d8fef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 11.02
       objectReference: {fileID: 0}
     - target: {fileID: 6802061859540032082, guid: fb730979018a68d4ba1dd515d55d8fef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6802061859540032082, guid: fb730979018a68d4ba1dd515d55d8fef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -707,7 +707,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &834837145
 GameObject:
@@ -1048,52 +1048,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!1 &1056251998
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1056252000}
-  - component: {fileID: 1056251999}
-  m_Layer: 0
-  m_Name: Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1056251999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056251998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88ad5de52392374590461488e9c796f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Meteor: {fileID: 1906087877782029199, guid: 13d7bb20ff889f44bbce9ba2d39acdb9, type: 3}
-  Spawnrate: 1
---- !u!4 &1056252000
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056251998}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1142127129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1142127131}
   - component: {fileID: 1142127130}
+  - component: {fileID: 1142127132}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1123,6 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa4ef30d08639f40aaf9d7d8410d211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MeteoriteSpawner: {fileID: 0}
 --- !u!4 &1142127131
 Transform:
   m_ObjectHideFlags: 0
@@ -1136,8 +1092,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1142127132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142127129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88ad5de52392374590461488e9c796f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Meteor: {fileID: 1906087877782029199, guid: 13d7bb20ff889f44bbce9ba2d39acdb9, type: 3}
+  TimeBetweenSpawning: 0.1
+  MeteorsToSpawn: 50
 --- !u!1 &1408201126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,7 +1139,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1408201128
 MonoBehaviour:
@@ -1332,7 +1303,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476335873
 GameObject:
@@ -1364,5 +1335,5 @@ Transform:
   m_Children:
   - {fileID: 834837148}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

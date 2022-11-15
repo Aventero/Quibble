@@ -4,34 +4,39 @@ using UnityEngine;
 
 public class MeteoriteSpawner : MonoBehaviour
 {
-    private IEnumerator coroutine;
     public GameObject Meteor;
-    public float Spawnrate = 1.0f;
+    public float TimeBetweenSpawning = 1.0f;
+    public int MeteorsToSpawn = 10;
+    private bool isSpawning = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SpawnMeteoritesOverTime()
     {
-        coroutine = SpawnMeteorite(Spawnrate);
-        StartCoroutine(coroutine);
+        StartCoroutine(SpawnMeteorites());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddMeteors(int amount)
     {
+        MeteorsToSpawn += amount;
     }
-
-    private IEnumerator SpawnMeteorite(float waitTime)
+    
+    private IEnumerator SpawnMeteorites()
     {
-        while (true)
+        isSpawning = true;
+        while (MeteorsToSpawn > 0)
         {
-            yield return new WaitForSeconds(waitTime);
+            // Figure out position of meteorite
             float randomAngle = Random.Range(0, 360);
             float radius = 7.0f;
             Vector3 position = new Vector3(
                 Mathf.Cos(randomAngle) * radius,
                 Mathf.Sin(randomAngle) * radius,
                 0.0f);
+
+            // Spawn the meteor
             Instantiate(Meteor, position, new Quaternion(0, 0, 0, 0));
+            MeteorsToSpawn--;
+            yield return new WaitForSeconds(TimeBetweenSpawning);
         }
+        isSpawning = false;
     }
 }

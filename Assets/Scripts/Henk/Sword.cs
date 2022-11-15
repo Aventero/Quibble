@@ -18,6 +18,7 @@ public class Sword : MonoBehaviour
         if (other.transform.CompareTag("Meteorite"))
         {
             HitStop.Stop(StopDuration);
+            other.enabled = false;
         }
     }
 }
