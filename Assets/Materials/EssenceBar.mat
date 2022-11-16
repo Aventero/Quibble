@@ -84,12 +84,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _Intensity: 1.07
+    - _Intensity: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0, g: 0.09803922, b: 0.7490196, a: 1}
+    - _Color: {r: 0, g: 0.5577511, b: 0.7490196, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 5.523661, b: 42.20077, a: 0}
+    - _GlowColor: {r: 0, g: 1.5686275, b: 11.984314, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
