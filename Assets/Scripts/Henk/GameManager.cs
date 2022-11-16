@@ -7,15 +7,16 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public TMP_Text MeteoriteText;
-    public GameManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
     public int CurrentStage { get; private set; }
     public int MeteoritesHit { get; private set; }
     public int SpawnedMeteorites { get; private set; }
+    public float StageMeteoriteCount { get; private set; }
 
-    private MeteoriteSpawner MeteoriteSpawner;
     public List<MeteoriteCurve> meteorites;
 
-    public int stageMeteoriteCount { get; private set; }
+    private MeteoriteSpawner MeteoriteSpawner;
+    private StageProgressManager StageProgressManager;
 
     private void Awake()
     {
@@ -29,8 +30,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         MeteoriteSpawner = GetComponent<MeteoriteSpawner>();
+        StageProgressManager = GetComponent<StageProgressManager>();
         Sword.OnMeteoriteHit += IncreaseMeteoriteHits;
-        Meteorite.OnPlanetHit += IncreaseMeteoriteHits; // ##### has to change. DEBUG
+        Meteorite.OnPlanetHit += IncreaseMeteoriteHits;
         MeteoriteSpawner.OnMeteoriteSpawn += IncreaseCurrentMeteorites;
     }
 
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
         MeteoriteText.SetText(
             "Stage: " + CurrentStage + 
             "\nHits:" + MeteoritesHit + 
-            "\nLeft: " + (stageMeteoriteCount - MeteoritesHit) +
+            "\nLeft: " + (StageMeteoriteCount - MeteoritesHit) +
             "\nActive: " + (SpawnedMeteorites - MeteoritesHit));
     }
 
@@ -66,8 +68,11 @@ public class GameManager : MonoBehaviour
         {
             int amount = MeteoriteFunction(CurrentStage, meteor.curveHeight, meteor.curveWidth, meteor.xAxisPosition);
             MeteoriteSpawner.SpawnMeteoritesOverTime(meteor.Meteorite, amount, meteor.timeBetweenSpawns);
-            stageMeteoriteCount += amount;
+            StageMeteoriteCount += amount;
         }
+
+        // Setup stage progress bar
+        StageProgressManager.Setup();
     }
 
     private int MeteoriteFunction(int stage, float curveHeight, float curveWidth, float xAxisPosition)
@@ -80,7 +85,7 @@ public class GameManager : MonoBehaviour
 
     private bool StageComplete()
     {
-        if (MeteoriteSpawner.IsFinished() && MeteoritesHit >= stageMeteoriteCount)
+        if (MeteoriteSpawner.IsFinished() && MeteoritesHit >= StageMeteoriteCount)
         {
             ResetMeteoriteCounter();
             return true;
@@ -92,6 +97,6 @@ public class GameManager : MonoBehaviour
     {
         MeteoritesHit = 0;
         SpawnedMeteorites = 0;
-        stageMeteoriteCount = 0;
+        StageMeteoriteCount = 0;
     }
 }
