@@ -9,6 +9,7 @@ public class MeteoriteCurve : ScriptableObject
     public float curveHeight = 0;
     public float curveWidth = 0;
     public float xAxisPosition = 0;
+    public float timeBetweenSpawns = 1;
 
     [Header("Shows Start of the bellcurve")]
     public float CurveReachesOneAt = 0;

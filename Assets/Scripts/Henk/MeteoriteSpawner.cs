@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class MeteoriteSpawner : MonoBehaviour
 {
-    public float TimeBetweenSpawning = 1.0f;
     private bool isSpawning = false;
     private GameObject meteoritesEmpty;
     public static UnityAction OnMeteoriteSpawn;
@@ -16,12 +15,12 @@ public class MeteoriteSpawner : MonoBehaviour
         meteoritesEmpty.transform.SetParent(transform);
     }
 
-    public void SpawnMeteoritesOverTime(GameObject Meteor, int amount)
+    public void SpawnMeteoritesOverTime(GameObject Meteor, int amount, float timeBetweenSpawning)
     {
-        StartCoroutine(SpawnMeteorites(Meteor, amount));
+        StartCoroutine(SpawnMeteorites(Meteor, amount, timeBetweenSpawning));
     }
 
-    private IEnumerator SpawnMeteorites(GameObject Meteor, int amount)
+    private IEnumerator SpawnMeteorites(GameObject Meteor, int amount, float timeBetweenSpawning)
     {
         isSpawning = true;
         while (amount > 0)
@@ -38,7 +37,7 @@ public class MeteoriteSpawner : MonoBehaviour
             Instantiate(Meteor, position, new Quaternion(0, 0, 0, 0), meteoritesEmpty.transform);
             amount--;
             OnMeteoriteSpawn.Invoke();
-            yield return new WaitForSeconds(TimeBetweenSpawning);
+            yield return new WaitForSeconds(timeBetweenSpawning);
         }
         isSpawning = false;
     }

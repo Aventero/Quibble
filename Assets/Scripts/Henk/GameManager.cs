@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         foreach (MeteoriteCurve meteor in meteorites)
         {
             int amount = MeteoriteFunction(CurrentStage, meteor.curveHeight, meteor.curveWidth, meteor.xAxisPosition);
-            MeteoriteSpawner.SpawnMeteoritesOverTime(meteor.Meteorite, amount);
+            MeteoriteSpawner.SpawnMeteoritesOverTime(meteor.Meteorite, amount, meteor.timeBetweenSpawns);
             stageMeteoriteCount += amount;
         }
     }

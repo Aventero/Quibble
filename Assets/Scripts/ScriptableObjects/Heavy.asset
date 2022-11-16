@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Meteorite: {fileID: 1906087877782029199, guid: b8d2d24edc5073e43aaa2b17088d96ce, type: 3}
   curveHeight: 5
-  curveWidth: 15.51
+  curveWidth: 14.66
   xAxisPosition: 9.9
-  CurveReachesOneAt: 1.1003795
+  timeBetweenSpawns: 4
+  CurveReachesOneAt: 1.5826284
