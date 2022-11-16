@@ -12,14 +12,10 @@ public class GameManager : MonoBehaviour
     public int MeteoritesHit { get; private set; }
     public int SpawnedMeteorites { get; private set; }
 
-    public float curveHeight = 10;
-    public float curveWidth = 10;
-    public float xAxisPosition = 10;
-    public float start = 0;
-
     private MeteoriteSpawner MeteoriteSpawner;
     public List<MeteoriteCurve> meteorites;
-    private int stageMeteoriteCount = 0;
+
+    public int stageMeteoriteCount { get; private set; }
 
     private void Awake()
     {
