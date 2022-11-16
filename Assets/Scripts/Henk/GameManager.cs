@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         MeteoriteSpawner = GetComponent<MeteoriteSpawner>();
         StageProgressManager = GetComponent<StageProgressManager>();
         Sword.OnMeteoriteHit += IncreaseMeteoriteHits;
-        Meteorite.OnPlanetHit += IncreaseMeteoriteHits; // ##### has to change. DEBUG
+        Meteorite.OnPlanetHit += IncreaseMeteoriteHits;
         MeteoriteSpawner.OnMeteoriteSpawn += IncreaseCurrentMeteorites;
     }
 

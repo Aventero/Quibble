@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EssenceBar
+  m_Name: HealthBar
   m_Shader: {fileID: -6465566751694194690, guid: e07965d5b9b2e3749976dbdecabc4aac, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -88,8 +88,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0, g: 0.09803922, b: 0.7490196, a: 1}
+    - _Color: {r: 0.7372549, g: 0.04240243, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 5.523661, b: 42.20077, a: 0}
+    - _GlowColor: {r: 5.275096, g: 0.00000037730427, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3807774013133131743}
   - component: {fileID: -6649451909655936447}
   m_Layer: 0
-  m_Name: Life
+  m_Name: Speedy
   m_TagString: Meteorite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   deletionRadius: 20
   shakeDuration: 0.1
   shakePower: 0.2
+  damage: 0.5
 --- !u!96 &-126789730253380437
 TrailRenderer:
   serializedVersion: 2

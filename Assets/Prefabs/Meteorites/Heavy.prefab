@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3807774013133131743}
   - component: {fileID: -6649451909655936447}
   m_Layer: 0
-  m_Name: Eyeorite
+  m_Name: Heavy
   m_TagString: Meteorite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 1147378467
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2426a6e3bd74f8649aa7beba50a4c304, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4b391d891c78354f908182048ab52d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,11 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99514c65d407f8143bc43241fb5d4ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScalingFactor: 1
+  ScalingFactor: 5
   radius: 5
   angle: 0
   speed: 1
-  gravity: 10
+  gravity: 20
   minimumScale: 0.01
   scalingByDistance: 8
   width: 1
@@ -112,6 +112,7 @@ MonoBehaviour:
   deletionRadius: 20
   shakeDuration: 0.1
   shakePower: 0.2
+  damage: 2
 --- !u!96 &-126789730253380437
 TrailRenderer:
   serializedVersion: 2
@@ -154,7 +155,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Time: 3
+  m_Time: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -193,7 +194,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0.3598299, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
       key1: {r: 1, g: 0.5917661, b: 0, a: 0}
       key2: {r: 1, g: 0.5917661, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

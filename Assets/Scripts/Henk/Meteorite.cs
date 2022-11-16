@@ -18,6 +18,7 @@ public class Meteorite : MonoBehaviour
     public float deletionRadius = 20.0f;
     public float shakeDuration = 0.1f;
     public float shakePower = 0.2f;
+    public float damage = 1.0f;
     private CameraShake cameraShake;
     public static event UnityAction OnPlanetHit;
 
@@ -109,6 +110,9 @@ public class Meteorite : MonoBehaviour
             StartCoroutine(DestoryAfter(shakeDuration * 2.0f, this.gameObject));
             OnPlanetHit.Invoke();
             GetComponent<Collider2D>().enabled = false;
+
+            // Deal damage
+            HealthManager.Instance.DealDamage(damage);
         }
     }
 
