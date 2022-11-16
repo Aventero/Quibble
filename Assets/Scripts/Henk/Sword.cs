@@ -7,12 +7,14 @@ using UnityEngine.Events;
 public class Sword : MonoBehaviour
 {
     public float StopDuration = 0.1f;
-    private HitStop HitStop;
+    private HitStop hitStop;
     public static event UnityAction OnMeteoriteHit;
+    private ParticleManager particleManager;
 
     private void Start()
     {
-        HitStop = FindObjectOfType<HitStop>();
+        hitStop = FindObjectOfType<HitStop>();
+        particleManager = FindObjectOfType<ParticleManager>();
     }
 
     // Update is called once per frame
@@ -20,8 +22,11 @@ public class Sword : MonoBehaviour
     {
         if (other.transform.CompareTag("Meteorite"))
         {
-            HitStop.Stop(StopDuration);
+            hitStop.Stop(StopDuration);
             OnMeteoriteHit.Invoke();
+
+            // Spawn particles
+            particleManager.SpawnEssence(this.transform.position);
         }
     }
 }

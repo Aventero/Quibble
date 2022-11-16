@@ -10,7 +10,8 @@ public class ImpactTrigger : MonoBehaviour
 
     IEnumerator LerpColor(float time, float minValue, float maxValue, GameObject gameObject)
     {
-        Renderer renderer = gameObject.GetComponent<Renderer>();
+        // CHANGE ! Takes second renderer => Ground
+        Renderer renderer = gameObject.transform.GetChild(1).GetComponent<Renderer>();
         float elapsed = 0.0f;
         while (elapsed < time)
         {

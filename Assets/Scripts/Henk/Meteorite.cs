@@ -92,7 +92,7 @@ public class Meteorite : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Player"))
+        if (collision.transform.CompareTag("Sword"))
         {
             gravity = -50.0f; // Negate gravity, so the meteorite shoots away
             speed *= 2.0f;
