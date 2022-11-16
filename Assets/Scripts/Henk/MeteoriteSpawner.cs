@@ -1,28 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MeteoriteSpawner : MonoBehaviour
 {
-    public GameObject Meteor;
     public float TimeBetweenSpawning = 1.0f;
-    public int MeteorsToSpawn = 10;
     private bool isSpawning = false;
+    private GameObject meteoritesEmpty;
+    public static UnityAction OnMeteoriteSpawn;
 
-    public void SpawnMeteoritesOverTime()
+    private void Awake()
     {
-        StartCoroutine(SpawnMeteorites());
+        meteoritesEmpty = new GameObject("Meteorites");
+        meteoritesEmpty.transform.SetParent(transform);
     }
 
-    public void AddMeteors(int amount)
+    public void SpawnMeteoritesOverTime(GameObject Meteor, int amount)
     {
-        MeteorsToSpawn += amount;
+        StartCoroutine(SpawnMeteorites(Meteor, amount));
     }
-    
-    private IEnumerator SpawnMeteorites()
+
+    private IEnumerator SpawnMeteorites(GameObject Meteor, int amount)
     {
         isSpawning = true;
-        while (MeteorsToSpawn > 0)
+        while (amount > 0)
         {
             // Figure out position of meteorite
             float randomAngle = Random.Range(0, 360);
@@ -33,10 +35,16 @@ public class MeteoriteSpawner : MonoBehaviour
                 0.0f);
 
             // Spawn the meteor
-            Instantiate(Meteor, position, new Quaternion(0, 0, 0, 0));
-            MeteorsToSpawn--;
+            Instantiate(Meteor, position, new Quaternion(0, 0, 0, 0), meteoritesEmpty.transform);
+            amount--;
+            OnMeteoriteSpawn.Invoke();
             yield return new WaitForSeconds(TimeBetweenSpawning);
         }
         isSpawning = false;
+    }
+
+    public bool IsFinished()
+    {
+        return !isSpawning;
     }
 }

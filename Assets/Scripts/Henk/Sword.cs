@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Sword : MonoBehaviour
 {
     public float StopDuration = 0.1f;
     private HitStop HitStop;
+    public static event UnityAction OnMeteoriteHit;
 
     private void Start()
     {
@@ -18,7 +21,7 @@ public class Sword : MonoBehaviour
         if (other.transform.CompareTag("Meteorite"))
         {
             HitStop.Stop(StopDuration);
-            other.enabled = false;
+            OnMeteoriteHit.Invoke();
         }
     }
 }

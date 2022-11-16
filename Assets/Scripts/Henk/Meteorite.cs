@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Meteorite : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Meteorite : MonoBehaviour
     public float shakeDuration = 0.1f;
     public float shakePower = 0.2f;
     private CameraShake cameraShake;
+    public static event UnityAction OnPlanetHit;
 
     public float AngleRad
     {
@@ -93,16 +95,20 @@ public class Meteorite : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             gravity = -50.0f; // Negate gravity, so the meteorite shoots away
+            speed *= 2.0f;
 
             // After hitting, change the trail color
             ChangeTrail(Color.green);
             StartCoroutine(cameraShake.Shake(shakeDuration, shakePower));
+            GetComponent<Collider2D>().enabled = false;
         }
 
         if (collision.transform.CompareTag("Planet"))
         {
-            StartCoroutine(FadeTrail(shakeDuration * 5.0f, this.gameObject));
-            StartCoroutine(DestoryAfter(shakeDuration * 5.0f, this.gameObject));
+            StartCoroutine(FadeTrail(shakeDuration * 2.0f, this.gameObject));
+            StartCoroutine(DestoryAfter(shakeDuration * 2.0f, this.gameObject));
+            OnPlanetHit.Invoke();
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 

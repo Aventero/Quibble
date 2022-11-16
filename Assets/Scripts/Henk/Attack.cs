@@ -6,10 +6,11 @@ public class Attack : MonoBehaviour
 {
     public Transform Player;
     public GameObject Sword;
-    public float CooldownTime = 1.0f;
     public float SwingSpeed = 5.0f;
-    public float radius = 1.0f;
-    public float Angle = 720.0f;
+    public float SwordDistance = 0.25f;
+    private float CooldownTime = 1.0f;
+    private float radius = 1.0f;
+    private float Angle = 720.0f;
     private InputManager inputManager;
     private IEnumerator attackCoroutine;
     private IEnumerator cooldown;
@@ -36,7 +37,7 @@ public class Attack : MonoBehaviour
             spawnedSword = Instantiate(Sword, Player.position, Quaternion.identity);
 
             // Change Scaling
-            radius = SwordScale / 2.0f + 0.5f;
+            radius = SwordScale / 2.0f + SwordDistance;
             spawnedSword.transform.localScale = new Vector3(spawnedSword.transform.localScale.x * SwordScale, spawnedSword.transform.localScale.y, spawnedSword.transform.localScale.z);
             TrailRenderer trailRenderer = spawnedSword.GetComponentInChildren<TrailRenderer>();
             trailRenderer.widthMultiplier = SwordScale;

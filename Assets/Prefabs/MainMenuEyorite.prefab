@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1147378467
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2426a6e3bd74f8649aa7beba50a4c304, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -136,6 +136,8 @@ MonoBehaviour:
   width: 1
   height: 1
   deletionRadius: 20
+  shakeDuration: 0.1
+  shakePower: 0.2
 --- !u!96 &-126789730253380437
 TrailRenderer:
   serializedVersion: 2

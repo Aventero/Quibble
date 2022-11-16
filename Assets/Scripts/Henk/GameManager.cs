@@ -1,24 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
-    // Bois to clap funciton
-    // How many have been clapped
-    // How many are remaining
-    // Current stage
-    // Current time
-    // Progress
+    public TMP_Text MeteoriteText;
+    public GameManager Instance { get; private set; }
+    public int CurrentStage { get; private set; }
+    public int MeteoritesHit { get; private set; }
+    public int SpawnedMeteorites { get; private set; }
 
-    public static GameManager Instance { get; private set; }
-    public MeteoriteSpawner MeteoriteSpawner;
-    private int stageMeteorites = 10;
-    private int remainingMeteoritesToSpawn;
-    private int meteoritesInAir;
-    private int meteoriteHitCount = 0;
-    private int currentStage = 1;
-    private int progress = 0; // Basically how many meteorites have been hit out of the stage max
+    public float curveHeight = 10;
+    public float curveWidth = 10;
+    public float xAxisPosition = 10;
+    public float start = 0;
+
+    private MeteoriteSpawner MeteoriteSpawner;
+    public List<MeteoriteCurve> meteorites;
+    private int stageMeteoriteCount = 0;
 
     private void Awake()
     {
@@ -32,31 +33,69 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         MeteoriteSpawner = GetComponent<MeteoriteSpawner>();
-        MeteoriteSpawner.SpawnMeteoritesOverTime();
+        Sword.OnMeteoriteHit += IncreaseMeteoriteHits;
+        Meteorite.OnPlanetHit += IncreaseMeteoriteHits; // ##### has to change. DEBUG
+        MeteoriteSpawner.OnMeteoriteSpawn += IncreaseCurrentMeteorites;
     }
 
     private void Update()
     {
-        // Start stage
-        // Is stage complete?
-        // Show update menu
-        // Start new stage?
-
-    }
-
-    public void StartStage()
-    {
-        stageMeteorites = 10;
-    }
-
-    public void MeteorHit()
-    {
-        meteoriteHitCount += 1;
-        remainingMeteoritesToSpawn -= 1;
-
-        if (meteoriteHitCount >= stageMeteorites)
+        if (StageComplete())
         {
-            // Level complete?
+            StartNextStage();
         }
+        MeteoriteText.SetText(
+            "Stage: " + CurrentStage + 
+            "\nHits:" + MeteoritesHit + 
+            "\nLeft: " + (stageMeteoriteCount - MeteoritesHit) +
+            "\nActive: " + (SpawnedMeteorites - MeteoritesHit));
+    }
+
+    private void IncreaseMeteoriteHits()
+    {
+        MeteoritesHit++;
+    }
+
+    private void IncreaseCurrentMeteorites()
+    {
+        SpawnedMeteorites++;
+    }
+
+    private void StartNextStage()
+    {
+        CurrentStage++;
+
+        // Reset how many meteorites are in this stage
+        foreach (MeteoriteCurve meteor in meteorites)
+        {
+            int amount = MeteoriteFunction(CurrentStage, meteor.curveHeight, meteor.curveWidth, meteor.xAxisPosition);
+            MeteoriteSpawner.SpawnMeteoritesOverTime(meteor.Meteorite, amount);
+            stageMeteoriteCount += amount;
+        }
+    }
+
+    private int MeteoriteFunction(int stage, float curveHeight, float curveWidth, float xAxisPosition)
+    {
+        // floor(k e^(-k ((x - b) / n)²))
+        float exponent = -curveHeight * Mathf.Pow((stage - xAxisPosition) / curveWidth, 2);
+        int meteorites = (int)(curveHeight * Mathf.Exp(exponent));
+        return meteorites;
+    }
+
+    private bool StageComplete()
+    {
+        if (MeteoriteSpawner.IsFinished() && MeteoritesHit >= stageMeteoriteCount)
+        {
+            ResetMeteoriteCounter();
+            return true;
+        }
+        return false;
+    }
+
+    private void ResetMeteoriteCounter()
+    {
+        MeteoritesHit = 0;
+        SpawnedMeteorites = 0;
+        stageMeteoriteCount = 0;
     }
 }
