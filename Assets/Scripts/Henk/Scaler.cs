@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[ExecuteAlways]
 public class Scaler : MonoBehaviour
 {
     public Transform PivotPoint;
     public float ScalingFactor = 0.1f;
     public bool ShouldScale = true;
     public Vector3 StandardScale = Vector3.one;
-
 
     // Start is called before the first frame update
     void Start()

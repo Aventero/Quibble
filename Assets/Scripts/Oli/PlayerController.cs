@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private float gravity;
     private float initialJumpVelocity;
 
+    [Header("Animation Settings")]
+    public float scale = 0.2f;
+
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
@@ -48,6 +51,11 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
+        if (inputManager.MovementInput.x >= 0)
+            transform.localScale = new Vector3(scale, transform.localScale.y, transform.localScale.z);
+        if (inputManager.MovementInput.x < 0)
+            transform.localScale = new Vector3(-scale, transform.localScale.y, transform.localScale.z);
+
         // Calculate new angles
         StateManager.AngleRad -= inputManager.MovementInput.x * movementSpeed * Time.deltaTime;
 
