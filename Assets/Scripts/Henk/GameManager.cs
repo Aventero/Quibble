@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     private MeteoriteSpawner MeteoriteSpawner;
     private StageProgressManager StageProgressManager;
+    private UpgradeMenuManager UpgradeMenuManager;
 
     private void Awake()
     {
@@ -31,16 +32,21 @@ public class GameManager : MonoBehaviour
     {
         MeteoriteSpawner = GetComponent<MeteoriteSpawner>();
         StageProgressManager = GetComponent<StageProgressManager>();
+        UpgradeMenuManager = GetComponent<UpgradeMenuManager>();
         Sword.OnMeteoriteHit += IncreaseMeteoriteHits;
         Meteorite.OnPlanetHit += IncreaseMeteoriteHits;
         MeteoriteSpawner.OnMeteoriteSpawn += IncreaseCurrentMeteorites;
+
+        // Start first stage
+        StartNextStage();
     }
 
     private void Update()
     {
-        if (StageComplete())
+        if (StageComplete() && !UpgradeMenuManager.IsVisible())
         {
-            StartNextStage();
+            // Show Upgrade menu
+            StartCoroutine(ShowUpgradeWindow());
         }
         MeteoriteText.SetText(
             "Stage: " + CurrentStage + 
@@ -59,9 +65,11 @@ public class GameManager : MonoBehaviour
         SpawnedMeteorites++;
     }
 
-    private void StartNextStage()
+    public void StartNextStage()
     {
         CurrentStage++;
+
+        ResetMeteoriteCounter();
 
         // Reset how many meteorites are in this stage
         foreach (MeteoriteCurve meteor in meteorites)
@@ -86,10 +94,7 @@ public class GameManager : MonoBehaviour
     private bool StageComplete()
     {
         if (MeteoriteSpawner.IsFinished() && MeteoritesHit >= StageMeteoriteCount)
-        {
-            ResetMeteoriteCounter();
             return true;
-        }
         return false;
     }
 
@@ -98,5 +103,13 @@ public class GameManager : MonoBehaviour
         MeteoritesHit = 0;
         SpawnedMeteorites = 0;
         StageMeteoriteCount = 0;
+    }
+
+    IEnumerator ShowUpgradeWindow()
+    {
+        // Wait until bar is full
+        while (StageProgressManager.IsFilling()) { yield return null; }
+
+        UpgradeMenuManager.StartShowUpgradeMenu();
     }
 }

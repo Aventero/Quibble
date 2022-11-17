@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0431a68c965e9d4abd40d845c8da278, type: 3}
+  m_Name: Health
+  m_EditorClassIdentifier: 
+  Type: 0
+  tiers:
+  - spawnPercentage: 50
+    upgradeSprite: {fileID: 93601557, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
+    upgradeEffect: 10
+  - spawnPercentage: 30
+    upgradeSprite: {fileID: -51908914, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
+    upgradeEffect: 15
+  - spawnPercentage: 15
+    upgradeSprite: {fileID: -1191335810, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
+    upgradeEffect: 20
+  - spawnPercentage: 5
+    upgradeSprite: {fileID: -1671217523, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
+    upgradeEffect: 30
