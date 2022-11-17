@@ -15,7 +15,6 @@ public class Upgrade : ScriptableObject
     }
 
     public UpgradeType Type;
-
     public Tier[] tiers;
 
     [System.Serializable]

@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0431a68c965e9d4abd40d845c8da278, type: 3}
-  m_Name: Health
+  m_Name: Attack
   m_EditorClassIdentifier: 
-  Type: 1
+  Type: 0
   tiers:
   - spawnPercentage: 50
-    upgradeSprite: {fileID: 93601557, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
-    upgradeEffect: 10
-  - spawnPercentage: 30
-    upgradeSprite: {fileID: -51908914, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
-    upgradeEffect: 15
-  - spawnPercentage: 15
-    upgradeSprite: {fileID: -1191335810, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
+    upgradeSprite: {fileID: -632870856, guid: 8bc5e1b14468b7d429a460572987b0fe, type: 3}
     upgradeEffect: 20
-  - spawnPercentage: 5
-    upgradeSprite: {fileID: -1671217523, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
+  - spawnPercentage: 30
+    upgradeSprite: {fileID: -870737207, guid: 8bc5e1b14468b7d429a460572987b0fe, type: 3}
+    upgradeEffect: 25
+  - spawnPercentage: 15
+    upgradeSprite: {fileID: -786978979, guid: 8bc5e1b14468b7d429a460572987b0fe, type: 3}
     upgradeEffect: 30
+  - spawnPercentage: 5
+    upgradeSprite: {fileID: -1826974064, guid: 8bc5e1b14468b7d429a460572987b0fe, type: 3}
+    upgradeEffect: 40

@@ -8,24 +8,25 @@ public class PlayerController : MonoBehaviour
     public float minHeight = 5;
 
     [Header("Movement Settings")]
-    public float movementSpeed = 1;
     public float maxJumpTime;
-    public float maxJumpHeight;
     public float fallMultiplier;
+
+    [Header("Animation Settings")]
+    public float scale = 0.2f;
 
     private InputManager inputManager;
     private float velocity;
     private float currentHeight;
     private float gravity;
     private float initialJumpVelocity;
-
-    [Header("Animation Settings")]
-    public float scale = 0.2f;
+    private float oldJumpHeight;
 
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
         currentHeight = minHeight;
+
+        oldJumpHeight = PlayerStats.Instance.Jump;
 
         // Setup jump
         SetupJumpVariables();
@@ -33,6 +34,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // Update jump variables
+        if (oldJumpHeight != PlayerStats.Instance.Jump)
+            SetupJumpVariables();
+
         // Movement & Rotation
         HandleMovement();
 
@@ -57,7 +62,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-scale, transform.localScale.y, transform.localScale.z);
 
         // Calculate new angles
-        StateManager.AngleRad -= inputManager.MovementInput.x * movementSpeed * Time.deltaTime;
+        StateManager.AngleRad -= inputManager.MovementInput.x * PlayerStats.Instance.Movement * Time.deltaTime;
 
         // Rotate player
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, StateManager.AngleDeg - 90f));
@@ -119,7 +124,7 @@ public class PlayerController : MonoBehaviour
     private void SetupJumpVariables()
     {
         float timeToApex = maxJumpTime / 2.0f;
-        gravity = (-2.0f * maxJumpHeight) / Mathf.Pow(timeToApex, 2.0f);
-        initialJumpVelocity = (2.0f * maxJumpHeight) / timeToApex;
+        gravity = (-2.0f * PlayerStats.Instance.Jump) / Mathf.Pow(timeToApex, 2.0f);
+        initialJumpVelocity = (2.0f * PlayerStats.Instance.Jump) / timeToApex;
     }
 }

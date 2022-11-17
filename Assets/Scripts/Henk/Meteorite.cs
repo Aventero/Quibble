@@ -73,7 +73,7 @@ public class Meteorite : MonoBehaviour
 
     private void UpdateSpeed()
     {
-        AngleRad += 1.0f * speed * Time.deltaTime;
+        AngleRad += PlayerStats.Instance.Slow * speed * Time.deltaTime;
         radius += -0.1f * gravity * Time.deltaTime;
     }
 

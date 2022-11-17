@@ -43,9 +43,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (StageComplete() && !UpgradeMenuManager.IsVisible())
+        if (StageComplete() && !UpgradeMenuManager.Visible)
         {
             // Show Upgrade menu
+            UpgradeMenuManager.SetVisible(true);
             StartCoroutine(ShowUpgradeWindow());
         }
         MeteoriteText.SetText(
@@ -107,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ShowUpgradeWindow()
     {
-        // Wait until bar is full
+        // Wait until stage bar is full
         while (StageProgressManager.IsFilling()) { yield return null; }
 
         UpgradeMenuManager.StartShowUpgradeMenu();

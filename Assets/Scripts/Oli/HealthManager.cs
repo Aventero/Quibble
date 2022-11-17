@@ -18,7 +18,7 @@ public class HealthManager : MonoBehaviour
     [Header("Animation")]
     public float lerpTime = 0.2f;
     
-    private float health = 10f;
+    // private float health = 10f;
     private float lastHealth = 10f;
 
     private void Awake()
@@ -31,16 +31,21 @@ public class HealthManager : MonoBehaviour
 
     private void Start()
     {
-        health = maxHealth;
-        lastHealth = maxHealth;
+        lastHealth = PlayerStats.Instance.Health;
         healthSlider.maxValue = maxHealth;
         healthSlider.value = maxHealth;
+    }
+
+    public void UpdateValues()
+    {
+        // Update slider value
+        StartCoroutine(UpdateProgress());
     }
 
     public void DealDamage(float amount)
     {
         // Deal damage;
-        health -= amount;
+        PlayerStats.Instance.Health -= amount;
 
         // Update slider value
         StartCoroutine(UpdateProgress());
@@ -51,16 +56,16 @@ public class HealthManager : MonoBehaviour
         float deltaTime = 0.0f;
         while (deltaTime < lerpTime)
         {
-            healthSlider.value = Mathf.Lerp(lastHealth, health, deltaTime / lerpTime);
+            healthSlider.value = Mathf.Lerp(lastHealth, PlayerStats.Instance.Health, deltaTime / lerpTime);
             deltaTime += Time.deltaTime;
             yield return null;
         }
 
-        healthSlider.value = health;
-        lastHealth = health;
+        healthSlider.value = PlayerStats.Instance.Health;
+        lastHealth = PlayerStats.Instance.Health;
 
         // Check if player is dead
-        if (health <= 0.0)
+        if (PlayerStats.Instance.Health <= 0.0)
         {
             OnDeath.Invoke();
         }

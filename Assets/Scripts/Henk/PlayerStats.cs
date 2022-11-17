@@ -1,26 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerStats : MonoBehaviour
 {
-    public float SwordLength = 1.0f;
-    public float AttackAngle = 360.0f;
-    public float AttackCooldown = 1.0f;
-    public float PlayerSpeed = 1.0f;
-    public float JumpHeight = 2.0f;
-    Attack attack;
+    public static PlayerStats Instance;
 
-    void Start()
+    private void Awake()
     {
-        attack = GetComponent<Attack>();
+        if (Instance != null && Instance != this)
+            Destroy(this);
+        else
+            Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        attack.UpgradeSwordLength(SwordLength);
-        attack.UpgradeAttackAngle(AttackAngle);
-        attack.UpgradeCooldown(AttackCooldown);
-    }
+    public float Attack = 1.0f; // No meteorites with health
+    public float Health = 10.0f;
+    public float Jump = 3.0f;
+    public float Movement = 2.0f;
+    public float Slow = 1.0f;
 }
