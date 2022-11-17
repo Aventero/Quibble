@@ -21,6 +21,13 @@ public class StageProgressManager : MonoBehaviour
         lastValue = 0.0f;
     }
 
+    public bool IsFilling()
+    {
+        if (stageProgess.value < GameManager.Instance.MeteoritesHit)
+            return true;
+        return false;
+    }
+
     private void Update()
     {
         if (GameManager.Instance.MeteoritesHit != lastValue)
