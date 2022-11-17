@@ -8,10 +8,14 @@ public class PlayerAnimation : MonoBehaviour
     public InputManager InputManager;
     public PlayerController PlayerController;
     public bool hasJumped = false;
+    public bool InMenu = false;
     
     // Update is called once per frame
     void Update()
     {
+        if (InMenu)
+            return;
+
         Animator.SetFloat("Speed", Mathf.Abs(InputManager.MovementInput.x));
         if (!StateManager.IsGrounded && InputManager.Jump == 1)
             Animator.SetFloat("Jump", 1);

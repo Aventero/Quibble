@@ -35,4 +35,20 @@ public class StateManager : ScriptableObject
     private static float angleRad = 0;
     private static bool inJump = false;
     private static bool isGrounded = true;
+
+    // GameState
+    public static bool InMenu = false;
+    public static bool GamePaused = false;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void Init()
+    {
+        Debug.Log("StateManager reset.");
+        angleRad = 0;
+        inJump = false;
+        isGrounded = false;
+        InMenu = false;
+        GamePaused = false;
+    }
+
 }
