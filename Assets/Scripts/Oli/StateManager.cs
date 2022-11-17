@@ -41,7 +41,7 @@ public class StateManager : ScriptableObject
     public static bool GamePaused = false;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    static void Init()
+    public static void Init()
     {
         Debug.Log("StateManager reset.");
         angleRad = 0;

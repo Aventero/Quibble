@@ -13,12 +13,30 @@ public class GameLoader : MonoBehaviour
         StartCoroutine(LoadGame());
     }
 
+    public void LoadMainMenuScene()
+    {
+        StartCoroutine(LoadMainMenu());
+    }
+
     IEnumerator LoadGame()
     {
+        Time.timeScale = 1f;
         transititon.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
+        StateManager.Init();
+    }
+
+    IEnumerator LoadMainMenu()
+    {
+        Time.timeScale = 1f;
+        transititon.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(0);
+        StateManager.Init();
     }
 }

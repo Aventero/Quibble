@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
     public static HealthManager Instance;
+    public static event UnityAction OnDeath;
 
+    public bool IsDead { get; private set; }
     public Slider healthSlider;
 
     [Header("Health settings")]
@@ -28,6 +31,8 @@ public class HealthManager : MonoBehaviour
 
     private void Start()
     {
+        health = maxHealth;
+        lastHealth = maxHealth;
         healthSlider.maxValue = maxHealth;
         healthSlider.value = maxHealth;
     }
@@ -57,7 +62,7 @@ public class HealthManager : MonoBehaviour
         // Check if player is dead
         if (health <= 0.0)
         {
-            Time.timeScale = 0.0f;
+            OnDeath.Invoke();
         }
     }
 }

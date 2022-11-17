@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CameraShake : MonoBehaviour
 {
     private bool alreadyShaking = false;
+    Vector3 originalPosition;
+    public static event UnityAction OnShakeEnd;
 
     public IEnumerator Shake(float duration, float magnitude)
     {
@@ -15,7 +18,7 @@ public class CameraShake : MonoBehaviour
         else
         {
             alreadyShaking = true;
-            Vector3 originalPosition = transform.localPosition;
+            originalPosition = transform.localPosition;
             float elapsed = 0.0f;
 
             // Shake till the duration
@@ -35,6 +38,4 @@ public class CameraShake : MonoBehaviour
             alreadyShaking = false;
         }
     }
-
-
 }
