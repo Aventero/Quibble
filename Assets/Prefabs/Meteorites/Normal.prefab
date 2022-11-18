@@ -112,6 +112,7 @@ MonoBehaviour:
   deletionRadius: 20
   shakeDuration: 0.1
   shakePower: 0.2
+  damage: 1
 --- !u!96 &-126789730253380437
 TrailRenderer:
   serializedVersion: 2

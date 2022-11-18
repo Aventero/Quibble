@@ -9,12 +9,22 @@ public class PlayerAnimation : MonoBehaviour
     public PlayerController PlayerController;
     public bool hasJumped = false;
     public bool InMenu = false;
+    public bool DeathAnimationWasPlayed = false;
     
     // Update is called once per frame
     void Update()
     {
-        if (InMenu)
+        if (StateManager.IsDead && DeathAnimationWasPlayed)
             return;
+
+        if (StateManager.IsDead && !DeathAnimationWasPlayed)
+        {
+            Animator.SetTrigger("Death");
+            DeathAnimationWasPlayed = true;
+            Animator.enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+            return;
+        }
 
         Animator.SetFloat("Speed", Mathf.Abs(InputManager.MovementInput.x));
         if (!StateManager.IsGrounded && InputManager.Jump == 1)

@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0459412bd06a394a81e6e5237208529, type: 3}
   m_Name: Speedy
   m_EditorClassIdentifier: 
-  Damage: 0.5
   Meteorite: {fileID: 1906087877782029199, guid: 9809ba9549f3cbc419a362d73d633029, type: 3}
   curveHeight: 5
   curveWidth: 20
   xAxisPosition: 12.17
-  timeBetweenSpawns: 2
+  timeBetweenSpawns: 3
   CurveReachesOneAt: 0.8229723

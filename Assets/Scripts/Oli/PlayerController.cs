@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (StateManager.IsDead)
+            return;
+
         // Update jump variables
         if (oldJumpHeight != PlayerStats.Instance.Jump)
             SetupJumpVariables();

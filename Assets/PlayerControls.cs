@@ -64,9 +64,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Testing"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""2d45c1ce-220d-4590-9fcc-40997aaf002b"",
+                    ""id"": ""24e665a5-1649-4eee-9ff4-f2c8111399aa"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -175,56 +175,23 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5f47e51f-d5f1-4861-aaee-5aa99da2b7a6"",
-                    ""path"": ""<Keyboard>/1"",
+                    ""id"": ""152be9e2-7ffb-43c3-b510-fe4a99db050c"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Testing"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7c64cbeb-af17-4aa1-b3e7-0b172fb858e3"",
-                    ""path"": ""<Keyboard>/2"",
+                    ""id"": ""455ac136-77e0-438c-a0d2-41c414b9ad60"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Testing"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""899a73fc-9c98-41e1-b0fd-bddc1a55112a"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Testing"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""81bdbb68-276b-41e1-9899-eecdbfe1b177"",
-                    ""path"": ""<Keyboard>/4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Testing"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""43b25401-509b-4d23-8035-c85204b9b09c"",
-                    ""path"": ""<Keyboard>/5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Testing"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -300,7 +267,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Scrolling = m_Player.FindAction("Scrolling", throwIfNotFound: true);
-        m_Player_Testing = m_Player.FindAction("Testing", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -364,7 +331,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Scrolling;
-    private readonly InputAction m_Player_Testing;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -373,7 +340,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Scrolling => m_Wrapper.m_Player_Scrolling;
-        public InputAction @Testing => m_Wrapper.m_Player_Testing;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -395,9 +362,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Scrolling.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrolling;
                 @Scrolling.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrolling;
                 @Scrolling.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScrolling;
-                @Testing.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTesting;
-                @Testing.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTesting;
-                @Testing.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTesting;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -414,9 +381,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Scrolling.started += instance.OnScrolling;
                 @Scrolling.performed += instance.OnScrolling;
                 @Scrolling.canceled += instance.OnScrolling;
-                @Testing.started += instance.OnTesting;
-                @Testing.performed += instance.OnTesting;
-                @Testing.canceled += instance.OnTesting;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -472,6 +439,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnScrolling(InputAction.CallbackContext context);
-        void OnTesting(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -11,6 +11,11 @@ public class UpgradeMenuManager : MonoBehaviour
     // Time to show menu
     public float showDelay = 2f;
 
+    public TMPro.TMP_Text Congrats;
+    public TMPro.TMP_Text Stage;
+
+    public string[] CongratulationWords;
+
     [Header("Upgrades")]
     public Upgrade[] upgrades;
 
@@ -70,6 +75,12 @@ public class UpgradeMenuManager : MonoBehaviour
         GameManager.Instance.StartNextStage();
     }
 
+    private void UpdateUpgradeText()
+    {
+        Congrats.SetText(CongratulationWords[Random.Range(0, CongratulationWords.Length)]);
+        Stage.SetText("Stage " + GameManager.Instance.CurrentStage + " cleared!");
+    }
+
     private void UpgradeMenuVisibility(bool visible)
     {
         UpgradeMenu.SetActive(visible);
@@ -80,5 +91,6 @@ public class UpgradeMenuManager : MonoBehaviour
         yield return new WaitForSeconds(showDelay);
 
         UpgradeMenuVisibility(true);
+        UpdateUpgradeText();
     }
 }

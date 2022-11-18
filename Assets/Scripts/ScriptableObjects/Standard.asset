@@ -16,5 +16,5 @@ MonoBehaviour:
   curveHeight: 10.5
   curveWidth: 20
   xAxisPosition: 9.9
-  timeBetweenSpawns: 1
+  timeBetweenSpawns: 2
   CurveReachesOneAt: 0.4355286

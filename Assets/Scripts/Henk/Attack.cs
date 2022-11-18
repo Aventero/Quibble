@@ -8,9 +8,9 @@ public class Attack : MonoBehaviour
     public GameObject Sword;
     public float SwingSpeed = 5.0f;
     public float SwordDistance = 0.25f;
-    private float CooldownTime = 1.0f;
+    public float CooldownTime = 1.0f;
     private float radius = 1.0f;
-    private float Angle = 720.0f;
+    public float Angle = 720.0f;
     private InputManager inputManager;
     private IEnumerator attackCoroutine;
     private IEnumerator cooldown;
@@ -27,6 +27,9 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (StateManager.IsDead)
+            return;
+
         if (inputManager.Attack && !onCooldown && spawnedSword == null)
         {
             onCooldown = true;

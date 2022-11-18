@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0459412bd06a394a81e6e5237208529, type: 3}
   m_Name: Heavy
   m_EditorClassIdentifier: 
-  Damage: 2
   Meteorite: {fileID: 1906087877782029199, guid: b8d2d24edc5073e43aaa2b17088d96ce, type: 3}
   curveHeight: 5
   curveWidth: 14.66
   xAxisPosition: 9.9
-  timeBetweenSpawns: 4
+  timeBetweenSpawns: 6
   CurveReachesOneAt: 1.5826284

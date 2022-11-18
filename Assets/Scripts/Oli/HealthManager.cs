@@ -67,6 +67,7 @@ public class HealthManager : MonoBehaviour
         // Check if player is dead
         if (PlayerStats.Instance.Health <= 0.0)
         {
+            StateManager.IsDead = true;
             OnDeath.Invoke();
         }
     }

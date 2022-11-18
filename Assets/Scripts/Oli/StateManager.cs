@@ -37,6 +37,7 @@ public class StateManager : ScriptableObject
     private static bool isGrounded = true;
 
     // GameState
+    public static bool IsDead = false;
     public static bool InMenu = false;
     public static bool GamePaused = false;
 
@@ -45,6 +46,7 @@ public class StateManager : ScriptableObject
     {
         Debug.Log("StateManager reset.");
         angleRad = 0;
+        IsDead = false;
         inJump = false;
         isGrounded = false;
         InMenu = false;

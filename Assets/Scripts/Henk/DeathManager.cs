@@ -10,25 +10,23 @@ public class DeathManager : MonoBehaviour
     private void Awake()
     {
         HealthManager.OnDeath += EnableDeathMenu;
-        CameraShake.OnShakeEnd += StopGameTime;
-        //DeathMenu = GameObject.FindGameObjectWithTag("DeathMenu");
     }
 
     private void EnableDeathMenu()
     {
         DeathMenu.SetActive(true);
         TMP_Text.SetText("You have reached stage:\n" + GameManager.Instance.CurrentStage);
+
+        // Disable gravity on meteors
+        GameObject[] meteorites = GameObject.FindGameObjectsWithTag("Meteorite");
+        for (int i = 0; i < meteorites.Length; i++)
+        {
+            meteorites[i].GetComponent<Meteorite>().gravity = 0.0f;
+        }
     }
 
     private void OnDestroy()
     {
         HealthManager.OnDeath -= EnableDeathMenu;
-        CameraShake.OnShakeEnd -= StopGameTime;
-    }
-
-    private void StopGameTime()
-    {
-        if (DeathMenu.activeSelf)
-            Time.timeScale = 0f;
     }
 }
