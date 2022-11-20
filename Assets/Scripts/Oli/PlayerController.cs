@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     private float initialJumpVelocity;
     private float oldJumpHeight;
 
+    // Sound
+    private bool shouldPlayLandingSound = false;
+
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour
         if (StateManager.IsDead)
             return;
 
+
         // Update jump variables
         if (oldJumpHeight != PlayerStats.Instance.Jump)
             SetupJumpVariables();
@@ -48,6 +52,7 @@ public class PlayerController : MonoBehaviour
         currentHeight += velocity * Time.deltaTime;
 
         CheckGrounded();
+        PlaySounds();
         HandleGravity();
         HandleJump();
 
@@ -108,6 +113,34 @@ public class PlayerController : MonoBehaviour
             float nextYVelocity = (velocity + newYVelocity) * 0.5f;
             velocity = nextYVelocity;
         }
+
+
+    }
+
+    void PlaySounds()
+    {
+        if (StateManager.IsGrounded && shouldPlayLandingSound)
+        {
+            FindObjectOfType<AudioManager>().Play("Land");
+            shouldPlayLandingSound = false;
+        }
+
+        if (StateManager.IsGrounded && shouldPlayLandingSound)
+        {
+            FindObjectOfType<AudioManager>().Play("Land");
+            shouldPlayLandingSound = false;
+        }
+
+        // Player is on the ground, moving and the walking is not playing yet, then play the sound
+        if (StateManager.IsGrounded && inputManager.MovementInput.x != 0 && !FindObjectOfType<AudioManager>().IsPLaying("Walk"))
+        {
+            FindObjectOfType<AudioManager>().Play("Walk");
+        }
+
+        if (StateManager.IsGrounded && inputManager.MovementInput.x == 0 || !StateManager.IsGrounded)
+        {
+            FindObjectOfType<AudioManager>().Stop("Walk");
+        }
     }
 
     void HandleJump()
@@ -117,6 +150,8 @@ public class PlayerController : MonoBehaviour
         {
             StateManager.InJump = true;
             velocity = initialJumpVelocity * 0.5f;
+            FindObjectOfType<AudioManager>().Play("Jump");
+            shouldPlayLandingSound = true;
         }
         else if (!(inputManager.Jump > 0.0) && StateManager.IsGrounded)
         {
