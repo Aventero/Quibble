@@ -16,7 +16,8 @@ public class Attack : MonoBehaviour
     private IEnumerator cooldown;
     private bool onCooldown = false;
     private GameObject spawnedSword;
-    private float SwordScale = 1.0f;
+    public float SwordScale = 1.0f;
+    private BoxCollider2D SwordCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -44,9 +45,12 @@ public class Attack : MonoBehaviour
 
             // Spawn sword
             spawnedSword = Instantiate(Sword, Player.position, Quaternion.identity);
+            SwordCollider = spawnedSword.GetComponent<BoxCollider2D>();
 
             // Change Scaling
             radius = SwordScale / 2.0f + SwordDistance;
+            SwordCollider.size = new Vector2(1f, radius * 15f);
+            SwordCollider.offset = new Vector2(0f, radius * 10f * 0.3f); // Shift backwards
             spawnedSword.transform.localScale = new Vector3(spawnedSword.transform.localScale.x * SwordScale, spawnedSword.transform.localScale.y, spawnedSword.transform.localScale.z);
             TrailRenderer trailRenderer = spawnedSword.GetComponentInChildren<TrailRenderer>();
             trailRenderer.widthMultiplier = SwordScale;

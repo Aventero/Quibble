@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+    public float soundVolume { get; private set; } = StaticVariables.SoundVolume;
 
     private void Awake()
     {
@@ -13,7 +14,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            s.source.volume = s.volume;
+            s.source.volume = s.volume * soundVolume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
@@ -56,5 +57,16 @@ public class AudioManager : MonoBehaviour
             return false;
         }
         return s.source.isPlaying;
+    }
+
+    public void UpdateVolume(float newVolume)
+    {
+        AudioSource[] audios = GetComponents<AudioSource>();
+        soundVolume = newVolume;
+        // There are equal amounts of AudioSources to Sounds
+        for (int i = 0; i < audios.Length; i++)
+        {
+            audios[i].volume = sounds[i].volume * newVolume;
+        }
     }
 }

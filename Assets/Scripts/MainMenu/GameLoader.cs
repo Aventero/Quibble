@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameLoader : MonoBehaviour
 {
     public Animator transititon;
     public float transitionTime = 1f;
+    public Slider slider;
 
     public void LoadGameScene()
     {
@@ -27,7 +29,7 @@ public class GameLoader : MonoBehaviour
 
         SceneManager.LoadScene(1);
         StateManager.Init();
-    }
+    }   
 
     IEnumerator LoadMainMenu()
     {
