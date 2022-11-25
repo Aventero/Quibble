@@ -28,7 +28,7 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (StateManager.IsDead)
+        if (StateManager.IsDead || StateManager.InMenu)
             return;
         Attacking();
 

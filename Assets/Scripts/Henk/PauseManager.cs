@@ -21,6 +21,7 @@ public class PauseManager : MonoBehaviour
             return;
         }
 
+        StateManager.InMenu = true;
         PauseMenu.SetActive(true);
         Time.timeScale = 0f;
         IsAlreadyPaused = true;
@@ -28,9 +29,10 @@ public class PauseManager : MonoBehaviour
 
     public void DisablePauseMenu()
     {
-        PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         IsAlreadyPaused = false;
+        PauseMenu.SetActive(false);
+        StateManager.InMenu = false;
     }
 
     private void OnDestroy()

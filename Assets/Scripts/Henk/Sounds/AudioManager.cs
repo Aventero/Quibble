@@ -7,8 +7,24 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     public float soundVolume { get; private set; } = StaticVariables.SoundVolume;
 
+    public static AudioManager Instance;
+
     private void Awake()
     {
+        // First run -> Instantiate this one
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            // Destroy the old Instance and set the new one, for the new scene!
+            Destroy(Instance.gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
