@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EssenceBar
+  m_Name: Stars
   m_Shader: {fileID: -6465566751694194690, guid: e07965d5b9b2e3749976dbdecabc4aac, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -84,12 +84,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _Intensity: 2
+    - _Intensity: 10
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.95554936, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 1, g: 0.7678805, b: 0, a: 0}
+    - _GlowColor: {r: 4, g: 4, b: 4, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

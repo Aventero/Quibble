@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeartAnimation : MonoBehaviour
 {
-    public Animator HeartAnimator;
+    public Animation Animation;
 
     private void Start()
     {
@@ -13,7 +13,7 @@ public class HeartAnimation : MonoBehaviour
 
     private void ShrinkHeartAnimaion()
     {
-        HeartAnimator.Play("HeartShrink");
+        Animation.Play();
     }
 
     private void OnDestroy()

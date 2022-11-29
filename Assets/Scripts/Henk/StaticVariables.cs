@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class StaticVariables
 {
-    public static float SoundVolume = 1f;
+    public static float SoundVolume = 0.5f;
 }

@@ -6,7 +6,7 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public TMP_Text MeteoriteText;
+    public TMP_Text StageText;
     public static GameManager Instance { get; private set; }
     public int CurrentStage { get; private set; }
     public int MeteoritesHit { get; private set; }
@@ -49,11 +49,7 @@ public class GameManager : MonoBehaviour
             UpgradeMenuManager.SetVisible(true);
             StartCoroutine(ShowUpgradeWindow());
         }
-        MeteoriteText.SetText(
-            "Stage: " + CurrentStage + 
-            "\nHits:" + MeteoritesHit + 
-            "\nLeft: " + (StageMeteoriteCount - MeteoritesHit) +
-            "\nActive: " + (SpawnedMeteorites - MeteoritesHit));
+        StageText.SetText("Stage: " + CurrentStage);
     }
 
     private void IncreaseMeteoriteHits()

@@ -16,7 +16,7 @@ public class ImpactTrigger : MonoBehaviour
         while (elapsed < time)
         {
             elapsed += Time.deltaTime;
-            float intensity = 0.0f;
+            float intensity;
             if (elapsed / time <= 0.5f)
                 intensity = Mathf.Lerp(minValue, maxValue, elapsed / time);
             else
@@ -32,8 +32,8 @@ public class ImpactTrigger : MonoBehaviour
     {
         if (collision.transform.CompareTag("Meteorite"))
         {
-            StartCoroutine(LerpColor(1f, 0.0f, 100.0f, trigger));
-            StartCoroutine(cameraShake.Shake(shakeDuration * 5.0f, shakePower * 2.0f));
+            StartCoroutine(LerpColor(0.5f, 0.0f, 50.0f, trigger));
+            StartCoroutine(cameraShake.Shake(shakeDuration * 2.0f, shakePower * 2.0f));
         }
     }
 }
