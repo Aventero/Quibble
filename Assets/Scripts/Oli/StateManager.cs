@@ -52,5 +52,4 @@ public class StateManager : ScriptableObject
         InMenu = false;
         GamePaused = false;
     }
-
 }

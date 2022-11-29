@@ -5,13 +5,12 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-    public float soundVolume { get; private set; } = StaticVariables.SoundVolume;
+    public float soundVolume { get; private set; } = SaveManager.SoundVolume;
 
     public static AudioManager Instance;
 
     private void Awake()
     {
-
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -33,10 +32,8 @@ public class AudioManager : MonoBehaviour
             // Destroy the old Instance and set the new one, for the new scene!
             Destroy(Instance.gameObject);
             Instance = this;
-
             DontDestroyOnLoad(gameObject);
         }
-
     }
 
     private void Start()

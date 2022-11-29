@@ -10,13 +10,20 @@ public class GameLoader : MonoBehaviour
     public float transitionTime = 1f;
     public Slider slider;
 
+    public void Start()
+    {
+        SaveManager.Initialize();
+    }
+
     public void LoadGameScene()
     {
+        SaveManager.Load();
         StartCoroutine(LoadGame());
     }
 
     public void LoadMainMenuScene()
     {
+        SaveManager.Load();
         StartCoroutine(LoadMainMenu());
     }
 

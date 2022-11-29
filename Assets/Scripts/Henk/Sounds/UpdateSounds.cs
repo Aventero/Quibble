@@ -8,12 +8,14 @@ public class UpdateSounds : MonoBehaviour
 
     private void Start()
     {
-        slider.value = StaticVariables.SoundVolume;
+        SaveManager.Load();
+        slider.value = SaveManager.SoundVolume;
     }
 
     public void UpdateVolume()
     {
-        StaticVariables.SoundVolume = slider.value;
-        FindObjectOfType<AudioManager>().UpdateVolume(StaticVariables.SoundVolume);
+        SaveManager.SoundVolume = slider.value;
+        SaveManager.Save();
+        FindObjectOfType<AudioManager>().UpdateVolume(SaveManager.SoundVolume);
     }
 }
