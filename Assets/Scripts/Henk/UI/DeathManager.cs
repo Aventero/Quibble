@@ -21,7 +21,7 @@ public class DeathManager : MonoBehaviour
         GameObject[] meteorites = GameObject.FindGameObjectsWithTag("Meteorite");
         for (int i = 0; i < meteorites.Length; i++)
         {
-            meteorites[i].GetComponent<Meteorite>().gravity = 0.0f;
+            meteorites[i].GetComponent<Meteorite>().Gravity = 0.0f;
         }
     }
 

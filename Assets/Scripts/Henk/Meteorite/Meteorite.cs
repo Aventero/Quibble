@@ -6,22 +6,24 @@ using UnityEngine.VFX;
 
 public class Meteorite : MonoBehaviour
 {
-    public float ScalingFactor = 1.0f;
-    private Transform gravitationCenter;
-    public float radius = 5;
-    public float angle = 0;
-    public float speed = 1.0f;
-    public float gravity = 1.0f;
-    public float minimumScale = 0.1f;
-    public float scalingByDistance = 10.0f;
-    public float width = 1.0f;
-    public float height = 1.0f;
-    public float deletionRadius = 20.0f;
-    public float shakeDuration = 0.1f;
-    public float shakePower = 0.2f;
+    [Header("")]
+    public float SpawnRadius = 5;
+    public float MeteoriteSpeed = 1.0f;
+    public float Gravity = 1.0f;
+    public float MinScale = 0.1f;
+    public float ScaleByDistance = 10.0f;
+    public float EllipseWidth = 1.0f;
+    public float EllipseHeight = 1.0f;
+    public float DeletionRadius = 20.0f;
     public float damage = 1.0f;
-    private CameraShake cameraShake;
+
+    [Header("Camera Shake")]
+    public float ShakeDuration = 0.1f;
+    public float ShakePower = 0.2f;
     public static event UnityAction OnPlanetHit;
+    
+    private CameraShake cameraShake;
+    private Transform gravitationCenter;
 
     public float AngleRad
     {
@@ -61,27 +63,27 @@ public class Meteorite : MonoBehaviour
 
     private void LookForDeletion()
     {
-        if (radius <= 0 || radius >= deletionRadius)
+        if (SpawnRadius <= 0 || SpawnRadius >= DeletionRadius)
             Destroy(gameObject);
     }
 
     private void SetStartingPosition()
     {
         AngleRad = Random.Range(0, 2 * Mathf.PI);
-        radius = Random.Range(7.0f, 9.0f);
+        SpawnRadius = Random.Range(7.0f, 9.0f);
         UpdatePosition();
     }
 
     private void UpdateSpeed()
     {
-        AngleRad += PlayerStats.Instance.Slow * speed * Time.deltaTime;
-        radius += -0.1f * gravity * Time.deltaTime;
+        AngleRad += PlayerStats.Instance.Slow * MeteoriteSpeed * Time.deltaTime;
+        SpawnRadius += -0.1f * Gravity * Time.deltaTime;
     }
 
     private void UpdatePosition()
     {
-        float x = width * radius * Mathf.Cos(AngleRad);
-        float y = height * radius * Mathf.Sin(AngleRad);
+        float x = EllipseWidth * SpawnRadius * Mathf.Cos(AngleRad);
+        float y = EllipseHeight * SpawnRadius * Mathf.Sin(AngleRad);
         transform.position = new Vector2(x, y);
     }
 
@@ -89,20 +91,20 @@ public class Meteorite : MonoBehaviour
     {
         // Scale the meteorite by distance
         float distance = Vector3.Distance(transform.position, gravitationCenter.position);
-        transform.localScale = Vector3.one * ((scalingByDistance / (Mathf.Pow(distance, 2) + scalingByDistance)) + minimumScale);
+        transform.localScale = Vector3.one * ((ScaleByDistance / (Mathf.Pow(distance, 2) + ScaleByDistance)) + MinScale);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Sword"))
         {
-            gravity = -50.0f; // Negate gravity, so the meteorite shoots away
-            speed *= 2.0f;
+            Gravity = -50.0f; // Negate gravity, so the meteorite shoots away
+            MeteoriteSpeed *= 2.0f;
 
             // After hitting, change the trail color
             FindObjectOfType<AudioManager>().Play("Hit");
             ChangeTrail(Color.green);
-            StartCoroutine(cameraShake.Shake(shakeDuration, shakePower));
+            StartCoroutine(cameraShake.Shake(ShakeDuration, ShakePower));
             GetComponent<Collider2D>().enabled = false;
         }
 
@@ -110,8 +112,8 @@ public class Meteorite : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("PlanetHit");
 
-            StartCoroutine(FadeTrail(shakeDuration * 2.0f, this.gameObject));
-            StartCoroutine(DestoryAfter(shakeDuration * 2.0f, this.gameObject));
+            StartCoroutine(FadeTrail(ShakeDuration * 2.0f, this.gameObject));
+            StartCoroutine(DestoryAfter(ShakeDuration * 2.0f, this.gameObject));
             OnPlanetHit.Invoke();
             GetComponent<Collider2D>().enabled = false;
 

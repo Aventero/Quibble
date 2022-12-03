@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
     public float fallMultiplier;
 
     [Header("Animation Settings")]
-    public float scale = 0.2f;
+    private float scale;
+    private JumpCurves jumpCurves;
+    private float fallHeight;
 
     private InputManager inputManager;
     private float velocity;
@@ -21,14 +23,18 @@ public class PlayerController : MonoBehaviour
     private float initialJumpVelocity;
     private float oldJumpHeight;
 
+    private int moveDirection = 1;
+
     // Sound
     private bool shouldPlayLandingSound = false;
+
 
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
+        jumpCurves = GetComponent<JumpCurves>();
         currentHeight = minHeight;
-
+        scale = transform.localScale.x;
         oldJumpHeight = PlayerStats.Instance.Jump;
 
         // Setup jump
@@ -39,7 +45,6 @@ public class PlayerController : MonoBehaviour
     {
         if (StateManager.IsDead)
             return;
-
 
         // Update jump variables
         if (oldJumpHeight != PlayerStats.Instance.Jump)
@@ -55,6 +60,7 @@ public class PlayerController : MonoBehaviour
         PlaySounds();
         HandleGravity();
         HandleJump();
+        SquishAndStretchPlayer();
 
         // Polar -> Cartesian
         float xCoord = currentHeight * Mathf.Cos(StateManager.AngleRad);
@@ -62,12 +68,51 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector2 (xCoord, yCoord);
     }
 
+    void SquishAndStretchPlayer()
+    {
+        // Store the height, the player is currently -> once he is falling -> fallHeight
+        if (velocity > 0)
+            fallHeight = currentHeight - minHeight + 0.00000000001f;
+
+ 
+        if (velocity <= 0)
+        {
+            // Player is Falling
+            float jumpHeight = currentHeight - minHeight + 0.00000000001f;
+            float jumpHeightNormalized = Mathf.Lerp(1f, 0f, jumpHeight / fallHeight);
+            Debug.Log(jumpHeightNormalized);
+            transform.localScale = new Vector3(moveDirection * jumpCurves.GetSpriteWidthFall(jumpHeightNormalized), jumpCurves.GetSpriteHeightFalling(jumpHeightNormalized), transform.localScale.z);
+        }
+        else
+        {
+            // Player is Rising
+            float velocityNormalized = Mathf.Lerp(1f, 0f, velocity / (initialJumpVelocity * 0.5f));
+            transform.localScale = new Vector3(moveDirection * jumpCurves.GetSpriteWidthRise(velocityNormalized), jumpCurves.GetSpriteHeightRising(velocityNormalized), transform.localScale.z);
+        }
+
+        // Just to store the scale. just to be save
+        if (StateManager.IsGrounded)
+        {
+            transform.localScale = new Vector3(moveDirection * scale, scale, transform.localScale.z);
+        }
+    }
+
     void HandleMovement()
     {
-        if (inputManager.MovementInput.x >= 0)
-            transform.localScale = new Vector3(scale, transform.localScale.y, transform.localScale.z);
-        if (inputManager.MovementInput.x < 0)
-            transform.localScale = new Vector3(-scale, transform.localScale.y, transform.localScale.z);
+        // Moving Right, but was moving left
+        if (inputManager.MovementInput.x >= 0 && transform.localScale.x < 0)
+        {
+            moveDirection = 1;
+            transform.localScale = new Vector3(1 * transform.localScale.y, transform.localScale.y, transform.localScale.z);
+        }
+
+        // Moving Left, but was moving right
+        if (inputManager.MovementInput.x < 0 && transform.localScale.x > 0)
+        {
+            moveDirection = -1;
+            transform.localScale = new Vector3(-1 * transform.localScale.y, transform.localScale.y, transform.localScale.z);
+        }
+
 
         // Calculate new angles
         StateManager.AngleRad -= inputManager.MovementInput.x * PlayerStats.Instance.Movement * Time.deltaTime;
@@ -119,12 +164,6 @@ public class PlayerController : MonoBehaviour
 
     void PlaySounds()
     {
-        if (StateManager.IsGrounded && shouldPlayLandingSound)
-        {
-            FindObjectOfType<AudioManager>().Play("Land");
-            shouldPlayLandingSound = false;
-        }
-
         if (StateManager.IsGrounded && shouldPlayLandingSound)
         {
             FindObjectOfType<AudioManager>().Play("Land");
