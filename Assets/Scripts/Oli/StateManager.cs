@@ -44,7 +44,6 @@ public class StateManager : ScriptableObject
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     public static void Init()
     {
-        Debug.Log("StateManager reset.");
         angleRad = 0;
         IsDead = false;
         inJump = false;

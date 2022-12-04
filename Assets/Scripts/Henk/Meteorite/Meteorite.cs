@@ -6,16 +6,17 @@ using UnityEngine.VFX;
 
 public class Meteorite : MonoBehaviour
 {
-    [Header("")]
-    public float SpawnRadius = 5;
+    [Header("Meteorite")]
+    public AnimationCurve SpawnRadiusByStage;
     public float MeteoriteSpeed = 1.0f;
-    public float Gravity = 1.0f;
+    public float Gravity = 10.0f;
     public float MinScale = 0.1f;
     public float ScaleByDistance = 10.0f;
     public float EllipseWidth = 1.0f;
     public float EllipseHeight = 1.0f;
     public float DeletionRadius = 20.0f;
     public float damage = 1.0f;
+    private float currentRadius;
 
     [Header("Camera Shake")]
     public float ShakeDuration = 0.1f;
@@ -63,27 +64,27 @@ public class Meteorite : MonoBehaviour
 
     private void LookForDeletion()
     {
-        if (SpawnRadius <= 0 || SpawnRadius >= DeletionRadius)
+        if (currentRadius <= 0 || currentRadius >= DeletionRadius)
             Destroy(gameObject);
     }
 
     private void SetStartingPosition()
     {
-        AngleRad = Random.Range(0, 2 * Mathf.PI);
-        SpawnRadius = Random.Range(7.0f, 9.0f);
+        AngleRad = Random.Range(0f, 2f * Mathf.PI);
+        currentRadius = Random.Range(SpawnRadiusByStage.Evaluate(GameManager.Instance.CurrentStage) - 2f, SpawnRadiusByStage.Evaluate(GameManager.Instance.CurrentStage) + 2f);
         UpdatePosition();
     }
 
     private void UpdateSpeed()
     {
         AngleRad += PlayerStats.Instance.Slow * MeteoriteSpeed * Time.deltaTime;
-        SpawnRadius += -0.1f * Gravity * Time.deltaTime;
+        currentRadius += -0.1f * Gravity * Time.deltaTime;
     }
 
     private void UpdatePosition()
     {
-        float x = EllipseWidth * SpawnRadius * Mathf.Cos(AngleRad);
-        float y = EllipseHeight * SpawnRadius * Mathf.Sin(AngleRad);
+        float x = EllipseWidth * currentRadius * Mathf.Cos(AngleRad);
+        float y = EllipseHeight * currentRadius * Mathf.Sin(AngleRad);
         transform.position = new Vector2(x, y);
     }
 

@@ -13,13 +13,13 @@ public class HealthManager : MonoBehaviour
     public Slider healthSlider;
 
     [Header("Health settings")]
-    public float maxHealth = 10f;
+    public float maxHealth = 100f;
 
     [Header("Animation")]
     public float lerpTime = 0.2f;
     
     // private float health = 10f;
-    private float lastHealth = 10f;
+    private float lastHealth = 100f;
 
     private void Awake()
     {

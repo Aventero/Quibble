@@ -4,25 +4,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Curve", menuName = "Meteorite/MeteoriteCurve", order = 1)]
 public class MeteoriteCurve : ScriptableObject
 {
-    [Header("Bell Curve Settings")]
+    [Header("Curve Settings")]
     public GameObject Meteorite;
-    public float curveHeight = 0;
-    public float curveWidth = 0;
-    public float xAxisPosition = 0;
-    public float timeBetweenSpawns = 1;
+    public AnimationCurve SpawnsPerStage;
+    public AnimationCurve TimeBetweenSpawns;
 
-    [Header("Shows Start of the bellcurve")]
-    public float CurveReachesOneAt = 0;
-
-    private void OnValidate()
+    public int GetSpawns(float stage)
     {
-        CurveReachesOneAt = StartingLevelForMeteoriteFunction(curveHeight, curveWidth, xAxisPosition);
+        return (int)SpawnsPerStage.Evaluate(stage);
     }
 
-    private static float StartingLevelForMeteoriteFunction(float curveHeight, float curveWidth, float xAxisPosition)
+    public float GetTimeBetweenSpawns(float stage)
     {
-        float start = curveHeight * xAxisPosition - curveWidth * Mathf.Sqrt(curveHeight * Mathf.Log(curveHeight));
-        start = start / curveHeight;
-        return start;
+        return TimeBetweenSpawns.Evaluate(stage);
     }
 }

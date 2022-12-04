@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public TMP_Text StageText;
     public static GameManager Instance { get; private set; }
-    public int CurrentStage { get; private set; }
+
+    public int CurrentStage;
     public int MeteoritesHit { get; private set; }
     public int SpawnedMeteorites { get; private set; }
     public float StageMeteoriteCount { get; private set; }
@@ -69,23 +70,15 @@ public class GameManager : MonoBehaviour
         ResetMeteoriteCounter();
 
         // Reset how many meteorites are in this stage
-        foreach (MeteoriteCurve meteor in meteorites)
+        foreach (MeteoriteCurve meteorCurve in meteorites)
         {
-            int amount = MeteoriteFunction(CurrentStage, meteor.curveHeight, meteor.curveWidth, meteor.xAxisPosition);
-            MeteoriteSpawner.SpawnMeteoritesOverTime(meteor.Meteorite, amount, meteor.timeBetweenSpawns);
+            int amount = meteorCurve.GetSpawns(CurrentStage);
+            MeteoriteSpawner.SpawnMeteoritesOverTime(meteorCurve.Meteorite, amount, meteorCurve.GetTimeBetweenSpawns(CurrentStage));
             StageMeteoriteCount += amount;
         }
 
         // Setup stage progress bar
         StageProgressManager.Setup();
-    }
-
-    private int MeteoriteFunction(int stage, float curveHeight, float curveWidth, float xAxisPosition)
-    {
-        // floor(k e^(-k ((x - b) / n)²))
-        float exponent = -curveHeight * Mathf.Pow((stage - xAxisPosition) / curveWidth, 2);
-        int meteorites = (int)(curveHeight * Mathf.Exp(exponent));
-        return meteorites;
     }
 
     private bool StageComplete()

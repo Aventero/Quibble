@@ -19,11 +19,14 @@ public class Scrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scrollVal -= inputManager.Scrollvalue.y;
         CenterDistance = transform.position.magnitude;
         zoomCamera.orthographicSize = CenterDistance + addedDistance + scrollVal;
 
-        if (zoomCamera.orthographicSize < 1)
-            zoomCamera.orthographicSize = 1;
+
+        scrollVal -= inputManager.Scrollvalue.y;
+        if (scrollVal < -3f)
+            scrollVal = -3f;
+        if (scrollVal > 10f)
+            scrollVal = 10f;
     }
 }

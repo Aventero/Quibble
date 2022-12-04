@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public ParticleSystem Dust;
     public float minHeight = 5;
 
     [Header("Movement Settings")]
@@ -13,8 +14,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animation Settings")]
     private float scale;
+    private bool shouldBreathe;
     private JumpCurves jumpCurves;
     private float fallHeight;
+    private float normalizedTime;
 
     private InputManager inputManager;
     private float velocity;
@@ -36,7 +39,7 @@ public class PlayerController : MonoBehaviour
         currentHeight = minHeight;
         scale = transform.localScale.x;
         oldJumpHeight = PlayerStats.Instance.Jump;
-
+        normalizedTime = 0;
         // Setup jump
         SetupJumpVariables();
     }
@@ -70,49 +73,62 @@ public class PlayerController : MonoBehaviour
 
     void SquishAndStretchPlayer()
     {
+        // 
+        normalizedTime += Time.deltaTime;
+        if (normalizedTime >= 1f)
+            normalizedTime = 0f;
+
         // Store the height, the player is currently -> once he is falling -> fallHeight
         if (velocity > 0)
             fallHeight = currentHeight - minHeight + 0.00000000001f;
 
  
-        if (velocity <= 0)
+        // Player is airborn
+        if (!StateManager.IsGrounded)
         {
-            // Player is Falling
-            float jumpHeight = currentHeight - minHeight + 0.00000000001f;
-            float jumpHeightNormalized = Mathf.Lerp(1f, 0f, jumpHeight / fallHeight);
-            Debug.Log(jumpHeightNormalized);
-            transform.localScale = new Vector3(moveDirection * jumpCurves.GetSpriteWidthFall(jumpHeightNormalized), jumpCurves.GetSpriteHeightFalling(jumpHeightNormalized), transform.localScale.z);
-        }
-        else
-        {
-            // Player is Rising
-            float velocityNormalized = Mathf.Lerp(1f, 0f, velocity / (initialJumpVelocity * 0.5f));
-            transform.localScale = new Vector3(moveDirection * jumpCurves.GetSpriteWidthRise(velocityNormalized), jumpCurves.GetSpriteHeightRising(velocityNormalized), transform.localScale.z);
+            if (velocity <= 0)
+            {
+                // Player is Falling
+                float jumpHeight = currentHeight - minHeight + 0.00000000001f;
+                float jumpHeightNormalized = Mathf.Lerp(1f, 0f, jumpHeight / fallHeight);
+                transform.localScale = new Vector3(moveDirection * jumpCurves.GetSpriteWidthFall(jumpHeightNormalized), jumpCurves.GetSpriteHeightFalling(jumpHeightNormalized), transform.localScale.z);
+            }
+            else
+            {
+                // Player is Rising
+                float velocityNormalized = Mathf.Lerp(1f, 0f, velocity / (initialJumpVelocity * 0.5f));
+                transform.localScale = new Vector3(moveDirection * jumpCurves.GetSpriteWidthRise(velocityNormalized), jumpCurves.GetSpriteHeightRising(velocityNormalized), transform.localScale.z);
+            }
         }
 
-        // Just to store the scale. just to be save
-        if (StateManager.IsGrounded)
+        // player is staying still
+        if (StateManager.IsGrounded && inputManager.MovementInput == Vector2.zero && shouldBreathe)
         {
-            transform.localScale = new Vector3(moveDirection * scale, scale, transform.localScale.z);
+            Transform animationTransform = this.transform.GetComponentsInChildren<Transform>()[1];
+            animationTransform.localScale = new Vector3(jumpCurves.GetBreathingSquish(normalizedTime), jumpCurves.GetBreathingStretch(normalizedTime), transform.localScale.z);
         }
     }
 
     void HandleMovement()
     {
         // Moving Right, but was moving left
-        if (inputManager.MovementInput.x >= 0 && transform.localScale.x < 0)
+        if (inputManager.MovementInput.x > 0 && transform.localScale.x < 0)
         {
+            if (StateManager.IsGrounded)
+                SpawnDust();
             moveDirection = 1;
-            transform.localScale = new Vector3(1 * transform.localScale.y, transform.localScale.y, transform.localScale.z);
         }
 
         // Moving Left, but was moving right
         if (inputManager.MovementInput.x < 0 && transform.localScale.x > 0)
         {
+            if (StateManager.IsGrounded)
+                SpawnDust();
             moveDirection = -1;
-            transform.localScale = new Vector3(-1 * transform.localScale.y, transform.localScale.y, transform.localScale.z);
         }
 
+        // Set the Player Direction
+        transform.localScale = new Vector3(moveDirection * transform.localScale.y, transform.localScale.y, transform.localScale.z);
 
         // Calculate new angles
         StateManager.AngleRad -= inputManager.MovementInput.x * PlayerStats.Instance.Movement * Time.deltaTime;
@@ -158,8 +174,6 @@ public class PlayerController : MonoBehaviour
             float nextYVelocity = (velocity + newYVelocity) * 0.5f;
             velocity = nextYVelocity;
         }
-
-
     }
 
     void PlaySounds()
@@ -167,6 +181,9 @@ public class PlayerController : MonoBehaviour
         if (StateManager.IsGrounded && shouldPlayLandingSound)
         {
             FindObjectOfType<AudioManager>().Play("Land");
+            StartCoroutine(PerformLandingSquish(0.2f));
+            StartCoroutine(SetShapeOverTime(Dust.main.duration));
+            SpawnDust();
             shouldPlayLandingSound = false;
         }
 
@@ -190,6 +207,12 @@ public class PlayerController : MonoBehaviour
             StateManager.InJump = true;
             velocity = initialJumpVelocity * 0.5f;
             FindObjectOfType<AudioManager>().Play("Jump");
+            var shape = Dust.shape;
+            shape.radius = 0.25f;
+            Dust.Emit(15);
+            shape.radius = 0.1f;
+            StartCoroutine(SetShapeOverTime(Dust.main.duration));
+            SpawnDust();
             shouldPlayLandingSound = true;
         }
         else if (!(inputManager.Jump > 0.0) && StateManager.IsGrounded)
@@ -203,5 +226,36 @@ public class PlayerController : MonoBehaviour
         float timeToApex = maxJumpTime / 2.0f;
         gravity = (-2.0f * PlayerStats.Instance.Jump) / Mathf.Pow(timeToApex, 2.0f);
         initialJumpVelocity = (2.0f * PlayerStats.Instance.Jump) / timeToApex;
+    }
+
+    private void SpawnDust()
+    {
+        Dust.Play();
+    }
+
+    IEnumerator PerformLandingSquish(float timeSeconds)
+    {
+        shouldBreathe = false;
+        float elapsed = 0f;
+        while (elapsed < timeSeconds)
+        {
+            elapsed += Time.deltaTime;
+            float normalizedElapsed = Mathf.Lerp(0f, 1f, elapsed / timeSeconds);
+            Transform animationTransform = GetComponentsInChildren<Transform>()[1];
+            animationTransform.localScale = new Vector3(jumpCurves.GetLandingSquish(normalizedElapsed), jumpCurves.GetLandingStretch(normalizedElapsed), animationTransform.localScale.z);
+            yield return null;
+        }
+        shouldBreathe = true;
+    }
+
+    IEnumerator SetShapeOverTime(float time)
+    {
+        var shape = Dust.shape;
+        var emission = Dust.emission;
+        emission.rateOverTime = 100;
+        shape.radius = 0.25f;
+        yield return new WaitForSeconds(time);
+        emission.rateOverTime = 50;
+        shape.radius = 0.1f;
     }
 }
