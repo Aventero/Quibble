@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0431a68c965e9d4abd40d845c8da278, type: 3}
-  m_Name: Attack
+  m_Name: Range
   m_EditorClassIdentifier: 
   Type: 0
   tiers:
   - spawnPercentage: 50
     upgradeSprite: {fileID: -632870856, guid: 8bc5e1b14468b7d429a460572987b0fe, type: 3}
-    upgradeEffect: 20
-  - spawnPercentage: 30
+    upgradeEffect: 0.1
+  - spawnPercentage: 25
     upgradeSprite: {fileID: -870737207, guid: 8bc5e1b14468b7d429a460572987b0fe, type: 3}
-    upgradeEffect: 25
-  - spawnPercentage: 15
+    upgradeEffect: 0.15
+  - spawnPercentage: 10
     upgradeSprite: {fileID: -786978979, guid: 8bc5e1b14468b7d429a460572987b0fe, type: 3}
-    upgradeEffect: 30
+    upgradeEffect: 0.2
   - spawnPercentage: 5
     upgradeSprite: {fileID: -1826974064, guid: 8bc5e1b14468b7d429a460572987b0fe, type: 3}
-    upgradeEffect: 40
+    upgradeEffect: 0.3

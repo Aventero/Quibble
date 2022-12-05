@@ -10,13 +10,11 @@ public class Attack : MonoBehaviour
     public float SwordDistance = 0.25f;
     public float CooldownTime = 1.0f;
     private float radius = 1.0f;
-    public float Angle = 720.0f;
     private InputManager inputManager;
     private IEnumerator attackCoroutine;
     private IEnumerator cooldown;
     private bool onCooldown = false;
     private GameObject spawnedSword;
-    public float SwordScale = 1.0f;
     private BoxCollider2D SwordCollider;
 
     // Start is called before the first frame update
@@ -48,13 +46,13 @@ public class Attack : MonoBehaviour
             SwordCollider = spawnedSword.GetComponent<BoxCollider2D>();
 
             // Change Scaling
-            radius = SwordScale / 2.0f + SwordDistance;
+            radius = PlayerStats.Instance.Range / 2.0f + SwordDistance;
             SwordCollider.size = new Vector2(1f, radius * 15f);
             SwordCollider.offset = new Vector2(0f, radius * 10f * 0.3f); // Shift backwards
-            spawnedSword.transform.localScale = new Vector3(spawnedSword.transform.localScale.x * SwordScale, spawnedSword.transform.localScale.y, spawnedSword.transform.localScale.z);
+            spawnedSword.transform.localScale = new Vector3(spawnedSword.transform.localScale.x * PlayerStats.Instance.Range, spawnedSword.transform.localScale.y, spawnedSword.transform.localScale.z);
             TrailRenderer trailRenderer = spawnedSword.GetComponentInChildren<TrailRenderer>();
-            trailRenderer.widthMultiplier = SwordScale;
-            attackCoroutine = AttackCoroutine(SwingSpeed, spawnedSword, Player.eulerAngles.z, Player.eulerAngles.z + Angle);
+            trailRenderer.widthMultiplier = PlayerStats.Instance.Range;
+            attackCoroutine = AttackCoroutine(SwingSpeed, spawnedSword, Player.eulerAngles.z, Player.eulerAngles.z + PlayerStats.Instance.Angle);
             StartCoroutine(attackCoroutine);
         }
     }
@@ -82,12 +80,12 @@ public class Attack : MonoBehaviour
 
     public void UpgradeSwordLength(float newLength)
     {
-        SwordScale = newLength;
+        PlayerStats.Instance.Range = newLength;
     }
 
     public void UpgradeAttackAngle(float newAngle)
     {
-        Angle = newAngle;
+        PlayerStats.Instance.Angle = newAngle;
     }
 
     public void UpgradeCooldown(float newCooldown)

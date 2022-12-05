@@ -1,0 +1,196 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1583977346538716701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1583977346538716703}
+  - component: {fileID: 1583977346538716702}
+  - component: {fileID: 1583977346538716696}
+  - component: {fileID: 1583977346538716697}
+  - component: {fileID: 1583977346538716698}
+  - component: {fileID: 1583977346538716699}
+  - component: {fileID: 1583977346538716708}
+  - component: {fileID: 1583977346538716709}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1583977346538716703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583977346538716701}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1583977346538716702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583977346538716701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa4ef30d08639f40aaf9d7d8410d211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageText: {fileID: 0}
+  CurrentStage: 0
+  meteorites:
+  - {fileID: 11400000, guid: b0a62ab295e8e3a4ba0488ce8b2a93d2, type: 2}
+  - {fileID: 11400000, guid: dfd118a6d841db44c9ea4d3cfdbf8ec0, type: 2}
+  - {fileID: 11400000, guid: d6db8ef98911f264eb5498737d39ea3d, type: 2}
+  - {fileID: 11400000, guid: e04c089fc7320ee4f8be426add38f191, type: 2}
+  - {fileID: 11400000, guid: 098d655c1dcd05e4196e02fa15a3c1ce, type: 2}
+  - {fileID: 11400000, guid: 4d24299e1a7f76e4f8dc86d986d59556, type: 2}
+  MeteoriteFallingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.4
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.050047338
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1583977346538716696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583977346538716701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88ad5de52392374590461488e9c796f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1583977346538716697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583977346538716701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9266e8e47ec874191f183fd44207ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageProgess: {fileID: 0}
+  lerpTime: 0.2
+  delay: 1
+--- !u!114 &1583977346538716698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583977346538716701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c102443b4effc4c824c0b8f88ff83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  maxHealth: 100
+  lerpTime: 0.2
+--- !u!114 &1583977346538716699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583977346538716701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d5663dea83bf6498af4b75708e9944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradeMenu: {fileID: 0}
+  showDelay: 1
+  Congrats: {fileID: 0}
+  Stage: {fileID: 0}
+  CongratulationWords:
+  - Amazing!
+  - You're the best!
+  - You can do it!
+  - Keep going!
+  - You might reach the end!
+  - Great!
+  - Beautiful!
+  - You're breathtaking!
+  - You're wonderful!
+  upgrades:
+  - {fileID: 11400000, guid: 585a4f31b1fd3c244879113419f2da1c, type: 2}
+  - {fileID: 11400000, guid: 6f2f9e6bfeed7174e9698d05b3b6b23d, type: 2}
+  - {fileID: 11400000, guid: e8a8b34dc5825b24b976469fedacbd4e, type: 2}
+  - {fileID: 11400000, guid: f821e943beab92d408f7fbdafc2c200c, type: 2}
+  - {fileID: 11400000, guid: 04d959a8aed6aa742920aeee16bc3dca, type: 2}
+  slots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  RangeText: {fileID: 0}
+  AngleText: {fileID: 0}
+  HeightText: {fileID: 0}
+  SpeedText: {fileID: 0}
+--- !u!114 &1583977346538716708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583977346538716701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368c8a86772ea164e8aabb72490ad57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathMenu: {fileID: 0}
+  TMP_Text: {fileID: 0}
+--- !u!114 &1583977346538716709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583977346538716701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e922848916cdda2419c62a479930131b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputManager: {fileID: 0}
+  PauseMenu: {fileID: 0}
+  IsAlreadyPaused: 0

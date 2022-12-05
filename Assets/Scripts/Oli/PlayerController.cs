@@ -180,6 +180,7 @@ public class PlayerController : MonoBehaviour
     {
         if (StateManager.IsGrounded && shouldPlayLandingSound)
         {
+            Time.timeScale = 1f;
             FindObjectOfType<AudioManager>().Play("Land");
             StartCoroutine(PerformLandingSquish(0.2f));
             StartCoroutine(SetShapeOverTime(Dust.main.duration));
@@ -204,6 +205,7 @@ public class PlayerController : MonoBehaviour
         // Jump allowed if: Currently not in jump, On ground, Jump pressed
         if (!StateManager.InJump && StateManager.IsGrounded && inputManager.Jump > 0.0)
         {
+            Time.timeScale = 0.80f;
             StateManager.InJump = true;
             velocity = initialJumpVelocity * 0.5f;
             FindObjectOfType<AudioManager>().Play("Jump");

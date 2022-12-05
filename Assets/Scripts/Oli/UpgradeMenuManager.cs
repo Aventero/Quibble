@@ -26,6 +26,11 @@ public class UpgradeMenuManager : MonoBehaviour
 
     private bool visible = false;
 
+    public TMPro.TMP_Text RangeText;
+    public TMPro.TMP_Text AngleText;
+    public TMPro.TMP_Text HeightText;
+    public TMPro.TMP_Text SpeedText;
+
     public void SetVisible(bool active)
     {
         visible = active;
@@ -43,27 +48,43 @@ public class UpgradeMenuManager : MonoBehaviour
         }
     }
 
-    public void OnUpgradeChoosen(Upgrade.UpgradeType type, float percentage)
+    public void Start()
     {
-        float multiplier = 1.0f + percentage / 100f;
+        RangeText.SetText(PlayerStats.Instance.Range + " M");
+        AngleText.SetText(PlayerStats.Instance.Angle + " °");
+        HeightText.SetText(PlayerStats.Instance.Jump + " M");
+        SpeedText.SetText(PlayerStats.Instance.Movement + " km/s");
+    }
 
+    public void OnUpgradeChoosen(Upgrade.UpgradeType type, float effect)
+    {
         switch (type)
         {
-            case Upgrade.UpgradeType.ATTACK:    
-                PlayerStats.Instance.Attack *= multiplier;
+            case Upgrade.UpgradeType.RANGE:    
+                PlayerStats.Instance.Range += effect;
+                RangeText.SetText(PlayerStats.Instance.Range + " M");
+                StartCoroutine(LerpColor(1f, 0f, 1f, RangeText));
                 break;
-            case Upgrade.UpgradeType.HEALTH:
-                PlayerStats.Instance.Health += (HealthManager.Instance.maxHealth - PlayerStats.Instance.Health) * (percentage / 100f);
+            case Upgrade.UpgradeType.ANGLE:
+                PlayerStats.Instance.Angle += effect;
+                AngleText.SetText(PlayerStats.Instance.Angle + " °");
+                StartCoroutine(LerpColor(1f, 0f, 1f, AngleText));
+                break;
+            case Upgrade.UpgradeType.HEAL:
+                PlayerStats.Instance.Health += effect;
+                if (PlayerStats.Instance.Health >= 100f) 
+                    PlayerStats.Instance.Health = 100f; 
                 HealthManager.Instance.UpdateValues();
                 break;
             case Upgrade.UpgradeType.JUMP:
-                PlayerStats.Instance.Jump *= multiplier;
+                PlayerStats.Instance.Jump += effect;
+                HeightText.SetText(PlayerStats.Instance.Jump + " M");
+                StartCoroutine(LerpColor(1f, 0f, 1f, HeightText));
                 break;
             case Upgrade.UpgradeType.MOVEMENT:  
-                PlayerStats.Instance.Movement *= multiplier;
-                break;
-            case Upgrade.UpgradeType.SLOW:      
-                PlayerStats.Instance.Slow /= multiplier;
+                PlayerStats.Instance.Movement += effect;
+                SpeedText.SetText(PlayerStats.Instance.Movement + " km/s");
+                StartCoroutine(LerpColor(1f, 0f, 1f, SpeedText));
                 break;
         }
 
@@ -92,5 +113,27 @@ public class UpgradeMenuManager : MonoBehaviour
 
         UpgradeMenuVisibility(true);
         UpdateUpgradeText();
+    }
+
+    IEnumerator LerpColor(float time, float minValue, float maxValue, TMPro.TMP_Text tMP_Text)
+    {
+        float elapsed = 0.0f;
+        while (elapsed < time)
+        {
+            elapsed += Time.deltaTime;
+            float intensity;
+            if (elapsed / time <= 0.5f)
+                intensity = Mathf.Lerp(minValue, maxValue, elapsed / time);
+            else
+            {
+                intensity = Mathf.Lerp(maxValue, minValue, elapsed / time);
+            }
+            tMP_Text.color = Color.Lerp(new Color(1f, 1f, 0.5f), new Color(0, 1f, 0, 1f), intensity);
+            tMP_Text.fontSize = Mathf.Lerp(23f, 30f, intensity);
+            yield return null;
+        }
+        tMP_Text.color = new Color(1f, 1f, 1f, 1f);
+        tMP_Text.fontSize = 23f;
+        yield return null;
     }
 }

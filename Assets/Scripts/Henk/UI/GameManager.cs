@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private MeteoriteSpawner MeteoriteSpawner;
     private StageProgressManager StageProgressManager;
     private UpgradeMenuManager UpgradeMenuManager;
+    public AnimationCurve MeteoriteFallingCurve;
 
     private void Awake()
     {
@@ -86,6 +87,11 @@ public class GameManager : MonoBehaviour
         if (MeteoriteSpawner.IsFinished() && MeteoritesHit >= StageMeteoriteCount)
             return true;
         return false;
+    }
+
+    public float GetFallingCurve(float v)
+    {
+        return MeteoriteFallingCurve.Evaluate(v);
     }
 
     private void ResetMeteoriteCounter()

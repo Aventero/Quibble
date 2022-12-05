@@ -15,9 +15,9 @@ public class PlayerStats : MonoBehaviour
             Instance = this;
     }
 
-    public float Attack = 1.0f; // No meteorites with health
-    public float Health = 10.0f;
-    public float Jump = 3.0f;
-    public float Movement = 2.0f;
-    public float Slow = 1.0f;
+    public float Range = 1f; 
+    public float Angle = 180f;
+    public float Health = 100f;
+    public float Jump = 3f;
+    public float Movement = 2f;
 }

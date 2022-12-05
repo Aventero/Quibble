@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0431a68c965e9d4abd40d845c8da278, type: 3}
   m_Name: Movement
   m_EditorClassIdentifier: 
-  Type: 3
+  Type: 4
   tiers:
   - spawnPercentage: 50
     upgradeSprite: {fileID: -1827551849, guid: d2b7630f83cd8184e929c49554c06add, type: 3}
-    upgradeEffect: 20
-  - spawnPercentage: 30
+    upgradeEffect: 0.1
+  - spawnPercentage: 25
     upgradeSprite: {fileID: 877415833, guid: d2b7630f83cd8184e929c49554c06add, type: 3}
-    upgradeEffect: 30
-  - spawnPercentage: 15
+    upgradeEffect: 0.15
+  - spawnPercentage: 10
     upgradeSprite: {fileID: -514565016, guid: d2b7630f83cd8184e929c49554c06add, type: 3}
-    upgradeEffect: 30
+    upgradeEffect: 0.3
   - spawnPercentage: 5
     upgradeSprite: {fileID: -1273710602, guid: d2b7630f83cd8184e929c49554c06add, type: 3}
-    upgradeEffect: 40
+    upgradeEffect: 0.5

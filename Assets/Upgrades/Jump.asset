@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0431a68c965e9d4abd40d845c8da278, type: 3}
   m_Name: Jump
   m_EditorClassIdentifier: 
-  Type: 2
+  Type: 3
   tiers:
   - spawnPercentage: 50
     upgradeSprite: {fileID: -442906242, guid: b8b57cf10ecdc184b940a71384afaa9e, type: 3}
-    upgradeEffect: 10
-  - spawnPercentage: 30
+    upgradeEffect: 0.4
+  - spawnPercentage: 25
     upgradeSprite: {fileID: -868476928, guid: b8b57cf10ecdc184b940a71384afaa9e, type: 3}
-    upgradeEffect: 15
-  - spawnPercentage: 15
+    upgradeEffect: 0.6
+  - spawnPercentage: 10
     upgradeSprite: {fileID: -1604370503, guid: b8b57cf10ecdc184b940a71384afaa9e, type: 3}
-    upgradeEffect: 20
+    upgradeEffect: 0.8
   - spawnPercentage: 5
     upgradeSprite: {fileID: 2050381655, guid: b8b57cf10ecdc184b940a71384afaa9e, type: 3}
-    upgradeEffect: 25
+    upgradeEffect: 1

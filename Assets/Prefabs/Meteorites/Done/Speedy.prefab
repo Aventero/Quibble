@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3807774013133131743}
   - component: {fileID: -6649451909655936447}
   m_Layer: 0
-  m_Name: Small
+  m_Name: Speedy
   m_TagString: Meteorite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 33b8074396d26e14eb83e019fd6cdcf7, type: 2}
+  - {fileID: 2100000, guid: 5e065f6098249664a87495a814608368, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 1147378467
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 999d04c0ea94ccc41b3d80788160695b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e962f829923942439f7a4bc9bc1b70c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.28, y: 10.28}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -105,18 +105,18 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 10
-      inSlope: 15
-      outSlope: 15
+      value: 15
+      inSlope: 0.1
+      outSlope: 0.1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
+      time: 100
       value: 25
-      inSlope: 15
-      outSlope: 15
+      inSlope: 0.1
+      outSlope: 0.1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -124,16 +124,18 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  MeteoriteSpeed: 0.1
-  Gravity: 10
-  MinScale: 0.01
-  ScaleByDistance: 10
+  MeteoriteSpeed: 5
+  SlappedSpeed: 8
+  Gravity: 2
+  SlappedGravity: 15
+  MinScale: 0.05
+  ScaleByDistance: 5
   EllipseWidth: 1
   EllipseHeight: 1
   DeletionRadius: 75
   damage: 5
-  ShakeDuration: 0.02
-  ShakePower: 0.1
+  ShakeDuration: 0.2
+  ShakePower: 0
 --- !u!96 &-126789730253380437
 TrailRenderer:
   serializedVersion: 2
@@ -176,7 +178,7 @@ TrailRenderer:
   m_SortingLayerID: 1147378467
   m_SortingLayer: 2
   m_SortingOrder: -1
-  m_Time: 1
+  m_Time: 2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -215,7 +217,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.9082566, b: 0, a: 1}
+      key0: {r: 1, g: 0.99296916, b: 0, a: 1}
       key1: {r: 1, g: 0.5917661, b: 0, a: 0}
       key2: {r: 1, g: 0.5917661, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

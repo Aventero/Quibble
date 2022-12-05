@@ -9,12 +9,14 @@ public class Meteorite : MonoBehaviour
     [Header("Meteorite")]
     public AnimationCurve SpawnRadiusByStage;
     public float MeteoriteSpeed = 1.0f;
-    public float Gravity = 10.0f;
+    public float SlappedSpeed = 2.0f;
+    public float Gravity = 2.0f;
+    public float SlappedGravity = 4.0f;
     public float MinScale = 0.1f;
     public float ScaleByDistance = 10.0f;
     public float EllipseWidth = 1.0f;
     public float EllipseHeight = 1.0f;
-    public float DeletionRadius = 20.0f;
+    public float DeletionRadius = 75.0f;
     public float damage = 1.0f;
     private float currentRadius;
 
@@ -77,8 +79,10 @@ public class Meteorite : MonoBehaviour
 
     private void UpdateSpeed()
     {
-        AngleRad += PlayerStats.Instance.Slow * MeteoriteSpeed * Time.deltaTime;
-        currentRadius += -0.1f * Gravity * Time.deltaTime;
+        AngleRad += MeteoriteSpeed * Time.deltaTime;
+        float distance = Vector3.Distance(transform.position, gravitationCenter.position);
+        float fallingMultiplier = GameManager.Instance.GetFallingCurve(1f - ((distance) / SpawnRadiusByStage.Evaluate(GameManager.Instance.CurrentStage)));
+        currentRadius += -Gravity * Time.deltaTime * fallingMultiplier;
     }
 
     private void UpdatePosition()
@@ -99,8 +103,8 @@ public class Meteorite : MonoBehaviour
     {
         if (collision.transform.CompareTag("Sword"))
         {
-            Gravity = -50.0f; // Negate gravity, so the meteorite shoots away
-            MeteoriteSpeed *= 2.0f;
+            Gravity = -SlappedGravity; // Negate gravity, so the meteorite shoots away
+            MeteoriteSpeed = SlappedSpeed;
 
             // After hitting, change the trail color
             FindObjectOfType<AudioManager>().Play("Hit");

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Sword : MonoBehaviour
 {
-    public float StopDuration = 0.1f;
+    //public float StopDuration = 0.1f;
     private HitStop hitStop;
     public static event UnityAction OnMeteoriteHit;
     private ParticleManager particleManager;
@@ -22,7 +22,8 @@ public class Sword : MonoBehaviour
     {
         if (other.transform.CompareTag("Meteorite"))
         {
-            hitStop.Stop(StopDuration);
+            float duration = other.GetComponent<Meteorite>().ShakeDuration;
+            hitStop.Stop(duration);
             OnMeteoriteHit.Invoke();
 
             // Spawn particles

@@ -7,11 +7,11 @@ public class Upgrade : ScriptableObject
 {
     public enum UpgradeType
     {
-        ATTACK,
-        HEALTH,
+        RANGE,
+        ANGLE,
+        HEAL,
         JUMP,
         MOVEMENT,
-        SLOW
     }
 
     public UpgradeType Type;
