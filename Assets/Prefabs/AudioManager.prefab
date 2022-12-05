@@ -71,7 +71,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MenuHover
     clip: {fileID: 8300000, guid: 1ff2b1ea43acf3248aac1f4e560cff03, type: 3}
-    volume: 0.05
+    volume: 0.221
     pitch: 0.75
     loop: 0
     source: {fileID: 0}
