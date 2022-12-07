@@ -20,7 +20,6 @@ public class Upgrade : ScriptableObject
     [System.Serializable]
     public class Tier
     {
-        public float spawnPercentage;
         public Sprite upgradeSprite;
         public float upgradeEffect;
     }

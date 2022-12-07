@@ -18,6 +18,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
     [Header("Upgrades")]
     public Upgrade[] upgrades;
+    public float[] tierPercentages;
 
     [Header("Slots")]
     public UpgradeSlot[] slots;
@@ -41,10 +42,13 @@ public class UpgradeMenuManager : MonoBehaviour
     {
         StartCoroutine(ShowAfterDelay());
 
+        // Generate tier
+        int tier = GenerateTier();
+
         // Generate upgrades
         foreach (UpgradeSlot slot in slots)
         {
-            slot.GenerateUpgrade(upgrades);
+            slot.GenerateUpgrade(upgrades, tier);
         }
     }
 
@@ -135,5 +139,26 @@ public class UpgradeMenuManager : MonoBehaviour
         tMP_Text.color = new Color(1f, 1f, 1f, 1f);
         tMP_Text.fontSize = 23f;
         yield return null;
+    }
+
+    private int GenerateTier()
+    {
+        int tier = 0;
+
+        // Random value between 0 - 100
+        float random = Random.Range(0, 100f);
+
+        float weight = 0;
+        foreach (float tierChance in tierPercentages)
+        {
+            weight += tierChance;
+
+            if (random < weight)
+                break;
+
+            tier++;
+        }
+
+        return tier;
     }
 }

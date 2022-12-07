@@ -25,7 +25,7 @@ public class UpgradeSlot : MonoBehaviour
             upgradeImage = GetComponent<Image>();
     }
 
-    public void GenerateUpgrade(Upgrade[] upgrades)
+    public void GenerateUpgrade(Upgrade[] upgrades, int tierLevel)
     {
         LoadReference();
 
@@ -34,21 +34,8 @@ public class UpgradeSlot : MonoBehaviour
         Upgrade upgrade = upgrades[type];
         upgradeType = upgrade.Type;
 
-        // Get random tier
-        int randomTier = Random.Range(0, 100);
-
-        int index = 0;
-        float weight = 0;
-        foreach (Upgrade.Tier tier in upgrade.tiers)
-        {
-            weight += tier.spawnPercentage;
-            if (randomTier >= weight)
-                index++;
-            else
-                break;
-        }
-
-        tier = upgrade.tiers[index];
+        // Select correct tier
+        tier = upgrade.tiers[tierLevel];
 
         // Update texture
         upgradeImage.sprite = tier.upgradeSprite;

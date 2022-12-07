@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
     // Sound
     private bool shouldPlayLandingSound = false;
 
-
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
