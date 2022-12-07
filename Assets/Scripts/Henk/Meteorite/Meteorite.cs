@@ -117,13 +117,13 @@ public class Meteorite : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("PlanetHit");
 
-            StartCoroutine(FadeTrail(ShakeDuration * 2.0f, this.gameObject));
-            StartCoroutine(DestoryAfter(ShakeDuration * 2.0f, this.gameObject));
-            OnPlanetHit.Invoke();
-            GetComponent<Collider2D>().enabled = false;
-
             // Deal damage
             HealthManager.Instance.DealDamage(damage);
+            GetComponent<Collider2D>().enabled = false;
+            OnPlanetHit.Invoke();
+
+            StartCoroutine(FadeTrail(ShakeDuration * 2.0f, this.gameObject));
+            StartCoroutine(DestoryAfter(ShakeDuration * 2.0f, this.gameObject));
         }
     }
 
