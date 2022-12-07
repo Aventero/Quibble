@@ -3215,6 +3215,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d1d1ce552c4d9b343a135585046e6053, type: 2}
   - {fileID: 11400000, guid: 0ed45d7ba35a40747b42f9ec3b8bc1ac, type: 2}
   - {fileID: 11400000, guid: 2ff252611edd45c4d9e6026f768dc924, type: 2}
+  - {fileID: 11400000, guid: fc50c4aceef67844d8a0ca688255547f, type: 2}
   timeBetweenExplanations: 3
   explanationBox: {fileID: 1844886440}
   explanationText: {fileID: 1076607652}
@@ -3231,8 +3232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 590874918}
-  MeteoriteDmg: {fileID: 0}
-  MeteoriteNonDmg: {fileID: 0}
+  MeteoriteDmg: {fileID: 1906087877782029199, guid: 5fd0a634d30e43b4991f972dff9c6382, type: 3}
+  MeteoriteNonDmg: {fileID: 1906087877782029199, guid: 3143811bf127108478abfd538ac05d0a, type: 3}
   MovementUnlocked: 0
   JumpUnlocked: 0
   AttackUnlocked: 0
