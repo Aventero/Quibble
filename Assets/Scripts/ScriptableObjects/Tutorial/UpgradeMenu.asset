@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cd3064eba0bb26458aaed98186f6619, type: 3}
-  m_Name: Jump
+  m_Name: UpgradeMenu
   m_EditorClassIdentifier: 
   parts:
-  - Good job!
-  - In order to reach higher places you can perform a jump
-  - <SECONDARYTRIGGER>
-  - Just try it - Press 'Space' to jump
+  - After each stage you will be greeted by the upgrade screen
+  - Here you can choose one random upgrade
+  - Upgrades are split into 4 different tiers
+  - Common, Rare, Epic and Legendary
+  - The effect of the upgrade will scale with its tier
+  - Have a look at the current upgrades!
   - <TRIGGER>

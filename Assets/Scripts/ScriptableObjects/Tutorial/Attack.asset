@@ -16,5 +16,6 @@ MonoBehaviour:
   - Great!
   - "You\xB4re now able to move around"
   - "Now let\xB4s talk about how you will defend your planet"
-  - "Luckily you\xB4re wielding a powerful sword"
+  - <SECONDARYTRIGGER>
   - Press 'Left Mouse' or 'Enter' to swing your sword
+  - <TRIGGER>

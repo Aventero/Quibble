@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ExplanationManager : MonoBehaviour
 {
+    public static event UnityAction OnExplanationTrigger;
+    public static event UnityAction OnExplanationSecondaryTrigger;
+
     public List<Explanation> explanations;
 
     public float timeBetweenExplanations;
@@ -14,20 +19,19 @@ public class ExplanationManager : MonoBehaviour
     private Explanation current;
     private Queue<string> explanationsQueue;
 
-    private TutorialManager tutorialManager;
 
     private void Start()
     {
         explanationsQueue = new Queue<string>();
-        tutorialManager = GetComponent<TutorialManager>();
     }
 
     public void StartExplanation(int index)
     {
+        // Load explanation
         current = explanations[index];
 
+        // Load explanation sentences
         explanationsQueue.Clear();
-
         foreach (string part in current.parts)
         {
             explanationsQueue.Enqueue(part);
@@ -35,11 +39,13 @@ public class ExplanationManager : MonoBehaviour
 
         explanationBox.SetActive(true);
 
+        // Display first sentence
         DisplayNextPart();
     }
 
     public void DisplayNextPart()
     {
+        // If end of explanantion is reached => End explanantion
         if (explanationsQueue.Count == 0)
         {
             EndExplanation();
@@ -47,8 +53,23 @@ public class ExplanationManager : MonoBehaviour
         }
 
         string nextPart = explanationsQueue.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(nextPart));
+
+        // Check if this part is trigger
+        if (nextPart.Equals("<TRIGGER>"))
+        {
+            OnExplanationTrigger.Invoke();
+            DisplayNextPart();
+        }
+        else if (nextPart.Equals("<SECONDARYTRIGGER>"))
+        {
+            OnExplanationSecondaryTrigger.Invoke();
+            DisplayNextPart();
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(nextPart));
+        }
     }
 
     public void EndExplanation()
@@ -56,9 +77,6 @@ public class ExplanationManager : MonoBehaviour
         explanationBox.SetActive(false);
 
         current = null;
-
-        // Update tutorial manager
-        tutorialManager.UpdateProgress();
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -81,5 +99,21 @@ public class ExplanationManager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         StartExplanation(index);
+    }
+
+    public static void ResetTrigger(bool both = false)
+    {
+        if (both)
+        {
+            foreach (Delegate invoker in OnExplanationSecondaryTrigger.GetInvocationList())
+            {
+                OnExplanationSecondaryTrigger -= (UnityAction)invoker;
+            }
+        }
+
+        foreach (Delegate invoker in OnExplanationTrigger.GetInvocationList())
+        {
+            OnExplanationTrigger -= (UnityAction)invoker;
+        }
     }
 }

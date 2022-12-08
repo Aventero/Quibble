@@ -15,7 +15,9 @@ MonoBehaviour:
   parts:
   - Welcome to Quibble!
   - "It\xB4s good to see you here!"
-  - Here you will learn everything you need to play this game
+  - I will teach you how to play this game
   - "Let\xB4s start with the basics"
-  - You can move around by pressing the 'A' or 'D' key on your keyboard
+  - <SECONDARYTRIGGER>
+  - Move around by pressing 'A' or 'D'
   - Go on - Give it a try!
+  - <TRIGGER>

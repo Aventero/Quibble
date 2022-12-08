@@ -8,9 +8,6 @@ public class UpgradeMenuManager : MonoBehaviour
 {
     public GameObject UpgradeMenu;
 
-    // Time to show menu
-    public float showDelay = 2f;
-
     public TMPro.TMP_Text Congrats;
     public TMPro.TMP_Text Stage;
 
@@ -25,6 +22,8 @@ public class UpgradeMenuManager : MonoBehaviour
 
     public bool Visible => visible;
 
+    public bool AutoStartNextStage = true;
+
     private bool visible = false;
 
     public TMPro.TMP_Text RangeText;
@@ -38,9 +37,9 @@ public class UpgradeMenuManager : MonoBehaviour
     }
 
     // Start to show upgrade menu
-    public void StartShowUpgradeMenu()
+    public void StartShowUpgradeMenu(float delay = 2.0f)
     {
-        StartCoroutine(ShowAfterDelay());
+        StartCoroutine(ShowAfterDelay(delay));
 
         // Generate tier
         int tier = GenerateTier();
@@ -97,7 +96,8 @@ public class UpgradeMenuManager : MonoBehaviour
         visible = false;
 
         // Start next stage
-        GameManager.Instance.StartNextStage();
+        if (AutoStartNextStage)
+            GameManager.Instance.StartNextStage();
     }
 
     private void UpdateUpgradeText()
@@ -106,14 +106,14 @@ public class UpgradeMenuManager : MonoBehaviour
         Stage.SetText("Stage " + GameManager.Instance.CurrentStage + " cleared!");
     }
 
-    private void UpgradeMenuVisibility(bool visible)
+    public void UpgradeMenuVisibility(bool visible)
     {
         UpgradeMenu.SetActive(visible);
     }
 
-    IEnumerator ShowAfterDelay()
+    IEnumerator ShowAfterDelay(float delay)
     {
-        yield return new WaitForSeconds(showDelay);
+        yield return new WaitForSeconds(delay);
 
         UpgradeMenuVisibility(true);
         UpdateUpgradeText();

@@ -13,7 +13,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OpenSettings()
     {
-        Debug.Log("Settings");
+        gameLoader.LoadTutorialScene();
     }
 
     public void QuitGame()

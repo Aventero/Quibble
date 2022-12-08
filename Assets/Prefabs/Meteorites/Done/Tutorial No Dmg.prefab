@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -126789730253380437}
   - component: {fileID: -3807774013133131743}
   - component: {fileID: -6649451909655936447}
-  - component: {fileID: 5265220114007078789}
+  - component: {fileID: 59667802974071287}
   m_Layer: 0
   m_Name: Tutorial No Dmg
   m_TagString: Meteorite
@@ -242,7 +242,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5265220114007078789
+--- !u!114 &59667802974071287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1906087877782029199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 691d9cc048c36b54695640d377c502fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 99514c65d407f8143bc43241fb5d4ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnRadiusByStage:

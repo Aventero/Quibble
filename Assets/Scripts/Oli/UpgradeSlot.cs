@@ -12,6 +12,11 @@ public class UpgradeSlot : MonoBehaviour
 
     private void Start()
     {
+        AddListener();
+    }
+
+    public void AddListener()
+    {
         // Update button
         GetComponent<Button>().onClick.AddListener(new UnityEngine.Events.UnityAction(() =>
         {

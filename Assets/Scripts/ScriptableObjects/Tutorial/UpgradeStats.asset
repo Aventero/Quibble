@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cd3064eba0bb26458aaed98186f6619, type: 3}
-  m_Name: Jump
+  m_Name: UpgradeStats
   m_EditorClassIdentifier: 
   parts:
-  - Good job!
-  - In order to reach higher places you can perform a jump
   - <SECONDARYTRIGGER>
-  - Just try it - Press 'Space' to jump
+  - "I don\xB4t assume you remember every selected upgrade"
+  - So you can see your current upgrades on the bottom of the screen
+  - Now try to select an upgrade you want!
   - <TRIGGER>

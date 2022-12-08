@@ -106,6 +106,6 @@ public class GameManager : MonoBehaviour
         // Wait until stage bar is full
         while (StageProgressManager.IsFilling()) { yield return null; }
 
-        UpgradeMenuManager.StartShowUpgradeMenu();
+        UpgradeMenuManager.StartShowUpgradeMenu(2.0f);
     }
 }

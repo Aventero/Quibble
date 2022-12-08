@@ -15,5 +15,6 @@ MonoBehaviour:
   parts:
   - Awesome!
   - You are now able to defend your planet!
-  - ...
+  - <TRIGGER>
+  - ...?
   - Huh? What is that?

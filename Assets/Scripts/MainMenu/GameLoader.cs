@@ -27,6 +27,11 @@ public class GameLoader : MonoBehaviour
         StartCoroutine(LoadMainMenu());
     }
 
+    public void LoadTutorialScene()
+    {
+        StartCoroutine(LoadTutorial());
+    }
+
     IEnumerator LoadGame()
     {
         Time.timeScale = 1f;
@@ -46,6 +51,17 @@ public class GameLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(0);
+        StateManager.Init();
+    }
+
+    IEnumerator LoadTutorial()
+    {
+        Time.timeScale = 1f;
+        transititon.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(2);
         StateManager.Init();
     }
 }
