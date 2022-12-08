@@ -5,11 +5,12 @@ using UnityEngine;
 public class Parallax : MonoBehaviour
 {
     // Update is called once per frame
-    private float rotation = 0;
-    public float rotationMultiplier = 0.1f;
+    public float rotationMultiplier = 0.8f;
+    public float LerpSpeed = 1.0f;
     public Transform[] children;
     public InputManager InputManager;
     public Transform Player;
+    public CameraMovement CameraMovement;
 
     private void Start()
     {
@@ -18,16 +19,10 @@ public class Parallax : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.MovementInput.x != 0)
-        {
-            rotation += InputManager.MovementInput.x * rotationMultiplier;
-        }
-
         for (int i = 0; i < children.Length; i++)
         {
             float l = Mathf.Lerp(0f, 1f, (float)i / (float)children.Length);
-            children[i].eulerAngles = Camera.main.transform.eulerAngles * l;
-            //children[i].Rotate(new Vector3(0, 0, l * rotation), Space.World);
+            children[i].rotation = Quaternion.Euler(new Vector3(0, 0, CameraMovement.currentAngle * l));
         }
     }
 }

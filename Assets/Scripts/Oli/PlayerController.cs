@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private InputManager inputManager;
     private float velocity;
-    private float currentHeight;
+    public float currentHeight { get; private set; }
     private float gravity;
     private float initialJumpVelocity;
     private float oldJumpHeight;
