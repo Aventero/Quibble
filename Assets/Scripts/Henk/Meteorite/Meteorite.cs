@@ -104,7 +104,12 @@ public class Meteorite : MonoBehaviour
         if (collision.transform.CompareTag("Sword"))
         {
             Gravity = -SlappedGravity; // Negate gravity, so the meteorite shoots away
-            MeteoriteSpeed = SlappedSpeed;
+
+            // Let meteorite fly in the hitdirection
+            if (StateManager.MoveDirection == -1)
+                MeteoriteSpeed = SlappedSpeed;
+            else
+                MeteoriteSpeed = -SlappedSpeed;
 
             // After hitting, change the trail color
             FindObjectOfType<AudioManager>().Play("Hit");

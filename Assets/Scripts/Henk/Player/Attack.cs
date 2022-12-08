@@ -48,18 +48,43 @@ public class Attack : MonoBehaviour
             // Change Scaling
             radius = PlayerStats.Instance.Range / 2.0f + SwordDistance;
             SwordCollider.size = new Vector2(1f, radius * 15f);
-            SwordCollider.offset = new Vector2(0f, radius * 10f * 0.3f); // Shift backwards
             spawnedSword.transform.localScale = new Vector3(spawnedSword.transform.localScale.x * PlayerStats.Instance.Range, spawnedSword.transform.localScale.y, spawnedSword.transform.localScale.z);
             TrailRenderer trailRenderer = spawnedSword.GetComponentInChildren<TrailRenderer>();
             trailRenderer.widthMultiplier = PlayerStats.Instance.Range;
-            attackCoroutine = AttackCoroutine(SwingSpeed, spawnedSword, Player.eulerAngles.z, Player.eulerAngles.z + PlayerStats.Instance.Angle);
+
+            // Attack From Right TO left when moving Left
+            if (StateManager.MoveDirection == -1)
+            {
+                attackCoroutine = AttackRightCoroutine(SwingSpeed, spawnedSword, Player.eulerAngles.z, Player.eulerAngles.z + PlayerStats.Instance.Angle);
+                SwordCollider.offset = new Vector2(0f, radius * 10f * 0.3f); // Shift backwards
+            }
+            else
+            {
+                attackCoroutine = AttackLeftCoroutine(SwingSpeed, spawnedSword, Player.eulerAngles.z + 180f, Player.eulerAngles.z + 180f - PlayerStats.Instance.Angle);
+                SwordCollider.offset = new Vector2(0f, -radius * 10f * 0.3f); // Shift forward
+            }
             StartCoroutine(attackCoroutine);
         }
     }
 
-    private IEnumerator AttackCoroutine(float swingSpeed, GameObject sword, float startAngle, float endAngle)
+    private IEnumerator AttackRightCoroutine(float swingSpeed, GameObject sword, float startAngle, float endAngle)
     {
         for (float i = startAngle; i <= endAngle; i += swingSpeed * Time.deltaTime)
+        {
+            Vector3 dirToSword = sword.transform.position - Player.position;
+            float angle = Mathf.Atan2(dirToSword.y, dirToSword.x);
+            sword.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * angle));
+            sword.transform.position = new Vector2(Player.position.x + radius * Mathf.Cos(Mathf.Deg2Rad * i), Player.position.y + radius * Mathf.Sin(Mathf.Deg2Rad * i));
+            yield return new WaitForEndOfFrame();
+        }
+        Destroy(spawnedSword);
+        spawnedSword = null;
+        yield return new WaitForEndOfFrame();
+    }
+
+    private IEnumerator AttackLeftCoroutine(float swingSpeed, GameObject sword, float startAngle, float endAngle)
+    {
+        for (float i = startAngle; i >= endAngle; i -= swingSpeed * Time.deltaTime)
         {
             Vector3 dirToSword = sword.transform.position - Player.position;
             float angle = Mathf.Atan2(dirToSword.y, dirToSword.x);

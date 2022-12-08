@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     public float Range = 1f; 
-    public float Angle = 180f;
+    public float Angle = 200f;
     public float Health = 100f;
     public float Jump = 3f;
     public float Movement = 2f;

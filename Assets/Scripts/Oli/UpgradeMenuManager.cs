@@ -54,10 +54,10 @@ public class UpgradeMenuManager : MonoBehaviour
 
     public void Start()
     {
-        RangeText.SetText(PlayerStats.Instance.Range + " M");
-        AngleText.SetText(PlayerStats.Instance.Angle + " °");
-        HeightText.SetText(PlayerStats.Instance.Jump + " M");
-        SpeedText.SetText(PlayerStats.Instance.Movement + " km/s");
+        RangeText.SetText(System.Math.Round(PlayerStats.Instance.Range, 2) + " M");
+        AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 2) + " °");
+        HeightText.SetText(System.Math.Round(PlayerStats.Instance.Jump, 2) + " M");
+        SpeedText.SetText(System.Math.Round(PlayerStats.Instance.Movement, 2) + " km/s");
     }
 
     public void OnUpgradeChoosen(Upgrade.UpgradeType type, float effect)
@@ -66,12 +66,12 @@ public class UpgradeMenuManager : MonoBehaviour
         {
             case Upgrade.UpgradeType.RANGE:    
                 PlayerStats.Instance.Range += effect;
-                RangeText.SetText(PlayerStats.Instance.Range + " M");
+                RangeText.SetText(System.Math.Round(PlayerStats.Instance.Range, 2) + " M");
                 StartCoroutine(LerpColor(1f, 0f, 1f, RangeText));
                 break;
             case Upgrade.UpgradeType.ANGLE:
                 PlayerStats.Instance.Angle += effect;
-                AngleText.SetText(PlayerStats.Instance.Angle + " °");
+                AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 2) + " °");
                 StartCoroutine(LerpColor(1f, 0f, 1f, AngleText));
                 break;
             case Upgrade.UpgradeType.HEAL:
@@ -83,12 +83,12 @@ public class UpgradeMenuManager : MonoBehaviour
             case Upgrade.UpgradeType.JUMP:
                 PlayerStats.Instance.Jump += effect;
                 HeightText.SetText(PlayerStats.Instance.Jump + " M");
-                StartCoroutine(LerpColor(1f, 0f, 1f, HeightText));
+                HeightText.SetText(System.Math.Round(PlayerStats.Instance.Jump, 2) + " M");
                 break;
             case Upgrade.UpgradeType.MOVEMENT:  
                 PlayerStats.Instance.Movement += effect;
                 SpeedText.SetText(PlayerStats.Instance.Movement + " km/s");
-                StartCoroutine(LerpColor(1f, 0f, 1f, SpeedText));
+                SpeedText.SetText(System.Math.Round(PlayerStats.Instance.Movement, 2) + " km/s");
                 break;
         }
 

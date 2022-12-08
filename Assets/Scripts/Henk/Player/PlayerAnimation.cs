@@ -28,9 +28,16 @@ public class PlayerAnimation : MonoBehaviour
 
         Animator.SetFloat("Speed", Mathf.Abs(InputManager.MovementInput.x));
         if (!StateManager.IsGrounded && InputManager.Jump == 1)
+        {
             Animator.SetFloat("Jump", 1);
-        else
-            Animator.SetFloat("Jump", 0);
+            //Animator.SetBool("Fall", false);
+        }
+
+        if (StateManager.IsGrounded)
+        {
+            //Animator.SetBool("Fall", true);
+            Animator.SetFloat("Jump", -1);
+        }
         Animator.SetBool("Attack", InputManager.Attack);
     }
 }

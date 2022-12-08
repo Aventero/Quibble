@@ -32,6 +32,8 @@ public class StateManager : ScriptableObject
         set { inJump = value; }
     }
 
+    public static int MoveDirection { get; set; } = 1;
+
     private static float angleRad = 0;
     private static bool inJump = false;
     private static bool isGrounded = true;

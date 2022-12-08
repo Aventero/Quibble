@@ -26,8 +26,6 @@ public class PlayerController : MonoBehaviour
     private float initialJumpVelocity;
     private float oldJumpHeight;
 
-    private int moveDirection = 1;
-
     // Sound
     private bool shouldPlayLandingSound = false;
 
@@ -90,13 +88,13 @@ public class PlayerController : MonoBehaviour
                 // Player is Falling
                 float jumpHeight = currentHeight - minHeight + 0.00000000001f;
                 float jumpHeightNormalized = Mathf.Lerp(1f, 0f, jumpHeight / fallHeight);
-                transform.localScale = new Vector3(moveDirection * jumpCurves.GetSpriteWidthFall(jumpHeightNormalized), jumpCurves.GetSpriteHeightFalling(jumpHeightNormalized), transform.localScale.z);
+                transform.localScale = new Vector3(StateManager.MoveDirection * jumpCurves.GetSpriteWidthFall(jumpHeightNormalized), jumpCurves.GetSpriteHeightFalling(jumpHeightNormalized), transform.localScale.z);
             }
             else
             {
                 // Player is Rising
                 float velocityNormalized = Mathf.Lerp(1f, 0f, velocity / (initialJumpVelocity * 0.5f));
-                transform.localScale = new Vector3(moveDirection * jumpCurves.GetSpriteWidthRise(velocityNormalized), jumpCurves.GetSpriteHeightRising(velocityNormalized), transform.localScale.z);
+                transform.localScale = new Vector3(StateManager.MoveDirection * jumpCurves.GetSpriteWidthRise(velocityNormalized), jumpCurves.GetSpriteHeightRising(velocityNormalized), transform.localScale.z);
             }
         }
 
@@ -115,7 +113,7 @@ public class PlayerController : MonoBehaviour
         {
             if (StateManager.IsGrounded)
                 SpawnDust();
-            moveDirection = 1;
+            StateManager.MoveDirection = 1;
         }
 
         // Moving Left, but was moving right
@@ -123,11 +121,11 @@ public class PlayerController : MonoBehaviour
         {
             if (StateManager.IsGrounded)
                 SpawnDust();
-            moveDirection = -1;
+            StateManager.MoveDirection = -1;
         }
 
         // Set the Player Direction
-        transform.localScale = new Vector3(moveDirection * transform.localScale.y, transform.localScale.y, transform.localScale.z);
+        transform.localScale = new Vector3(StateManager.MoveDirection * transform.localScale.y, transform.localScale.y, transform.localScale.z);
 
         // Calculate new angles
         StateManager.AngleRad -= inputManager.MovementInput.x * PlayerStats.Instance.Movement * Time.deltaTime;
@@ -210,7 +208,7 @@ public class PlayerController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Jump");
             var shape = Dust.shape;
             shape.radius = 0.25f;
-            Dust.Emit(15);
+            Dust.Emit(30);
             shape.radius = 0.1f;
             StartCoroutine(SetShapeOverTime(Dust.main.duration));
             SpawnDust();
