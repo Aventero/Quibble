@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeMenu: {fileID: 0}
-  showDelay: 1
   Congrats: {fileID: 0}
   Stage: {fileID: 0}
   CongratulationWords:
@@ -157,10 +156,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8a8b34dc5825b24b976469fedacbd4e, type: 2}
   - {fileID: 11400000, guid: f821e943beab92d408f7fbdafc2c200c, type: 2}
   - {fileID: 11400000, guid: 04d959a8aed6aa742920aeee16bc3dca, type: 2}
+  tierPercentages: []
   slots:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  AutoStartNextStage: 1
   RangeText: {fileID: 0}
   AngleText: {fileID: 0}
   HeightText: {fileID: 0}

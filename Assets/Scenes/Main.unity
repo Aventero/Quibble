@@ -15134,6 +15134,26 @@ PrefabInstance:
       propertyPath: slots.Array.data[2]
       value: 
       objectReference: {fileID: 553462612}
+    - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: tierPercentages.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: tierPercentages.Array.data[0]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: tierPercentages.Array.data[1]
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: tierPercentages.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: tierPercentages.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1583977346538716701, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: m_Name
       value: GameManager
