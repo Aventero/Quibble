@@ -10,15 +10,14 @@ public class ExplanationManager : MonoBehaviour
     public static event UnityAction OnExplanationSecondaryTrigger;
 
     public List<Explanation> explanations;
-
     public float timeBetweenExplanations;
 
+    [Header("GUI References")]
     public GameObject explanationBox;
     public TMPro.TMP_Text explanationText;
 
     private Explanation current;
     private Queue<string> explanationsQueue;
-
 
     private void Start()
     {
@@ -95,25 +94,24 @@ public class ExplanationManager : MonoBehaviour
         DisplayNextPart();
     }
 
-    public IEnumerator StartNewExplanation(int index, float time)
+    public IEnumerator StartExplanation(int index, float time)
     {
         yield return new WaitForSeconds(time);
         StartExplanation(index);
     }
 
-    public static void ResetTrigger(bool both = false)
+    public static void ResetTrigger()
     {
-        if (both)
+        if (OnExplanationTrigger != null)
         {
-            foreach (Delegate invoker in OnExplanationSecondaryTrigger.GetInvocationList())
-            {
-                OnExplanationSecondaryTrigger -= (UnityAction)invoker;
-            }
+            foreach (Delegate invoker in OnExplanationTrigger.GetInvocationList())
+                OnExplanationTrigger -= (UnityAction)invoker;
         }
 
-        foreach (Delegate invoker in OnExplanationTrigger.GetInvocationList())
+        if (OnExplanationSecondaryTrigger != null)
         {
-            OnExplanationTrigger -= (UnityAction)invoker;
+            foreach (Delegate invoker in OnExplanationSecondaryTrigger.GetInvocationList())
+                OnExplanationSecondaryTrigger -= (UnityAction)invoker;
         }
     }
 }

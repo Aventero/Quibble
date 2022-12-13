@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Final
   m_EditorClassIdentifier: 
   parts:
-  - Did you see how the upgrade improved your stat?
+  - Did you see how the upgrade improved your ability?
   - Your upgrade will now be active for the rest of the game!
   - "And that\xB4s it!"
-  - Now you know everything to successfully play this game!
+  - Now you know everything to play this game!
   - Thank your for completing the tutorial!
-  - Have fun!
   - <TRIGGER>

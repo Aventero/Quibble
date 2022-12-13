@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6802061859540032082}
   - component: {fileID: 7686696862629456115}
+  - component: {fileID: 7382309950343979780}
   - component: {fileID: -126789730253380437}
   - component: {fileID: -3807774013133131743}
   - component: {fileID: -6649451909655936447}
-  - component: {fileID: 59667802974071287}
   m_Layer: 0
-  m_Name: Tutorial No Dmg
+  m_Name: Tutorial Damage
   m_TagString: Meteorite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,6 +88,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7382309950343979780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906087877782029199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99514c65d407f8143bc43241fb5d4ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnRadiusByStage:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 15
+      inSlope: 0.1
+      outSlope: 0.1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 25
+      inSlope: 0.1
+      outSlope: 0.1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  MeteoriteSpeed: 2
+  SlappedSpeed: 3
+  Gravity: 2
+  SlappedGravity: 6
+  MinScale: 0.1
+  ScaleByDistance: 10
+  EllipseWidth: 1
+  EllipseHeight: 1
+  DeletionRadius: 75
+  damage: 40
+  ShakeDuration: 0.1
+  ShakePower: 0
 --- !u!96 &-126789730253380437
 TrailRenderer:
   serializedVersion: 2
@@ -242,51 +290,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &59667802974071287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906087877782029199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99514c65d407f8143bc43241fb5d4ecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnRadiusByStage:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 15
-      inSlope: 0.1
-      outSlope: 0.1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 100
-      value: 25
-      inSlope: 0.1
-      outSlope: 0.1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  MeteoriteSpeed: 2
-  SlappedSpeed: 3
-  Gravity: 2
-  SlappedGravity: 6
-  MinScale: 0.1
-  ScaleByDistance: 10
-  EllipseWidth: 1
-  EllipseHeight: 1
-  DeletionRadius: 75
-  damage: 0
-  ShakeDuration: 0.1
-  ShakePower: 0.2

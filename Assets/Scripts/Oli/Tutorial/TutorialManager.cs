@@ -34,6 +34,9 @@ public class TutorialManager : MonoBehaviour
         // Get input controlls and deactivate everything
         playerControls = Player.GetComponent<PlayerInput>().currentActionMap;
         playerControls.Disable();
+        playerControls.FindAction("Pause").Enable();
+
+        ExplanationManager.ResetTrigger();
 
         // Start tutorial
         StartCoroutine(StartTutorial());
@@ -52,54 +55,65 @@ public class TutorialManager : MonoBehaviour
 
     private void UnlockedMovement()
     {
-        ExplanationManager.ResetTrigger(true);
+        ExplanationManager.ResetTrigger();
 
         // Start second explanation (jump)
         ExplanationManager.OnExplanationSecondaryTrigger += () => playerControls.FindAction("Jump").Enable();
         ExplanationManager.OnExplanationTrigger += UnlockedJump;
-        StartCoroutine(explanationManager.StartNewExplanation(1, 5f));
+        StartCoroutine(explanationManager.StartExplanation(1, 3f));
     }
 
     private void UnlockedJump()
     {
-        ExplanationManager.ResetTrigger(true);
+        ExplanationManager.ResetTrigger();
 
-        // Start third explanation (attack)
+        // Start third explanation (zoom)
+        ExplanationManager.OnExplanationSecondaryTrigger += () => playerControls.FindAction("Scrolling").Enable();
+        ExplanationManager.OnExplanationTrigger += UnlockedZoom;
+        StartCoroutine(explanationManager.StartExplanation(2, 3f));
+    }
+
+    private void UnlockedZoom()
+    {
+        ExplanationManager.ResetTrigger();
+
+        // Start fourth explanation (attack)
         ExplanationManager.OnExplanationSecondaryTrigger += () => playerControls.FindAction("Attack").Enable();
         ExplanationManager.OnExplanationTrigger += UnlockedAttack;
-        StartCoroutine(explanationManager.StartNewExplanation(2, 5f));
+        StartCoroutine(explanationManager.StartExplanation(3, 3f));
     }
 
     private void UnlockedAttack()
     {
-        ExplanationManager.ResetTrigger(true);
+        ExplanationManager.ResetTrigger();
 
-        // Start fourth explanation (approaching meteorite)
+        // Start fith explanation (approaching meteorite)
         ExplanationManager.OnExplanationTrigger += () =>
         {
             // Disable input
             playerControls.Disable();
+            playerControls.FindAction("Pause").Enable();
 
             // Spawn meteorite
             Instantiate(MeteoriteDamage, new Vector3(0.0f, 4.0f, 0.0f), new Quaternion(0, 0, 0, 0));
         };
         Meteorite.OnPlanetHit += MeteoriteDamageTaken;
-        StartCoroutine(explanationManager.StartNewExplanation(3, 5f));
+        StartCoroutine(explanationManager.StartExplanation(4, 3f));
     }
 
     private void MeteoriteDamageTaken()
     {
-        ExplanationManager.ResetTrigger(false);
+        ExplanationManager.ResetTrigger();
         Meteorite.OnPlanetHit -= MeteoriteDamageTaken;
 
-        // Start fith explanation (damage)
+        // Start sixth explanation (damage)
         ExplanationManager.OnExplanationTrigger += MeteoriteHitTraining;
-        StartCoroutine(explanationManager.StartNewExplanation(4, 0.0f));
+        StartCoroutine(explanationManager.StartExplanation(5, 0.0f));
     }
 
     private void MeteoriteHitTraining()
     {
-        ExplanationManager.ResetTrigger(false);
+        ExplanationManager.ResetTrigger();
 
         // Start meteorite hit training
         playerControls.Enable();
@@ -114,7 +128,7 @@ public class TutorialManager : MonoBehaviour
 
     private void MeteoriteHitFailure()
     {
-        explanationManager.StartExplanation(5);
+        explanationManager.StartExplanation(6);
         Instantiate(MeteoriteNoDamage, new Vector3(0.0f, 7.0f, 0.0f), new Quaternion(0, 0, 0, 0));
     }
 
@@ -131,12 +145,12 @@ public class TutorialManager : MonoBehaviour
             stageSlider.maxValue = 1;
             stageSlider.value = 0;
         };
-        explanationManager.StartExplanation(6);
+        explanationManager.StartExplanation(7);
     }
 
     private void StageProgress()
     {
-        ExplanationManager.ResetTrigger(true);
+        ExplanationManager.ResetTrigger();
 
         Sword.OnMeteoriteHit += MeteoriteHitSuccessStageUpdate;
         Instantiate(MeteoriteNoDamage, new Vector3(0.0f, 7.0f, 0.0f), new Quaternion(0, 0, 0, 0));
@@ -168,7 +182,7 @@ public class TutorialManager : MonoBehaviour
     {
         ExplanationManager.OnExplanationTrigger += UpgradeStats;
         upgradeMenuManager.StartShowUpgradeMenu(0.0f);
-        explanationManager.StartExplanation(7);
+        explanationManager.StartExplanation(8);
     }
 
     private void UpgradeStats()
@@ -182,12 +196,12 @@ public class TutorialManager : MonoBehaviour
             StatsRight.SetActive(true);
         };
         ExplanationManager.OnExplanationTrigger += EnableUpgrades;
-        StartCoroutine(explanationManager.StartNewExplanation(8, 5f));
+        StartCoroutine(explanationManager.StartExplanation(9, 5f));
     }
 
     private void EnableUpgrades()
     {
-        ExplanationManager.ResetTrigger(true);
+        ExplanationManager.ResetTrigger();
 
         // Activate upgrade slots
         foreach (GameObject slot in UpgradeSlots)
@@ -201,11 +215,11 @@ public class TutorialManager : MonoBehaviour
     {
         // Start final explanation
         ExplanationManager.OnExplanationTrigger += gameLoader.LoadMainMenuScene;
-        StartCoroutine(explanationManager.StartNewExplanation(9, 1f));
+        StartCoroutine(explanationManager.StartExplanation(10, 1f));
     }
 
     private void OnDestroy()
     {
-        Debug.Log("GsONE");
+        Debug.Log("asda");
     }
 }

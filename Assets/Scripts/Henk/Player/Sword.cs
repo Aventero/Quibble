@@ -30,4 +30,13 @@ public class Sword : MonoBehaviour
             particleManager.SpawnEssence(this.transform.position);
         }
     }
+
+    public static void ResetOnMeteoriteHit()
+    {
+        if (OnMeteoriteHit == null)
+            return;
+
+        foreach (System.Delegate invoker in OnMeteoriteHit.GetInvocationList())
+            OnMeteoriteHit -= (UnityAction)invoker;
+    }
 }

@@ -16,8 +16,8 @@ MonoBehaviour:
   - Nice one!
   - <SECONDARYTRIGGER>
   - A game of Quibble is split into various stages
-  - On each stage a set amount of meteorites will appear
-  - For every slabbed meteorite your stage bar will fill up
+  - In each stage a set amount of meteorites will appear
+  - For every hit meteorite your stage bar will fill up
   - If all meteorites are gone you will advance to the next stage
   - Try to hit another meteorite!
   - <TRIGGER>

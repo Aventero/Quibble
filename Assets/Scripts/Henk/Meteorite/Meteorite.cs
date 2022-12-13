@@ -158,4 +158,13 @@ public class Meteorite : MonoBehaviour
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }
+
+    public static void ResetOnPlanetHit()
+    {
+        if (OnPlanetHit == null)
+            return;
+
+        foreach (System.Delegate invoker in OnPlanetHit.GetInvocationList())
+            OnPlanetHit -= (UnityAction)invoker;
+    }
 }

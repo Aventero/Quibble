@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parts:
   - <SECONDARYTRIGGER>
-  - "I don\xB4t assume you remember every selected upgrade"
+  - "I don\xB4t assume you will remember every selected upgrade"
   - So you can see your current upgrades on the bottom of the screen
   - Now try to select an upgrade you want!
   - <TRIGGER>

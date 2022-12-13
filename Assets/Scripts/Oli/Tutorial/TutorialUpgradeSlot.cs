@@ -5,8 +5,5 @@ using UnityEngine.UI;
 
 public class TutorialUpgradeSlot : UpgradeSlot
 {
-    private new void Start()
-    {
-        
-    }
+    private void Start() { }
 }

@@ -24,6 +24,12 @@ public class GameLoader : MonoBehaviour
     public void LoadMainMenuScene()
     {
         SaveManager.Load();
+
+        // Reset all events
+        ExplanationManager.ResetTrigger();
+        Meteorite.ResetOnPlanetHit();
+        Sword.ResetOnMeteoriteHit();
+
         StartCoroutine(LoadMainMenu());
     }
 

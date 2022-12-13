@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parts:
   - Great!
-  - "You\xB4re now able to move around"
   - "Now let\xB4s talk about how you will defend your planet"
   - <SECONDARYTRIGGER>
-  - Press 'Left Mouse' or 'Enter' to swing your sword
+  - Press 'Left Mouse' or 'Enter' to wield your sword
   - <TRIGGER>
