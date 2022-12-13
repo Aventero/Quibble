@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class UpgradeMenuManager : MonoBehaviour
 {
     public GameObject UpgradeMenu;
-
     public TMPro.TMP_Text Congrats;
     public TMPro.TMP_Text Stage;
 
@@ -53,10 +53,10 @@ public class UpgradeMenuManager : MonoBehaviour
 
     public void Start()
     {
-        RangeText.SetText(System.Math.Round(PlayerStats.Instance.Range, 2) + " M");
+        RangeText.SetText(System.Math.Round(PlayerStats.Instance.Range, 2) + " m");
         AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 2) + " °");
-        HeightText.SetText(System.Math.Round(PlayerStats.Instance.Jump, 2) + " M");
-        SpeedText.SetText(System.Math.Round(PlayerStats.Instance.Movement, 2) + " km/s");
+        HeightText.SetText(System.Math.Round(PlayerStats.Instance.Jump, 2) + " m");
+        SpeedText.SetText(System.Math.Round(PlayerStats.Instance.Movement, 2) + " m/s");
     }
 
     public void OnUpgradeChoosen(Upgrade.UpgradeType type, float effect)
@@ -95,6 +95,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
         // Hide upgrade menu
         UpgradeMenuVisibility(false);
+        GameManager.Instance.PlayerControls.FindAction("Pause").Enable();
         visible = false;
 
         // Start next stage
@@ -116,6 +117,8 @@ public class UpgradeMenuManager : MonoBehaviour
     IEnumerator ShowAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+
+        GameManager.Instance.PlayerControls.FindAction("Pause").Disable();
 
         UpgradeMenuVisibility(true);
         UpdateUpgradeText();

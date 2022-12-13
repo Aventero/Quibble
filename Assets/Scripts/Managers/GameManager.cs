@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    public TMP_Text StageText;
     public static GameManager Instance { get; private set; }
 
+    public InputActionMap PlayerControls;
     public int CurrentStage;
     public int MeteoritesHit { get; private set; }
     public int SpawnedMeteorites { get; private set; }
@@ -16,10 +17,12 @@ public class GameManager : MonoBehaviour
 
     public List<MeteoriteCurve> meteorites;
 
+    public AnimationCurve MeteoriteFallingCurve;
+    public TMP_Text StageText;
+    
     private MeteoriteSpawner MeteoriteSpawner;
     private StageProgressManager StageProgressManager;
     private UpgradeMenuManager UpgradeMenuManager;
-    public AnimationCurve MeteoriteFallingCurve;
 
     private void Awake()
     {
@@ -38,6 +41,8 @@ public class GameManager : MonoBehaviour
         Sword.OnMeteoriteHit += IncreaseMeteoriteHits;
         Meteorite.OnPlanetHit += IncreaseMeteoriteHits;
         MeteoriteSpawner.OnMeteoriteSpawn += IncreaseCurrentMeteorites;
+
+        PlayerControls = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>().currentActionMap;
 
         // Start first stage
         StartNextStage();

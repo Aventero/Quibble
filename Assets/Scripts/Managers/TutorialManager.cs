@@ -196,7 +196,7 @@ public class TutorialManager : MonoBehaviour
             StatsRight.SetActive(true);
         };
         ExplanationManager.OnExplanationTrigger += EnableUpgrades;
-        StartCoroutine(explanationManager.StartExplanation(9, 5f));
+        StartCoroutine(explanationManager.StartExplanation(9, 2f));
     }
 
     private void EnableUpgrades()
@@ -222,6 +222,6 @@ public class TutorialManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.Log("asd");
+        Debug.Log("as");
     }
 }
