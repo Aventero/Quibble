@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 1147378467
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5d4fa2fdecdadcb468baaedc792cc439, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f4b391d891c78354f908182048ab52d1, type: 3}
+  m_Color: {r: 0.8726415, g: 1, b: 0.9049401, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   Gravity: 4
   SlappedGravity: 15
   MinScale: 0.01
-  ScaleByDistance: 10
+  ScaleByDistance: 5
   EllipseWidth: 1
   EllipseHeight: 1
   DeletionRadius: 75

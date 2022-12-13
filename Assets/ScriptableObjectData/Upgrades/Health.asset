@@ -14,15 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   tiers:
-  - spawnPercentage: 50
-    upgradeSprite: {fileID: 93601557, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
+  - upgradeSprite: {fileID: -1482783753, guid: a20987bd35f12aa4187a1e4c533fb0a6, type: 3}
     upgradeEffect: 10
-  - spawnPercentage: 25
-    upgradeSprite: {fileID: -51908914, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
+  - upgradeSprite: {fileID: 1711003177, guid: a20987bd35f12aa4187a1e4c533fb0a6, type: 3}
     upgradeEffect: 20
-  - spawnPercentage: 10
-    upgradeSprite: {fileID: -1191335810, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
+  - upgradeSprite: {fileID: -1229860849, guid: a20987bd35f12aa4187a1e4c533fb0a6, type: 3}
     upgradeEffect: 30
-  - spawnPercentage: 5
-    upgradeSprite: {fileID: -1671217523, guid: 6b03184f5f23c224e914f6135fe4ea85, type: 3}
+  - upgradeSprite: {fileID: 1293102851, guid: a20987bd35f12aa4187a1e4c533fb0a6, type: 3}
     upgradeEffect: 50

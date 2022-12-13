@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Life
+  m_Name: Heavy
   m_Shader: {fileID: -6465566751694194690, guid: d5d43344560f95a488ecb0db4e3d86b0, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -84,12 +84,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _Intensity: 0.01
+    - _Intensity: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0.115268916, g: 0.10681989, b: 0, a: 0}
+    - _GlowColor: {r: 0, g: 0.016752334, b: 0.5176471, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

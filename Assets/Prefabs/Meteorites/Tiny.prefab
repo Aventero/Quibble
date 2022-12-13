@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1906087877782029199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 33b8074396d26e14eb83e019fd6cdcf7, type: 2}
+  - {fileID: 2100000, guid: 81db9cd3e99c4b14d9d6fcfc2f77da94, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 1147378467
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5d4fa2fdecdadcb468baaedc792cc439, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f4b391d891c78354f908182048ab52d1, type: 3}
+  m_Color: {r: 1, g: 0.8820755, b: 0.99600255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   Gravity: 1.5
   SlappedGravity: 15
   MinScale: 0.01
-  ScaleByDistance: 10
+  ScaleByDistance: 5
   EllipseWidth: 1
   EllipseHeight: 1
   DeletionRadius: 75
