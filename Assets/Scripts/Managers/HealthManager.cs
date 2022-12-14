@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -11,9 +10,6 @@ public class HealthManager : MonoBehaviour
 
     public bool IsDead { get; private set; }
     public Slider healthSlider;
-
-    [Header("Health settings")]
-    public float maxHealth = 100f;
 
     [Header("Animation")]
     public float lerpTime = 0.2f;
@@ -32,8 +28,8 @@ public class HealthManager : MonoBehaviour
     private void Start()
     {
         lastHealth = PlayerStats.Instance.Health;
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = maxHealth;
+        healthSlider.maxValue = PlayerStats.Instance.Health;
+        healthSlider.value = PlayerStats.Instance.Health;
     }
 
     public void UpdateValues()

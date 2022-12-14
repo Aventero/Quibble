@@ -14,6 +14,7 @@ public class DeathManager : MonoBehaviour
 
     private void EnableDeathMenu()
     {
+        // Show death screen
         DeathMenu.SetActive(true);
         TMP_Text.SetText("You have reached stage:\n" + GameManager.Instance.CurrentStage);
 

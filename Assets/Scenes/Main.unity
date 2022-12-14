@@ -411,6 +411,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &102771198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5836074082465255189, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+  m_PrefabInstance: {fileID: 5836074083049834035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &107506432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3024863319965477763, guid: 1858e45d2ebdfdb419924225dd6cee36, type: 3}
@@ -9714,7 +9719,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5836074082465255192, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
   m_PrefabInstance: {fileID: 5836074083049834035}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 102771198}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee13abd55f76a844bbf3f01ccb16911c, type: 3}
@@ -14933,6 +14938,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1006251207}
     - target: {fileID: 1583977346538716698, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583977346538716698, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1817454731}
@@ -15004,6 +15013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1583977346538716702, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 102771198}
     - target: {fileID: 1583977346538716702, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: StageText
       value: 
@@ -15171,6 +15184,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 9638b3b185ffe124b9600aaafee8e2d2, type: 2}
     - target: {fileID: 5836074082465255171, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255171, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: AngleText
       value: 
       objectReference: {fileID: 1400596849}
@@ -15245,6 +15262,14 @@ PrefabInstance:
     - target: {fileID: 5836074082465255189, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255194, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: PlayerControls.m_Id
+      value: 0e22f859-cab5-4ac7-8ea6-8700639c9a34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255194, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: PlayerControls.m_Name
+      value: Player Controls
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255197, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: Angle
