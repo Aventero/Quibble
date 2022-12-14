@@ -212,6 +212,10 @@ public class TutorialManager : MonoBehaviour
             slot.GetComponent<Button>().interactable = true;
             slot.GetComponent<Image>().raycastTarget = true;
         }
+
+        // Select first one if controller is connected
+        if (Gamepad.all.Count > 0)
+            UpgradeSlots[0].GetComponent<Button>().Select();
     }
 
     private void UpgradeSelected()
@@ -224,6 +228,6 @@ public class TutorialManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.Log("as");
+
     }
 }
