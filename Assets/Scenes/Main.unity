@@ -2489,6 +2489,17 @@ Transform:
   m_Father: {fileID: 1200295149}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799917487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8070921966477682376, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
+  m_PrefabInstance: {fileID: 8070921965879376338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &803004039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2991,6 +3002,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943809992}
   m_CullTransparentMesh: 1
+--- !u!114 &948651150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4413027288088230496, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
+  m_PrefabInstance: {fileID: 181021958}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181021960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &960676357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4286,6 +4308,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9395715783a5039448d14464bc1ffc71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1524514569 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7260575687256030863, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+  m_PrefabInstance: {fileID: 333030868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1531326665
@@ -14994,6 +15027,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: AutoSelect
+      value: 
+      objectReference: {fileID: 1524514569}
+    - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: HeightText
       value: 
       objectReference: {fileID: 689072701}
@@ -15153,10 +15190,18 @@ PrefabInstance:
       propertyPath: DeathMenu
       value: 
       objectReference: {fileID: 771147985}
+    - target: {fileID: 1583977346538716708, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: AutoSelect
+      value: 
+      objectReference: {fileID: 948651150}
     - target: {fileID: 1583977346538716709, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: PauseMenu
       value: 
       objectReference: {fileID: 8070921965879376339}
+    - target: {fileID: 1583977346538716709, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: AutoSelect
+      value: 
+      objectReference: {fileID: 799917487}
     - target: {fileID: 1583977346538716709, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: InputManager
       value: 
