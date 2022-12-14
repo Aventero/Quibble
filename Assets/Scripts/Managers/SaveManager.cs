@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class SaveManager
 {
-    public static float SoundVolume;
+    public static float SoundVolume = 0.5f;
     private static bool IsInitialized = false;
 
     public static void Initialize()
