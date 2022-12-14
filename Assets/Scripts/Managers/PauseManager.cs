@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    public InputManager InputManager;
     public GameObject PauseMenu;
     public bool IsAlreadyPaused = false;
 
     private void Start()
     {
         InputManager.OnPaused += EnablePauseMenu;
+        HealthManager.OnDeath += Disable;
     }
 
     private void EnablePauseMenu()
@@ -33,6 +33,11 @@ public class PauseManager : MonoBehaviour
         IsAlreadyPaused = false;
         PauseMenu.SetActive(false);
         StateManager.InMenu = false;
+    }
+
+    public void Disable()
+    {
+        GameManager.Instance.Player.GetComponent<PlayerController>().PlayerControls.FindAction("Pause").Disable();
     }
 
     private void OnDestroy()

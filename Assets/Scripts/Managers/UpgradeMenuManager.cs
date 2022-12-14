@@ -42,6 +42,10 @@ public class UpgradeMenuManager : MonoBehaviour
     // Start to show upgrade menu
     public void StartShowUpgradeMenu(float delay = 2.0f, bool updateText = true)
     {
+        // Check if player is currently dead
+        if (StateManager.IsDead)
+            return;
+
         StartCoroutine(ShowAfterDelay(delay, updateText));
 
         // Generate tier

@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("Player")]
+    public GameObject Player;
+
+    [Header("Stage")]
     public int CurrentStage;
     public int MeteoritesHit { get; private set; }
     public int SpawnedMeteorites { get; private set; }
