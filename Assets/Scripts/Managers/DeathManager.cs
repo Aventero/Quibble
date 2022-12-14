@@ -14,9 +14,10 @@ public class DeathManager : MonoBehaviour
 
     private void EnableDeathMenu()
     {
+        GameManager.Instance.StopSpawning();
         // Show death screen
         DeathMenu.SetActive(true);
-        TMP_Text.SetText("You have reached stage:\n" + GameManager.Instance.CurrentStage);
+        TMP_Text.SetText("You completed " + GameManager.Instance.CurrentStage + " stages!");
 
         // Disable gravity on meteors
         GameObject[] meteorites = GameObject.FindGameObjectsWithTag("Meteorite");

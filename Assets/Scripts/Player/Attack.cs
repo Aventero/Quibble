@@ -102,3 +102,4 @@ public class Attack : MonoBehaviour
         onCooldown = false;
     }
 }
+    

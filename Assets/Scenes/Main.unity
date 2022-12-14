@@ -569,6 +569,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 93367957}
     m_Modifications:
+    - target: {fileID: 4413027286244813052, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
+      propertyPath: m_text
+      value: You completed 100 stages!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413027286244813052, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413027286244813052, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413027286244813052, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
+      propertyPath: m_lineSpacing
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413027286244813052, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413027286244813052, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413027286244813052, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 4413027286579526397, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -3334,6 +3362,11 @@ GameObject:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7260575687943079306, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
   m_PrefabInstance: {fileID: 333030868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1253606776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5836074082465255189, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+  m_PrefabInstance: {fileID: 5836074083049834035}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1298942812
 GameObject:
@@ -9714,7 +9747,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5836074082465255192, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
   m_PrefabInstance: {fileID: 5836074083049834035}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1253606776}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee13abd55f76a844bbf3f01ccb16911c, type: 3}
@@ -15004,6 +15037,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1583977346538716702, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1253606776}
     - target: {fileID: 1583977346538716702, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: StageText
       value: 

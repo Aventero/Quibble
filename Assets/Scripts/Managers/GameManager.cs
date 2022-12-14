@@ -88,6 +88,11 @@ public class GameManager : MonoBehaviour
         StageProgressManager.Setup();
     }
 
+    public void StopSpawning()
+    {
+        MeteoriteSpawner.StopAllCoroutines();
+    }
+
     private bool StageComplete()
     {
         if (MeteoriteSpawner.IsFinished() && MeteoritesHit >= StageMeteoriteCount)
