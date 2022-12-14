@@ -4883,6 +4883,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceba08a542101d442b7b37a5f60519cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerControls:
+    m_Name: 
+    m_Id: 
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
   Dust: {fileID: 5046378522470683597}
   minHeight: 2.3
   maxJumpTime: 1
@@ -5076,11 +5082,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e6a2ba96140ff4f8797beb991fa992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 1
-  Angle: 200
+  RangeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.019717328
+      outSlope: 0.019717328
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.039819
+    - serializedVersion: 3
+      time: 100
+      value: 2
+      inSlope: 0.0024848338
+      outSlope: 0.0024848338
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.044344023
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  AngleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 200
+      inSlope: 10.485146
+      outSlope: 10.485146
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.048868775
+    - serializedVersion: 3
+      time: 100
+      value: 720
+      inSlope: 0.17394955
+      outSlope: 0.17394955
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.044344023
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  JumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 3
+      inSlope: 0.42337185
+      outSlope: 0.42337185
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.032876313
+    - serializedVersion: 3
+      time: 100
+      value: 15
+      inSlope: 0.022632897
+      outSlope: 0.022632897
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.022139436
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  MovementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2
+      inSlope: 0.06595503
+      outSlope: 0.06595503
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.08144795
+    - serializedVersion: 3
+      time: 100
+      value: 5
+      inSlope: 0.0017502379
+      outSlope: 0.0017502379
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.009301147
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RangeLevel: 0
+  AngleLevel: 0
+  JumpLevel: 0
+  MovementLevel: 0
   Health: 100
-  Jump: 3
-  Movement: 2
 --- !u!114 &8369231105165440513
 MonoBehaviour:
   m_ObjectHideFlags: 0

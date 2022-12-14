@@ -15,10 +15,10 @@ MonoBehaviour:
   Type: 2
   tiers:
   - upgradeSprite: {fileID: -1482783753, guid: a20987bd35f12aa4187a1e4c533fb0a6, type: 3}
-    upgradeEffect: 10
+    upgradeEffect: 1
   - upgradeSprite: {fileID: 1711003177, guid: a20987bd35f12aa4187a1e4c533fb0a6, type: 3}
-    upgradeEffect: 20
+    upgradeEffect: 2
   - upgradeSprite: {fileID: -1229860849, guid: a20987bd35f12aa4187a1e4c533fb0a6, type: 3}
-    upgradeEffect: 30
+    upgradeEffect: 3
   - upgradeSprite: {fileID: 1293102851, guid: a20987bd35f12aa4187a1e4c533fb0a6, type: 3}
-    upgradeEffect: 50
+    upgradeEffect: 4

@@ -21,6 +21,6 @@ public class Upgrade : ScriptableObject
     public class Tier
     {
         public Sprite upgradeSprite;
-        public float upgradeEffect;
+        public int upgradeEffect;
     }
 }

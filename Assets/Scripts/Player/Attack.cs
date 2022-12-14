@@ -29,7 +29,6 @@ public class Attack : MonoBehaviour
         if (StateManager.IsDead || StateManager.InMenu)
             return;
         Attacking();
-
     }
 
     private void Attacking()
@@ -101,20 +100,5 @@ public class Attack : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         onCooldown = false;
-    }
-
-    public void UpgradeSwordLength(float newLength)
-    {
-        PlayerStats.Instance.Range = newLength;
-    }
-
-    public void UpgradeAttackAngle(float newAngle)
-    {
-        PlayerStats.Instance.Angle = newAngle;
-    }
-
-    public void UpgradeCooldown(float newCooldown)
-    {
-        CooldownTime = newCooldown;
     }
 }

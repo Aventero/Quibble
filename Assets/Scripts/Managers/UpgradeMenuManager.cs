@@ -72,17 +72,17 @@ public class UpgradeMenuManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
-    public void OnUpgradeChoosen(Upgrade.UpgradeType type, float effect)
+    public void OnUpgradeChoosen(Upgrade.UpgradeType type, int effect)
     {
         switch (type)
         {
             case Upgrade.UpgradeType.RANGE:    
-                PlayerStats.Instance.Range += effect;
+                PlayerStats.Instance.RangeLevel += effect;
                 RangeText.SetText(System.Math.Round(PlayerStats.Instance.Range, 2) + " m");
                 StartCoroutine(LerpColor(1f, 0f, 1f, RangeText));
                 break;
             case Upgrade.UpgradeType.ANGLE:
-                PlayerStats.Instance.Angle += effect;
+                PlayerStats.Instance.AngleLevel += effect;
                 AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 2) + " °");
                 StartCoroutine(LerpColor(1f, 0f, 1f, AngleText));
                 break;
@@ -93,13 +93,13 @@ public class UpgradeMenuManager : MonoBehaviour
                 HealthManager.Instance.UpdateValues();
                 break;
             case Upgrade.UpgradeType.JUMP:
-                PlayerStats.Instance.Jump += effect;
+                PlayerStats.Instance.JumpLevel += effect;
                 HeightText.SetText(PlayerStats.Instance.Jump + " M");
                 HeightText.SetText(System.Math.Round(PlayerStats.Instance.Jump, 2) + " m");
                 StartCoroutine(LerpColor(1f, 0f, 1f, HeightText));
                 break;
             case Upgrade.UpgradeType.MOVEMENT:  
-                PlayerStats.Instance.Movement += effect;
+                PlayerStats.Instance.MovementLevel += effect;
                 SpeedText.SetText(PlayerStats.Instance.Movement + " km/s");
                 SpeedText.SetText(System.Math.Round(PlayerStats.Instance.Movement, 2) + " m/s");
                 StartCoroutine(LerpColor(1f, 0f, 1f, SpeedText));

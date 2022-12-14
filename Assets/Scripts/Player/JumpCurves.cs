@@ -12,6 +12,7 @@ public class JumpCurves : MonoBehaviour
     [SerializeField] private AnimationCurve BreathingCurveStretch;
     [SerializeField] private AnimationCurve LandingSquish;
     [SerializeField] private AnimationCurve LandingStretch;
+
     public float GetSpriteWidthRise(float jumpHeight)
     {
         return WidthForJumpHeightRising.Evaluate(jumpHeight);
