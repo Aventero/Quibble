@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class UpgradeMenuManager : MonoBehaviour
 {
     public GameObject UpgradeMenu;
+    public Button AutoSelect;
     public TMPro.TMP_Text Congrats;
     public TMPro.TMP_Text Stage;
 
@@ -138,6 +139,10 @@ public class UpgradeMenuManager : MonoBehaviour
         player.PlayerControls.FindAction("Pause").Disable();
 
         UpgradeMenuVisibility(true);
+
+        // Check if controller is connected
+        if (Gamepad.all.Count > 0)
+            AutoSelect.Select();
 
         if (updateText)
             UpdateUpgradeText();

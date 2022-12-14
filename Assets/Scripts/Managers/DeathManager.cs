@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class DeathManager : MonoBehaviour
 {
     public GameObject DeathMenu;
+    public Button AutoSelect; 
     public TMPro.TMP_Text TMP_Text;
 
     private void Awake()
@@ -18,6 +21,12 @@ public class DeathManager : MonoBehaviour
         // Show death screen
         DeathMenu.SetActive(true);
         TMP_Text.SetText("You completed " + GameManager.Instance.CurrentStage + " stages!");
+
+        // Select first ui element if controller is connected
+        if (Gamepad.all.Count > 0)
+            AutoSelect.Select();
+
+        TMP_Text.SetText("You have reached stage:\n" + GameManager.Instance.CurrentStage);
 
         // Disable gravity on meteors
         GameObject[] meteorites = GameObject.FindGameObjectsWithTag("Meteorite");

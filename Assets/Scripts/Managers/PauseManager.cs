@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
     public GameObject PauseMenu;
+    public Button AutoSelect; 
     public bool IsAlreadyPaused = false;
 
     private void Start()
@@ -20,6 +23,10 @@ public class PauseManager : MonoBehaviour
             DisablePauseMenu();
             return;
         }
+
+        // Select first ui element if controller is connected
+        if (Gamepad.all.Count > 0)
+            AutoSelect.Select();
 
         StateManager.InMenu = true;
         PauseMenu.SetActive(true);
