@@ -26,8 +26,6 @@ public class DeathManager : MonoBehaviour
         if (Gamepad.all.Count > 0)
             AutoSelect.Select();
 
-        TMP_Text.SetText("You have reached stage:\n" + GameManager.Instance.CurrentStage);
-
         // Disable gravity on meteors
         GameObject[] meteorites = GameObject.FindGameObjectsWithTag("Meteorite");
         for (int i = 0; i < meteorites.Length; i++)
