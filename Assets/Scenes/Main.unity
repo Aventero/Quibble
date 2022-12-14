@@ -598,6 +598,10 @@ PrefabInstance:
       value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 4413027286579526397, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
+      propertyPath: m_AnimationTriggers.m_SelectedTrigger
+      value: Highlighted
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413027286579526397, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -756,6 +760,10 @@ PrefabInstance:
     - target: {fileID: 4413027287693902412, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
       propertyPath: m_TagString
       value: DeathMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413027288088230496, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
+      propertyPath: m_AnimationTriggers.m_SelectedTrigger
+      value: Highlighted
       objectReference: {fileID: 0}
     - target: {fileID: 4413027288088230496, guid: abf048238fefc4c4caeb80ea00ab70ff, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1211,9 +1219,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 7260575687256030863, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_AnimationTriggers.m_SelectedTrigger
+      value: Selected
+      objectReference: {fileID: 0}
     - target: {fileID: 7260575687932276921, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260575687932276926, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_AnimationTriggers.m_SelectedTrigger
+      value: Selected
       objectReference: {fileID: 0}
     - target: {fileID: 7260575687932276926, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1342,6 +1358,10 @@ PrefabInstance:
     - target: {fileID: 7260575688655193024, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260575688655193025, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_AnimationTriggers.m_SelectedTrigger
+      value: Selected
       objectReference: {fileID: 0}
     - target: {fileID: 7260575688655193025, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -15690,6 +15710,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 93367957}
     m_Modifications:
     - target: {fileID: 5017900260955939446, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
+      propertyPath: m_AnimationTriggers.m_SelectedTrigger
+      value: Highlighted
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017900260955939446, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1686286524}
@@ -15786,6 +15810,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5017900262466609899, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
+      propertyPath: m_AnimationTriggers.m_SelectedTrigger
+      value: Highlighted
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017900262466609899, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1686286524}
@@ -15816,6 +15844,10 @@ PrefabInstance:
     - target: {fileID: 8070921966320692904, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8070921966477682376, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
+      propertyPath: m_AnimationTriggers.m_SelectedTrigger
+      value: Highlighted
       objectReference: {fileID: 0}
     - target: {fileID: 8070921966477682376, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
