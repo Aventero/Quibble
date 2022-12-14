@@ -30,18 +30,16 @@ public class UpgradeSlot : MonoBehaviour
             upgradeImage = GetComponent<Image>();
     }
 
-    public void GenerateUpgrade(Upgrade[] upgrades, int tierLevel)
+    public void SetUpgrade(Upgrade upgrade, int tierLevel)
     {
         LoadReference();
 
-        // Get random upgrade type
-        int type = Random.Range(0, upgrades.Length);
-        Upgrade upgrade = upgrades[type];
+        // Select type
         upgradeType = upgrade.Type;
-
+        
         // Select correct tier
         tier = upgrade.tiers[tierLevel];
-
+        
         // Update texture
         upgradeImage.sprite = tier.upgradeSprite;
     }

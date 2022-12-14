@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -46,10 +47,18 @@ public class UpgradeMenuManager : MonoBehaviour
         // Generate tier
         int tier = GenerateTier();
 
-        // Generate upgrades
+        // Hold all still avaiable upgrade for generation => Each upgrade exists only once!
+        List<Upgrade> upgradeList = upgrades.ToList();
         foreach (UpgradeSlot slot in slots)
         {
-            slot.GenerateUpgrade(upgrades, tier);
+            // Get random index of still avaiable upgrades
+            int randomUpgrade = Random.Range(0, upgradeList.Count);
+
+            // Set slot upgrade
+            slot.SetUpgrade(upgradeList[randomUpgrade], tier);
+            
+            // Remove upgrade from list => Can not be selected again
+            upgradeList.RemoveAt(randomUpgrade);
         }
     }
 
