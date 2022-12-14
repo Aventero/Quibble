@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public InputActionMap PlayerControls;
     public int CurrentStage;
     public int MeteoritesHit { get; private set; }
     public int SpawnedMeteorites { get; private set; }
@@ -41,8 +40,6 @@ public class GameManager : MonoBehaviour
         Sword.OnMeteoriteHit += IncreaseMeteoriteHits;
         Meteorite.OnPlanetHit += IncreaseMeteoriteHits;
         MeteoriteSpawner.OnMeteoriteSpawn += IncreaseCurrentMeteorites;
-
-        PlayerControls = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>().currentActionMap;
 
         // Start first stage
         StartNextStage();

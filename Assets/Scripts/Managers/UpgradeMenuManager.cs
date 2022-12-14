@@ -31,6 +31,8 @@ public class UpgradeMenuManager : MonoBehaviour
     public TMPro.TMP_Text HeightText;
     public TMPro.TMP_Text SpeedText;
 
+    private PlayerController player;
+
     public void SetVisible(bool active)
     {
         visible = active;
@@ -57,6 +59,8 @@ public class UpgradeMenuManager : MonoBehaviour
         AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 2) + " °");
         HeightText.SetText(System.Math.Round(PlayerStats.Instance.Jump, 2) + " m");
         SpeedText.SetText(System.Math.Round(PlayerStats.Instance.Movement, 2) + " m/s");
+
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     public void OnUpgradeChoosen(Upgrade.UpgradeType type, float effect)
@@ -95,7 +99,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
         // Hide upgrade menu
         UpgradeMenuVisibility(false);
-        GameManager.Instance.PlayerControls.FindAction("Pause").Enable();
+        player.PlayerControls.FindAction("Pause").Enable();
         visible = false;
 
         // Start next stage
@@ -118,7 +122,7 @@ public class UpgradeMenuManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        GameManager.Instance.PlayerControls.FindAction("Pause").Disable();
+        player.PlayerControls.FindAction("Pause").Disable();
 
         UpgradeMenuVisibility(true);
         UpdateUpgradeText();

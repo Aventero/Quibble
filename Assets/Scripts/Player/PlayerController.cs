@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public InputActionMap PlayerControls;
+
     public ParticleSystem Dust;
     public float minHeight = 5;
 
@@ -37,6 +39,9 @@ public class PlayerController : MonoBehaviour
         scale = transform.localScale.x;
         oldJumpHeight = PlayerStats.Instance.Jump;
         normalizedTime = 0;
+
+        PlayerControls = GetComponent<PlayerInput>().currentActionMap;
+
         // Setup jump
         SetupJumpVariables();
     }
