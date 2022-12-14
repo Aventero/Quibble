@@ -39,9 +39,9 @@ public class UpgradeMenuManager : MonoBehaviour
     }
 
     // Start to show upgrade menu
-    public void StartShowUpgradeMenu(float delay = 2.0f)
+    public void StartShowUpgradeMenu(float delay = 2.0f, bool updateText = true)
     {
-        StartCoroutine(ShowAfterDelay(delay));
+        StartCoroutine(ShowAfterDelay(delay, updateText));
 
         // Generate tier
         int tier = GenerateTier();
@@ -118,14 +118,16 @@ public class UpgradeMenuManager : MonoBehaviour
         UpgradeMenu.SetActive(visible);
     }
 
-    IEnumerator ShowAfterDelay(float delay)
+    IEnumerator ShowAfterDelay(float delay, bool updateText = true)
     {
         yield return new WaitForSeconds(delay);
 
         player.PlayerControls.FindAction("Pause").Disable();
 
         UpgradeMenuVisibility(true);
-        UpdateUpgradeText();
+
+        if (updateText)
+            UpdateUpgradeText();
     }
 
     IEnumerator LerpColor(float time, float minValue, float maxValue, TMPro.TMP_Text tMP_Text)

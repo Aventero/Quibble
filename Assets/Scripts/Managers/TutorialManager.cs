@@ -180,8 +180,9 @@ public class TutorialManager : MonoBehaviour
 
     private void UpgradeMenu()
     {
+        explanationManager.explanationBox.layer = LayerMask.NameToLayer("UI");
         ExplanationManager.OnExplanationTrigger += UpgradeStats;
-        upgradeMenuManager.StartShowUpgradeMenu(0.0f);
+        upgradeMenuManager.StartShowUpgradeMenu(0.0f, false);
         explanationManager.StartExplanation(8);
     }
 
@@ -216,6 +217,7 @@ public class TutorialManager : MonoBehaviour
     private void UpgradeSelected()
     {
         // Start final explanation
+        explanationManager.explanationBox.layer = LayerMask.NameToLayer("Default");
         ExplanationManager.OnExplanationTrigger += gameLoader.LoadMainMenuScene;
         StartCoroutine(explanationManager.StartExplanation(10, 1f));
     }
