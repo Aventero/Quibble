@@ -10,7 +10,7 @@ public class GameLoader : MonoBehaviour
     public float transitionTime = 1f;
     public Slider slider;
 
-    public void Start()
+    public void Awake()
     {
         SaveManager.Initialize();
     }

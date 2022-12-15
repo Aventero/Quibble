@@ -20,7 +20,10 @@ public class GameManager : MonoBehaviour
 
     public List<MeteoriteCurve> meteorites;
 
-    public AnimationCurve MeteoriteFallingCurve;
+    public AnimationCurve MeteoriteFallingCurveEasy;
+    public AnimationCurve MeteoriteFallingCurveMedium;
+    public AnimationCurve MeteoriteFallingCurveHard;
+    public AnimationCurve MeteoriteFallingCurveExtreme;
     public TMP_Text StageText;
     
     private MeteoriteSpawner MeteoriteSpawner;
@@ -75,14 +78,7 @@ public class GameManager : MonoBehaviour
         CurrentStage++;
 
         ResetMeteoriteCounter();
-
-        // Reset how many meteorites are in this stage
-        foreach (MeteoriteCurve meteorCurve in meteorites)
-        {
-            int amount = meteorCurve.GetSpawns(CurrentStage);
-            MeteoriteSpawner.SpawnMeteoritesOverTime(meteorCurve.Meteorite, amount, meteorCurve.GetTimeBetweenSpawns(CurrentStage));
-            StageMeteoriteCount += amount;
-        }
+        StartCoroutine(StartMeteorSpawners(1f));
 
         // Setup stage progress bar
         StageProgressManager.Setup();
@@ -102,7 +98,21 @@ public class GameManager : MonoBehaviour
 
     public float GetFallingCurve(float v)
     {
-        return MeteoriteFallingCurve.Evaluate(v);
+        switch (SaveManager.Difficulty)
+        {
+            case Difficulty.Easy:
+                return MeteoriteFallingCurveEasy.Evaluate(v);
+            case Difficulty.Medium: 
+                return MeteoriteFallingCurveMedium.Evaluate(v);
+            case Difficulty.Hard: 
+                return MeteoriteFallingCurveHard.Evaluate(v);
+            case Difficulty.Extreme: 
+                return MeteoriteFallingCurveExtreme.Evaluate(v);
+        }
+
+        // does not happen.
+        Debug.Log("Difficulty curve not found! ");
+        return MeteoriteFallingCurveEasy.Evaluate(v);
     }
 
     private void ResetMeteoriteCounter()
@@ -118,5 +128,22 @@ public class GameManager : MonoBehaviour
         while (StageProgressManager.IsFilling()) { yield return null; }
 
         UpgradeMenuManager.StartShowUpgradeMenu(2.0f);
+    }
+
+    IEnumerator StartMeteorSpawners(float timeInBetween)
+    {
+        foreach(MeteoriteCurve meteorCurve in meteorites)
+        {
+            int amount = meteorCurve.GetSpawns(CurrentStage);
+            StageMeteoriteCount += amount;
+        }
+
+        // Reset how many meteorites are in this stage
+        foreach (MeteoriteCurve meteorCurve in meteorites)
+        {
+            int amount = meteorCurve.GetSpawns(CurrentStage);
+            MeteoriteSpawner.SpawnMeteoritesOverTime(meteorCurve.Meteorite, amount, meteorCurve.GetTimeBetweenSpawns(CurrentStage));
+            yield return new WaitForSeconds(timeInBetween);
+        }
     }
 }

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa4ef30d08639f40aaf9d7d8410d211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageText: {fileID: 0}
+  Player: {fileID: 0}
   CurrentStage: 0
   meteorites:
   - {fileID: 11400000, guid: b0a62ab295e8e3a4ba0488ce8b2a93d2, type: 2}
@@ -59,18 +59,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e04c089fc7320ee4f8be426add38f191, type: 2}
   - {fileID: 11400000, guid: 098d655c1dcd05e4196e02fa15a3c1ce, type: 2}
   - {fileID: 11400000, guid: 4d24299e1a7f76e4f8dc86d986d59556, type: 2}
-  MeteoriteFallingCurve:
+  MeteoriteFallingCurveEasy:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.10789131
+      outSlope: -0.10789131
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.071493216
     - serializedVersion: 3
       time: 1
       value: 0.4
@@ -78,11 +78,84 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.050047338
+      inWeight: 0.051583707
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  MeteoriteFallingCurveMedium:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.000000018044696
+      outSlope: -0.000000018044696
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.066063344
+    - serializedVersion: 3
+      time: 100
+      value: 0.75
+      inSlope: -0.00032042945
+      outSlope: -0.00032042945
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.051583786
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  MeteoriteFallingCurveHard:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.5
+      inSlope: -0.056639228
+      outSlope: -0.056639228
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.07782806
+    - serializedVersion: 3
+      time: 1
+      value: 1.25
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0425341
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  MeteoriteFallingCurveExtreme:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.75
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0597285
+    - serializedVersion: 3
+      time: 1
+      value: 1.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.051583786
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  StageText: {fileID: 0}
 --- !u!114 &1583977346538716696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 0}
-  maxHealth: 100
   lerpTime: 0.2
 --- !u!114 &1583977346538716699
 MonoBehaviour:
@@ -138,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeMenu: {fileID: 0}
+  AutoSelect: {fileID: 0}
   Congrats: {fileID: 0}
   Stage: {fileID: 0}
   CongratulationWords:
@@ -179,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathMenu: {fileID: 0}
+  AutoSelect: {fileID: 0}
   TMP_Text: {fileID: 0}
 --- !u!114 &1583977346538716709
 MonoBehaviour:
@@ -192,6 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e922848916cdda2419c62a479930131b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputManager: {fileID: 0}
   PauseMenu: {fileID: 0}
+  AutoSelect: {fileID: 0}
   IsAlreadyPaused: 0

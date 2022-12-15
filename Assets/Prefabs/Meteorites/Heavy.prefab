@@ -126,14 +126,14 @@ MonoBehaviour:
     m_RotationOrder: 4
   MeteoriteSpeed: 1
   SlappedSpeed: 4
-  Gravity: 4
+  Gravity: 3
   SlappedGravity: 10
   MinScale: 0.2
   ScaleByDistance: 10
   EllipseWidth: 1
   EllipseHeight: 1
   DeletionRadius: 75
-  damage: 20
+  damage: 15
   ShakeDuration: 0.2
   ShakePower: 0.1
 --- !u!96 &-126789730253380437

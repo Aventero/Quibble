@@ -80,8 +80,8 @@ public class Meteorite : MonoBehaviour
     private void UpdateSpeed()
     {
         AngleRad += MeteoriteSpeed * Time.deltaTime;
-        float distance = Vector3.Distance(transform.position, gravitationCenter.position);
-        float fallingMultiplier = GameManager.Instance.GetFallingCurve(1f - ((distance) / SpawnRadiusByStage.Evaluate(GameManager.Instance.CurrentStage)));
+        float distance = Vector3.Distance(transform.position, gravitationCenter.position) - 1.5f;
+        float fallingMultiplier = GameManager.Instance.GetFallingCurve(1f - (distance / SpawnRadiusByStage.Evaluate(GameManager.Instance.CurrentStage)));
         currentRadius += -Gravity * Time.deltaTime * fallingMultiplier;
     }
 
@@ -101,6 +101,20 @@ public class Meteorite : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.transform.CompareTag("Planet"))
+        {
+            FindObjectOfType<AudioManager>().Play("PlanetHit");
+
+            // Deal damage
+            HealthManager.Instance.DealDamage(damage);
+            GetComponent<Collider2D>().enabled = false;
+            OnPlanetHit.Invoke();
+
+            StartCoroutine(FadeTrail(0.1f, this.gameObject));
+            StartCoroutine(DestoryAfter(0.1f, this.gameObject));
+            return;
+        }
+
         if (collision.transform.CompareTag("Sword"))
         {
             Gravity = -SlappedGravity; // Negate gravity, so the meteorite shoots away
@@ -116,19 +130,6 @@ public class Meteorite : MonoBehaviour
             ChangeTrail(Color.green);
             StartCoroutine(cameraShake.Shake(ShakeDuration, ShakePower));
             GetComponent<Collider2D>().enabled = false;
-        }
-
-        if (collision.transform.CompareTag("Planet"))
-        {
-            FindObjectOfType<AudioManager>().Play("PlanetHit");
-
-            // Deal damage
-            HealthManager.Instance.DealDamage(damage);
-            GetComponent<Collider2D>().enabled = false;
-            OnPlanetHit.Invoke();
-
-            StartCoroutine(FadeTrail(ShakeDuration * 2.0f, this.gameObject));
-            StartCoroutine(DestoryAfter(ShakeDuration * 2.0f, this.gameObject));
         }
     }
 

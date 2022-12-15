@@ -5,12 +5,15 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-    public float soundVolume { get; private set; } = SaveManager.SoundVolume;
+    public float soundVolume { get; private set; }
 
     public static AudioManager Instance;
 
     private void Awake()
     {
+        SaveManager.Initialize();
+        SaveManager.Load();
+        soundVolume = SaveManager.SoundVolume;
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -34,10 +37,7 @@ public class AudioManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-    }
 
-    private void Start()
-    {
         Play("BackgroundMusic");
     }
 

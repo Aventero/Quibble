@@ -133,7 +133,7 @@ MonoBehaviour:
   EllipseWidth: 1
   EllipseHeight: 1
   DeletionRadius: 75
-  damage: 25
+  damage: 20
   ShakeDuration: 0.2
   ShakePower: 0.1
 --- !u!96 &-126789730253380437

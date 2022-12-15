@@ -11,7 +11,7 @@ public class MainMenuManager : MonoBehaviour
         gameLoader.LoadGameScene();
     }
 
-    public void OpenSettings()
+    public void LoadTutorial()
     {
         gameLoader.LoadTutorialScene();
     }

@@ -65,8 +65,8 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlanetHit
     clip: {fileID: 8300000, guid: 475671f94dff63246b45d4216ba17856, type: 3}
-    volume: 0.374
-    pitch: 1
+    volume: 0.3
+    pitch: 1.5
     loop: 0
     source: {fileID: 0}
   - name: MenuHover
@@ -83,7 +83,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: UpgradeSelect
     clip: {fileID: 8300000, guid: 5001d8bad12934441bf12815278485cb, type: 3}
-    volume: 0.336
+    volume: 0.15
     pitch: 1
     loop: 0
     source: {fileID: 0}

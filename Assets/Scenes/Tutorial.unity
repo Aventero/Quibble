@@ -3966,6 +3966,19 @@ MonoBehaviour:
   - {fileID: 7260575687468260189}
   - {fileID: 7260575687727371628}
   - {fileID: 7260575688887428631}
+--- !u!114 &1142127147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051494269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c083cee10652c94ca54eb254b1cb380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlanetMaterial: {fileID: 2100000, guid: 7ff049b8776e22c4c800e65e91b2e663, type: 2}
 --- !u!1 &1173642698
 GameObject:
   m_ObjectHideFlags: 0

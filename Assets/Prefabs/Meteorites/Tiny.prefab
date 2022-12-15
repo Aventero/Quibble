@@ -126,7 +126,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   MeteoriteSpeed: 1
   SlappedSpeed: 4
-  Gravity: 1.5
+  Gravity: 1
   SlappedGravity: 15
   MinScale: 0.01
   ScaleByDistance: 5
