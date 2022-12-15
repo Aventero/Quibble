@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         MeteoriteSpawner = GetComponent<MeteoriteSpawner>();
         StageProgressManager = GetComponent<StageProgressManager>();
         UpgradeMenuManager = GetComponent<UpgradeMenuManager>();
-        Sword.OnMeteoriteHit += IncreaseMeteoriteHits;
+        Meteorite.OnMeteoriteHit += IncreaseMeteoriteHits;
         Meteorite.OnPlanetHit += IncreaseMeteoriteHits;
         MeteoriteSpawner.OnMeteoriteSpawn += IncreaseCurrentMeteorites;
 
@@ -117,6 +117,13 @@ public class GameManager : MonoBehaviour
 
     private void ResetMeteoriteCounter()
     {
+        // Destroy every Meteorite that should not be there.
+        GameObject[] meteorites = GameObject.FindGameObjectsWithTag("Meteorite");
+        for (int i = 0; i < meteorites.Length; i++)
+        {
+            Destroy(meteorites[i].gameObject);
+        }
+
         MeteoritesHit = 0;
         SpawnedMeteorites = 0;
         StageMeteoriteCount = 0;

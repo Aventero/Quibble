@@ -18,6 +18,8 @@ public class DeathManager : MonoBehaviour
     private void EnableDeathMenu()
     {
         GameManager.Instance.StopSpawning();
+        FindObjectOfType<HeartWave>().StopBeating();
+
         // Show death screen
         DeathMenu.SetActive(true);
         TMP_Text.SetText("You completed " + GameManager.Instance.CurrentStage + " stages!");
@@ -30,7 +32,7 @@ public class DeathManager : MonoBehaviour
         GameObject[] meteorites = GameObject.FindGameObjectsWithTag("Meteorite");
         for (int i = 0; i < meteorites.Length; i++)
         {
-            meteorites[i].GetComponent<Meteorite>().Gravity = 0.0f;
+            meteorites[i].GetComponent<Meteorite>().Gravity = -1.0f;
         }
     }
 

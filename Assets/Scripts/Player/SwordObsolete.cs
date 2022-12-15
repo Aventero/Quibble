@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Sword : MonoBehaviour
+public class SwordObsolete: MonoBehaviour
 {
     //public float StopDuration = 0.1f;
     private HitStop hitStop;
@@ -17,6 +17,14 @@ public class Sword : MonoBehaviour
         particleManager = FindObjectOfType<ParticleManager>();
     }
 
+    public void InvokeStageProgress()
+    {
+        OnMeteoriteHit.Invoke();
+
+        // Spawn particles
+        particleManager.SpawnEssence(this.transform.position);
+    }
+
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,10 +32,7 @@ public class Sword : MonoBehaviour
         {
             float duration = other.GetComponent<Meteorite>().ShakeDuration;
             hitStop.Stop(duration);
-            OnMeteoriteHit.Invoke();
-
-            // Spawn particles
-            particleManager.SpawnEssence(this.transform.position);
+            InvokeStageProgress();
         }
     }
 

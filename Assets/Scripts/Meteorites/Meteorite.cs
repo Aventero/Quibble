@@ -24,7 +24,10 @@ public class Meteorite : MonoBehaviour
     public float ShakeDuration = 0.1f;
     public float ShakePower = 0.2f;
     public static event UnityAction OnPlanetHit;
-    
+    public static event UnityAction OnMeteoriteHit;
+    private ParticleManager particleManager;
+
+    private HitStop hitStop;
     private CameraShake cameraShake;
     private Transform gravitationCenter;
 
@@ -45,6 +48,8 @@ public class Meteorite : MonoBehaviour
     {
         cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
         gravitationCenter = GameObject.FindGameObjectWithTag("Planet").transform;
+        hitStop = FindObjectOfType<HitStop>();
+        particleManager = FindObjectOfType<ParticleManager>();
         SetStartingPosition();
         ScaleMeteorite();
     }
@@ -66,7 +71,10 @@ public class Meteorite : MonoBehaviour
 
     private void LookForDeletion()
     {
-        if (currentRadius <= 0 || currentRadius >= DeletionRadius)
+        if (currentRadius <= 0)
+            StartCoroutine(DestoryAfter(0.5f, this.gameObject));
+
+        if (currentRadius >= DeletionRadius)
             Destroy(gameObject);
     }
 
@@ -103,13 +111,13 @@ public class Meteorite : MonoBehaviour
     {
         if (collision.transform.CompareTag("Planet"))
         {
+            GetComponent<Collider2D>().enabled = false;
             FindObjectOfType<AudioManager>().Play("PlanetHit");
 
             // Deal damage
             HealthManager.Instance.DealDamage(damage);
-            GetComponent<Collider2D>().enabled = false;
             OnPlanetHit.Invoke();
-
+            particleManager.SpawnEssence(this.transform.position);
             StartCoroutine(FadeTrail(0.1f, this.gameObject));
             StartCoroutine(DestoryAfter(0.1f, this.gameObject));
             return;
@@ -117,6 +125,8 @@ public class Meteorite : MonoBehaviour
 
         if (collision.transform.CompareTag("Sword"))
         {
+            GetComponent<Collider2D>().enabled = false;
+            FindObjectOfType<AudioManager>().Play("Hit");
             Gravity = -SlappedGravity; // Negate gravity, so the meteorite shoots away
 
             // Let meteorite fly in the hitdirection
@@ -125,11 +135,13 @@ public class Meteorite : MonoBehaviour
             else
                 MeteoriteSpeed = -SlappedSpeed;
 
+            OnMeteoriteHit.Invoke();
+            // Spawn particles
+            particleManager.SpawnEssence(this.transform.position);
             // After hitting, change the trail color
-            FindObjectOfType<AudioManager>().Play("Hit");
             ChangeTrail(Color.green);
+            hitStop.Stop(ShakeDuration);
             StartCoroutine(cameraShake.Shake(ShakeDuration, ShakePower));
-            GetComponent<Collider2D>().enabled = false;
         }
     }
 
@@ -167,5 +179,14 @@ public class Meteorite : MonoBehaviour
 
         foreach (System.Delegate invoker in OnPlanetHit.GetInvocationList())
             OnPlanetHit -= (UnityAction)invoker;
+    }
+
+    public static void ResetOnMeteoriteHit()
+    {
+        if (OnMeteoriteHit == null)
+            return;
+
+        foreach (System.Delegate invoker in OnMeteoriteHit.GetInvocationList())
+            OnMeteoriteHit -= (UnityAction)invoker;
     }
 }

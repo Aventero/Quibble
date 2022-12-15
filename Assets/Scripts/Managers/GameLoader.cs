@@ -28,7 +28,7 @@ public class GameLoader : MonoBehaviour
         // Reset all events
         ExplanationManager.ResetTrigger();
         Meteorite.ResetOnPlanetHit();
-        Sword.ResetOnMeteoriteHit();
+        Meteorite.ResetOnMeteoriteHit();
 
         StartCoroutine(LoadMainMenu());
     }

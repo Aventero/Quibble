@@ -123,7 +123,7 @@ public class TutorialManager : MonoBehaviour
         Meteorite.OnPlanetHit += MeteoriteHitFailure;
 
         // If meteorite is slabbed => Continue
-        Sword.OnMeteoriteHit += MeteoriteHitSuccess;
+        Meteorite.OnMeteoriteHit += MeteoriteHitSuccess;
     }
 
     private void MeteoriteHitFailure()
@@ -134,7 +134,7 @@ public class TutorialManager : MonoBehaviour
 
     private void MeteoriteHitSuccess()
     {
-        Sword.OnMeteoriteHit -= MeteoriteHitSuccess;
+        Meteorite.OnMeteoriteHit -= MeteoriteHitSuccess;
 
         // Start explanation (stages)
         ExplanationManager.OnExplanationTrigger += StageProgress;
@@ -152,7 +152,7 @@ public class TutorialManager : MonoBehaviour
     {
         ExplanationManager.ResetTrigger();
 
-        Sword.OnMeteoriteHit += MeteoriteHitSuccessStageUpdate;
+        Meteorite.OnMeteoriteHit += MeteoriteHitSuccessStageUpdate;
         Instantiate(MeteoriteNoDamage, new Vector3(0.0f, 7.0f, 0.0f), new Quaternion(0, 0, 0, 0));
     }
 

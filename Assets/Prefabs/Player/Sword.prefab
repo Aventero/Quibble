@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4947440002365105393}
   - component: {fileID: 1682984324675772608}
   - component: {fileID: 5078351556853556526}
-  - component: {fileID: 4634839953441155091}
   - component: {fileID: 3613148510147665768}
   m_Layer: 0
   m_Name: Sword
@@ -217,18 +216,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &4634839953441155091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329397306506730604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80271b5f7ff42d445a3d78fcd27c0e86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &3613148510147665768
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DifficultyColoringManager : MonoBehaviour
+public class PlanetColoringManager : MonoBehaviour
 {
     public Material PlanetMaterial;
 
     void Update()
     {
+        if (StateManager.IsDead)
+        {
+            PlanetMaterial.SetColor("_GlowColor", new Color(0, 0, 0, 0));
+            return;
+        }
+
         switch (SaveManager.Difficulty)
         {
             case Difficulty.Easy: PlanetMaterial.SetColor("_GlowColor", new Color(0f, 7, 20, 0)); break;

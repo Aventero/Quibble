@@ -8,5 +8,10 @@ public class ShadowRotation : MonoBehaviour
     void Update()
     {
         transform.eulerAngles = new Vector3(0, 0, StateManager.AngleDeg - 90f);
+
+        if (StateManager.IsDead)
+        {
+            enabled = false;
+        }
     }
 }

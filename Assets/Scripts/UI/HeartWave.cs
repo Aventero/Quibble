@@ -13,6 +13,11 @@ public class HeartWave : MonoBehaviour
         StartCoroutine(HeartBeat(Duration));
     }
 
+    public void StopBeating()
+    {
+        GetComponent<Animator>().enabled = false;
+    }
+
     IEnumerator HeartBeat(float time)
     {
         float elapsed = StartRadius;
