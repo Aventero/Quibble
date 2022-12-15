@@ -13,4 +13,10 @@ public class ControllerAutoSelect : MonoBehaviour
         if (Gamepad.all.Count > 0)
             AutoSelect.Select();
     }
+
+    public void Select()
+    {
+        if (Gamepad.all.Count > 0)
+            AutoSelect.Select();
+    }
 }

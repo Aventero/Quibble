@@ -5,7 +5,7 @@ using UnityEngine;
 public class DifficultyColoringManager : MonoBehaviour
 {
     public Material PlanetMaterial;
-    // Start is called before the first frame update
+
     void Update()
     {
         switch (SaveManager.Difficulty)
