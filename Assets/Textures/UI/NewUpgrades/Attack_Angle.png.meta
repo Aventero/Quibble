@@ -51,7 +51,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1f5d00ddc0776f4a9ae5c9117a54045
-      internalID: 421465146
+      spriteID: e680de83c3e91334d8f5228cbb2cb2e5
+      internalID: -1394583976
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9443fabb3a9c4d48a2131fcfef8682e
-      internalID: 205474066
+      spriteID: 9aa3a03fc2fecad44bfb7eedd18514b3
+      internalID: 1366984704
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca64ad2eea4811b43bf7d68d5af1efd0
-      internalID: -926728800
+      spriteID: 00e391ebf8d409f47a7d24925eb6c1d6
+      internalID: -1616440847
       vertices: []
       indices: 
       edges: []
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef4b95ced1be1c5448608b7b166ef6a5
-      internalID: -1229695842
+      spriteID: ac0cf2bfb7ba501418530a8c564f88d1
+      internalID: 649124081
       vertices: []
       indices: 
       edges: []
@@ -191,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a914facc4c75b5e46a23fa0efdd2a358
+    spriteID: 26b7fcaad7869f54fa4fa9c71f8d9ff6
     internalID: 0
     vertices: []
     indices: 
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack_Angle_0: 421465146
-      Attack_Angle_1: 205474066
-      Attack_Angle_2: -926728800
-      Attack_Angle_3: -1229695842
+      Attack_Angle_0: -1394583976
+      Attack_Angle_1: 1366984704
+      Attack_Angle_2: -1616440847
+      Attack_Angle_3: 649124081
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
