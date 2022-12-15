@@ -5598,7 +5598,7 @@ MonoBehaviour:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
-    m_SelectedTrigger: Empty
+    m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Empty
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
@@ -22521,7 +22521,7 @@ MonoBehaviour:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Empty
-    m_SelectedTrigger: Empty
+    m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Empty
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
@@ -23379,7 +23379,7 @@ MonoBehaviour:
     m_NormalTrigger: Unselected
     m_HighlightedTrigger: Selected
     m_PressedTrigger: Empty
-    m_SelectedTrigger: Empty
+    m_SelectedTrigger: Selected
     m_DisabledTrigger: Empty
   m_Interactable: 0
   m_TargetGraphic: {fileID: 7260575687468260184}
@@ -23534,7 +23534,7 @@ MonoBehaviour:
     m_NormalTrigger: Unselected
     m_HighlightedTrigger: Selected
     m_PressedTrigger: Empty
-    m_SelectedTrigger: Empty
+    m_SelectedTrigger: Selected
     m_DisabledTrigger: Empty
   m_Interactable: 0
   m_TargetGraphic: {fileID: 7260575687727371627}
@@ -23745,7 +23745,7 @@ MonoBehaviour:
     m_NormalTrigger: Unselected
     m_HighlightedTrigger: Selected
     m_PressedTrigger: Empty
-    m_SelectedTrigger: Empty
+    m_SelectedTrigger: Selected
     m_DisabledTrigger: Empty
   m_Interactable: 0
   m_TargetGraphic: {fileID: 7260575688887428626}
