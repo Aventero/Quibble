@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
+    public GameObject Player;
     public GameObject PauseMenu;
     public Button AutoSelect; 
     public bool IsAlreadyPaused = false;
@@ -28,6 +29,7 @@ public class PauseManager : MonoBehaviour
         if (Gamepad.all.Count > 0)
             AutoSelect.Select();
 
+        Player.GetComponent<PlayerController>().enabled = false;
         StateManager.InMenu = true;
         PauseMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -36,6 +38,7 @@ public class PauseManager : MonoBehaviour
 
     public void DisablePauseMenu()
     {
+        Player.GetComponent<PlayerController>().enabled = true;
         Time.timeScale = 1f;
         IsAlreadyPaused = false;
         PauseMenu.SetActive(false);

@@ -28,6 +28,7 @@ public class Attack : MonoBehaviour
     {
         if (StateManager.IsDead || StateManager.InMenu)
             return;
+
         Attacking();
     }
 

@@ -31,16 +31,15 @@ public class PlayerController : MonoBehaviour
     // Sound
     private bool shouldPlayLandingSound = false;
 
-    private void Awake()
+    private void Start()
     {
+        PlayerControls = GetComponent<PlayerInput>().currentActionMap;
         inputManager = GetComponent<InputManager>();
         jumpCurves = GetComponent<JumpCurves>();
         currentHeight = minHeight;
         scale = transform.localScale.x;
         oldJumpHeight = PlayerStats.Instance.Jump;
         normalizedTime = 0;
-
-        PlayerControls = GetComponent<PlayerInput>().currentActionMap;
 
         // Setup jump
         SetupJumpVariables();

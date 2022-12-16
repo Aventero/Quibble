@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e922848916cdda2419c62a479930131b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
   PauseMenu: {fileID: 0}
   AutoSelect: {fileID: 0}
   IsAlreadyPaused: 0

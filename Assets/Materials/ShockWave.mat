@@ -38,13 +38,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fade: 0.28047475
+    - _Fade: 1
     - _Magnification: -0.02
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Size: 0.167
     - _Speed: 1
-    - _WaveDistance: 0.28047475
+    - _WaveDistance: 0
     - _WaveTime: 0.453
     m_Colors:
     - _FocalPoint: {r: 0.5, g: 0.5, b: 0, a: 0}

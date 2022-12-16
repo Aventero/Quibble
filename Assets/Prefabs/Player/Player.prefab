@@ -4884,8 +4884,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerControls:
-    m_Name: 
-    m_Id: 
+    m_Name: Player Controls
+    m_Id: f0068a9c-f2fc-4c79-b9a5-4f80f4854622
     m_Asset: {fileID: 0}
     m_Actions: []
     m_Bindings: []
@@ -5056,7 +5056,7 @@ MonoBehaviour:
   Sword: {fileID: 1329397306506730604, guid: ed67be377653f9e418c0d80022a1f727, type: 3}
   SwingSpeed: 1500
   SwordDistance: 0.25
-  CooldownTime: 0.25
+  CooldownTime: 0.3
 --- !u!114 &5836074082465255196
 MonoBehaviour:
   m_ObjectHideFlags: 0

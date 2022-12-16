@@ -517,7 +517,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 0
   tier:
-    spawnPercentage: 0
     upgradeSprite: {fileID: 0}
     upgradeEffect: 0
 --- !u!114 &5859358641863079661
@@ -736,7 +735,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 0
   tier:
-    spawnPercentage: 0
     upgradeSprite: {fileID: 0}
     upgradeEffect: 0
 --- !u!114 &711426080953983407
@@ -999,7 +997,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 0
   tier:
-    spawnPercentage: 0
     upgradeSprite: {fileID: 0}
     upgradeEffect: 0
 --- !u!114 &4271129726969117973

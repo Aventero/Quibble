@@ -225,9 +225,4 @@ public class TutorialManager : MonoBehaviour
         ExplanationManager.OnExplanationTrigger += gameLoader.LoadMainMenuScene;
         StartCoroutine(explanationManager.StartExplanation(10, 1f));
     }
-
-    private void OnDestroy()
-    {
-
-    }
 }

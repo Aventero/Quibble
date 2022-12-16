@@ -10,18 +10,18 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-        Player.GetComponent<PlayerController>().PlayerControls.FindAction("Pause").Disable();
+        Player.GetComponent<PlayerInput>().currentActionMap.FindAction("Pause").Disable();
     }
 
     public void StartGame()
     {
-        Player.GetComponent<PlayerController>().PlayerControls.FindAction("Pause").Enable();
+        Player.GetComponent<PlayerInput>().currentActionMap.FindAction("Pause").Enable();
         gameLoader.LoadGameScene();
     }
 
     public void LoadTutorial()
     {
-        Player.GetComponent<PlayerController>().PlayerControls.FindAction("Pause").Enable();
+        Player.GetComponent<PlayerInput>().currentActionMap.FindAction("Pause").Enable();
         gameLoader.LoadTutorialScene();
     }
 

@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        StateManager.InMenu = false;
+        StateManager.IsDead = false;
+        StateManager.GamePaused = false;
+
         MeteoriteSpawner = GetComponent<MeteoriteSpawner>();
         StageProgressManager = GetComponent<StageProgressManager>();
         UpgradeMenuManager = GetComponent<UpgradeMenuManager>();
