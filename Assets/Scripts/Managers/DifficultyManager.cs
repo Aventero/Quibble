@@ -8,5 +8,10 @@ public class DifficultyManager : MonoBehaviour
     {
         SaveManager.Difficulty = (Difficulty)difficulty;
         SaveManager.Save();
+        Tween[] tweens = FindObjectsOfType<Tween>();
+        for (int i = 0; i < tweens.Length; i++)
+        {
+            tweens[i].SetDifficultyColor();
+        }
     }
 }

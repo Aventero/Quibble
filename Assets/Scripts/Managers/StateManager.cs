@@ -33,6 +33,8 @@ public class StateManager
     }
 
     public static int MoveDirection { get; set; } = 1;
+    public static bool StartupDone { get; internal set; }
+
     private static float angleRad = 0;
     private static bool inJump = false;
     private static bool isGrounded = true;

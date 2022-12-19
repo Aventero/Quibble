@@ -18,7 +18,6 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-
             s.source.volume = s.volume * soundVolume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -49,7 +48,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound " + s.name + " was not found!");
             return;
         }
-        s.source.Play();
+        s.source.PlayOneShot(s.clip);
     }
 
     public void Stop(string name)

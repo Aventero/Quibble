@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
         // Wait until stage bar is full
         while (StageProgressManager.IsFilling()) { yield return null; }
 
-        UpgradeMenuManager.StartShowUpgradeMenu(2.0f);
+        UpgradeMenuManager.StartShowUpgradeMenu(0.5f);
     }
 
     IEnumerator StartMeteorSpawners(float timeInBetween)

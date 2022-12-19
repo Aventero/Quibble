@@ -41,7 +41,7 @@ public class UpgradeMenuManager : MonoBehaviour
     }
 
     // Start to show upgrade menu
-    public void StartShowUpgradeMenu(float delay = 2.0f, bool updateText = true)
+    public void StartShowUpgradeMenu(float delay = 1f, bool updateText = true)
     {
         // Check if player is currently dead
         if (StateManager.IsDead)
@@ -146,6 +146,8 @@ public class UpgradeMenuManager : MonoBehaviour
 
         if (updateText)
             UpdateUpgradeText();
+
+        yield return null;
     }
 
     IEnumerator LerpColor(float time, float minValue, float maxValue, TMPro.TMP_Text tMP_Text)
