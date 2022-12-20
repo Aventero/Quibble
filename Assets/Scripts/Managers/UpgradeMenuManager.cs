@@ -70,7 +70,7 @@ public class UpgradeMenuManager : MonoBehaviour
     public void Start()
     {
         RangeText.SetText(System.Math.Round(PlayerStats.Instance.Range, 2) + " m");
-        AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 2) + " °");
+        AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 0) + " °");
         HeightText.SetText(System.Math.Round(PlayerStats.Instance.Jump, 2) + " m");
         SpeedText.SetText(System.Math.Round(PlayerStats.Instance.Movement, 2) + " m/s");
 
@@ -88,7 +88,7 @@ public class UpgradeMenuManager : MonoBehaviour
                 break;
             case Upgrade.UpgradeType.ANGLE:
                 PlayerStats.Instance.AngleLevel += effect;
-                AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 2) + " °");
+                AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 0) + " °");
                 StartCoroutine(LerpColor(1f, 0f, 1f, AngleText));
                 break;
             case Upgrade.UpgradeType.HEAL:

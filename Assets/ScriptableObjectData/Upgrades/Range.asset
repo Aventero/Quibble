@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   tiers:
-  - upgradeSprite: {fileID: -2085869819, guid: f7687a1c3d44ee74cbd3f66e66a9b975, type: 3}
+  - upgradeSprite: {fileID: 31263116, guid: 25490ba545cc3f145a1c646e94914952, type: 3}
     upgradeEffect: 1
-  - upgradeSprite: {fileID: -488494818, guid: f7687a1c3d44ee74cbd3f66e66a9b975, type: 3}
+  - upgradeSprite: {fileID: 1325921341, guid: 25490ba545cc3f145a1c646e94914952, type: 3}
     upgradeEffect: 2
-  - upgradeSprite: {fileID: 474638030, guid: f7687a1c3d44ee74cbd3f66e66a9b975, type: 3}
+  - upgradeSprite: {fileID: -1397903311, guid: 25490ba545cc3f145a1c646e94914952, type: 3}
     upgradeEffect: 3
-  - upgradeSprite: {fileID: -695821297, guid: f7687a1c3d44ee74cbd3f66e66a9b975, type: 3}
+  - upgradeSprite: {fileID: 2107759191, guid: 25490ba545cc3f145a1c646e94914952, type: 3}
     upgradeEffect: 4

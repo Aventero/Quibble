@@ -37,7 +37,18 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        Play("BackgroundMusic");
+        PlayLoop("BackgroundMusic");
+    }
+
+    public void PlayLoop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound " + s.name + " was not found!");
+            return;
+        }
+        s.source.Play();
     }
 
     public void Play(string name)

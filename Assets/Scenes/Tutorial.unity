@@ -2703,6 +2703,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6198469603998588891, guid: fa998fb26c0d81f4e8725a2883e558ea, type: 3}
+      propertyPath: sounds.Array.data[2].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198469603998588891, guid: fa998fb26c0d81f4e8725a2883e558ea, type: 3}
       propertyPath: sounds.Array.data[3].clip
       value: 
       objectReference: {fileID: 8300000, guid: e27f17e386035654ea0a89e327cd9158, type: 3}
@@ -22438,8 +22442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.7738519, g: 0.78748906, b: 0.8867924, a: 1}
+  m_Material: {fileID: 2100000, guid: daa253808325cbc47a8a8c5574ef27b0, type: 2}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -22741,8 +22745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.7738519, g: 0.78748906, b: 0.8867924, a: 1}
+  m_Material: {fileID: 2100000, guid: daa253808325cbc47a8a8c5574ef27b0, type: 2}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -22863,8 +22867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.7738519, g: 0.78748906, b: 0.8867924, a: 1}
+  m_Material: {fileID: 2100000, guid: daa253808325cbc47a8a8c5574ef27b0, type: 2}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

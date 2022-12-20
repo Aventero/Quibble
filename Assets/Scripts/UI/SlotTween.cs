@@ -26,7 +26,7 @@ public class SlotTween : MonoBehaviour
     public void OnExit()
     {
         LeanTween.scale(RectTransform, new Vector3(1.0f, 1.0f, 1.0f), 0.1f).setEaseOutBack().setIgnoreTimeScale(true);
-        LeanTween.color(RectTransform, new Color(0.7f, 0.7f, 0.7f, 1f), 0.1f);
+        LeanTween.color(RectTransform, new Color(0.5f, 0.5f, 0.5f, 1f), 0.1f);
     }
 
     private void OnEnable()
@@ -34,6 +34,6 @@ public class SlotTween : MonoBehaviour
         if (RectTransform == null)
             return;
 
-        LeanTween.color(RectTransform, new Color(0.7f, 0.7f, 0.7f, 1f), 0.1f);
+        LeanTween.color(RectTransform, new Color(0.5f, 0.5f, 0.5f, 1f), 0.1f);
     }
 }

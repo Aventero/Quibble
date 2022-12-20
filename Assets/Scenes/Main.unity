@@ -1769,20 +1769,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260575687256030860, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_Type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7260575687256030860, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1410301187, guid: 63129f7a9db0b084eba6d61378d4b957, type: 3}
+    - target: {fileID: 7260575687256030860, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_Color.b
-      value: 0.8490566
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7260575687256030860, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_Color.g
-      value: 0.8490566
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7260575687256030860, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_Color.r
-      value: 0.8490566
+      value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7260575687256030860, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: daa253808325cbc47a8a8c5574ef27b0, type: 2}
     - target: {fileID: 7260575687256030860, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_FillCenter
       value: 1
@@ -1855,6 +1863,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7260575687932276927, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1268194412, guid: 63129f7a9db0b084eba6d61378d4b957, type: 3}
+    - target: {fileID: 7260575687932276927, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260575687932276927, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260575687932276927, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260575687932276927, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: daa253808325cbc47a8a8c5574ef27b0, type: 2}
     - target: {fileID: 7260575687943079306, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1991,6 +2019,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7260575688655193030, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 589821210, guid: 63129f7a9db0b084eba6d61378d4b957, type: 3}
+    - target: {fileID: 7260575688655193030, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260575688655193030, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260575688655193030, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260575688655193030, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: daa253808325cbc47a8a8c5574ef27b0, type: 2}
     - target: {fileID: 9108582533237050558, guid: e724ad8a960cca243a5af3af5c8935ad, type: 3}
       propertyPath: m_Delegates.Array.size
       value: 5
