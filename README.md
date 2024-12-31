@@ -2,7 +2,7 @@
     <img src="https://user-images.githubusercontent.com/52967743/209162102-41a0192e-630a-4a2c-903a-9e4b230ad08f.png">
 </p>
 
-## About the game
+## About the Game
 You're playing Quibble <img src ="https://user-images.githubusercontent.com/52967743/209162229-65975604-204c-4b38-b12f-5d90723b4de5.png" width="20" height="20" > , where you protect your small rotating planet from incoming meteorites. <br>**How?**<br> By swinging your sword to deflect them!
 
 After each conquered stage, you'll choose an upgrade. The further you progress, the more challenging it becomes, so choose your upgrades wisely. If too many meteorites hit your planet, it's game over.
