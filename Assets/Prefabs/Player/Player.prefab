@@ -4830,6 +4830,7 @@ GameObject:
   - component: {fileID: 5836074082465255196}
   - component: {fileID: 5836074082465255171}
   - component: {fileID: 8369231105165440513}
+  - component: {fileID: 8367582520229546994}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4998,6 +4999,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 24e665a5-1649-4eee-9ff4-f2c8111399aa
     m_ActionName: Player/Pause[/Keyboard/escape,/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5898cef2-6010-4a8c-b83e-57f3d1219743
+    m_ActionName: UI/Up[/Keyboard/w,/Keyboard/upArrow,/Gamepad/dpad/up,/Gamepad/leftStick/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 10ed65ba-000b-427c-8a5b-4b6d19c579c1
+    m_ActionName: UI/Down[/Keyboard/s,/Keyboard/downArrow,/Gamepad/dpad/down,/Gamepad/leftStick/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d1136b4d-a615-49d7-b974-aec17b8f4bdc
+    m_ActionName: UI/Left[/Keyboard/a,/Keyboard/leftArrow,/Gamepad/dpad/left,/Gamepad/leftStick/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f91500d1-0607-4d3b-9621-6b5a61721da2
+    m_ActionName: UI/Right[/Keyboard/d,/Keyboard/rightArrow,/Gamepad/dpad/right,/Gamepad/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -5540,6 +5557,18 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8367582520229546994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836074082465255189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a27346f46633d07bf59b26dc4e0770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5836074082644902184
 GameObject:
   m_ObjectHideFlags: 0

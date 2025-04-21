@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -41,5 +39,22 @@ public class InputManager : MonoBehaviour
             OnPaused.Invoke();
         
         Paused = context.ReadValueAsButton();
+    }
+
+    public void DeviceChangeEvent(PlayerInput input)
+    {
+        switch (input.currentControlScheme)
+        {
+            case "Gamepad":
+                Debug.Log("Using Gamepad");
+                if(ControllerManager.Instance != null)
+                    ControllerManager.Instance.ActivateGamepad();
+                break;
+            case "Keyboard&Mouse":
+                Debug.Log("Using Keyboard & Mouse");
+                if(ControllerManager.Instance != null)
+                    ControllerManager.Instance.DeactivateGamepad();
+                break;
+        }
     }
 }

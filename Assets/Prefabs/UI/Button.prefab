@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5637179608117766270}
   - component: {fileID: 5637179608117766266}
   - component: {fileID: 5637179608117766267}
+  - component: {fileID: 2139292443993606791}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -169,10 +170,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5637179608117766270}
-          m_TargetAssemblyTypeName: Tween, Assembly-CSharp
-          m_MethodName: OnMouseEnter
-          m_Mode: 1
+        - m_Target: {fileID: 2139292443993606791}
+          m_TargetAssemblyTypeName: ButtonUIManager, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -197,10 +198,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5637179608117766270}
-          m_TargetAssemblyTypeName: Tween, Assembly-CSharp
-          m_MethodName: OnMouseExit
-          m_Mode: 1
+        - m_Target: {fileID: 2139292443993606791}
+          m_TargetAssemblyTypeName: ButtonUIManager, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -213,10 +214,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5637179608117766270}
-          m_TargetAssemblyTypeName: Tween, Assembly-CSharp
-          m_MethodName: OnMouseDown
-          m_Mode: 1
+        - m_Target: {fileID: 2139292443993606791}
+          m_TargetAssemblyTypeName: ButtonUIManager, Assembly-CSharp
+          m_MethodName: OnPointerDown
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -241,10 +242,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5637179608117766270}
-          m_TargetAssemblyTypeName: Tween, Assembly-CSharp
-          m_MethodName: OnMouseUp
-          m_Mode: 1
+        - m_Target: {fileID: 2139292443993606791}
+          m_TargetAssemblyTypeName: ButtonUIManager, Assembly-CSharp
+          m_MethodName: OnPointerUp
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -257,10 +258,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5637179608117766270}
-          m_TargetAssemblyTypeName: Tween, Assembly-CSharp
-          m_MethodName: OnMouseClick
-          m_Mode: 1
+        - m_Target: {fileID: 2139292443993606791}
+          m_TargetAssemblyTypeName: ButtonUIManager, Assembly-CSharp
+          m_MethodName: OnPointerClick
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -279,6 +280,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7dcadb5e9027fa42bcdf467df63aea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2139292443993606791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637179608117766256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74cc18432b6fa3d49f78aca04b2bcfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5637179608813866584

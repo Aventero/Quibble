@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
+    public PlayerInput PlayerInput;
     public GameObject Player;
     public GameObject PauseMenu;
-    public Button AutoSelect; 
+    public GameObject AutoSelect; 
     public bool IsAlreadyPaused = false;
 
     private void Start()
     {
         InputManager.OnPaused += EnablePauseMenu;
         HealthManager.OnDeath += Disable;
+        
+        PlayerInput.SwitchCurrentActionMap("Player");
     }
 
     private void EnablePauseMenu()
@@ -25,20 +25,26 @@ public class PauseManager : MonoBehaviour
             return;
         }
 
-        // Select first ui element if controller is connected
-        if (Gamepad.all.Count > 0)
-            AutoSelect.Select();
-
         Player.GetComponent<PlayerController>().enabled = false;
         StateManager.InMenu = true;
         PauseMenu.SetActive(true);
         Time.timeScale = 0f;
         IsAlreadyPaused = true;
+        
+        PlayerInput.SwitchCurrentActionMap("UI");
+        
+        // Auto select if a controller is used
+        if(ControllerManager.Instance.ActiveController())
+            AutoSelect.GetComponent<UIButton>().OnPointerEnter(null);
+            
     }
 
     public void DisablePauseMenu()
     {
         Player.GetComponent<PlayerController>().enabled = true;
+        
+        PlayerInput.SwitchCurrentActionMap("Player");
+        
         Time.timeScale = 1f;
         IsAlreadyPaused = false;
         PauseMenu.SetActive(false);
