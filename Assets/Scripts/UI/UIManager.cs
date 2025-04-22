@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -28,6 +23,14 @@ public class UIManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        ControllerManager.OnControllerActivated += () =>
+        {
+            if (activeButton == null)
+                return;
+            
+            activeButton.GetComponent<UIButton>().OnPointerEnter(null);
+        };
     }
     
     public void OnPointerEnter(GameObject button)
@@ -39,8 +42,6 @@ public class UIManager : MonoBehaviour
 
     public void OnPointerExit(GameObject button)
     {
-        Debug.Log("OnPointerExit " + button.name);
-        activeButton = null;
     }
 
     public void ActivateActiveButton()

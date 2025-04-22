@@ -1,22 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class ControllerAutoSelect : MonoBehaviour
 {
-    public Button AutoSelect; 
+    public GameObject AutoSelect; 
 
     void Start()
     {
-        if (Gamepad.all.Count > 0)
-            AutoSelect.Select();
+        activateButton();
     }
 
     public void Select()
     {
-        if (Gamepad.all.Count > 0)
-            AutoSelect.Select();
+        activateButton();
+    }
+
+    private void OnEnable()
+    {
+        activateButton();
+    }
+
+    private void activateButton()
+    {
+        UIButton uiButton = AutoSelect.GetComponent<UIButton>();
+        if (uiButton == null)
+            return;
+        
+        uiButton.OnPointerEnter(null);
     }
 }

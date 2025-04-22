@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ControllerManager : MonoBehaviour{
     private bool activatedController;
+    public static event UnityAction OnControllerActivated; 
     
     private static ControllerManager _instance;
     public static ControllerManager Instance
@@ -28,6 +30,8 @@ public class ControllerManager : MonoBehaviour{
     {
         activatedController = true;
         Cursor.visible = false;
+        
+        OnControllerActivated.Invoke();
     }
 
     public void DeactivateGamepad()

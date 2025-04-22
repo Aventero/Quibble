@@ -1,44 +1,64 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class UIButton : MonoBehaviour
 {
     private Tween tween;
+    private TweenDifficulty tweenDifficulty;
+
+    private bool useTween;
 
     private void Awake()
     {
         tween = GetComponent<Tween>();
+        tweenDifficulty = GetComponent<TweenDifficulty>();
+
+        if (tween != null)
+            useTween = true;
     }
 
     public void OnPointerEnter(BaseEventData eventData)
     {
         UIManager.Instance.OnPointerEnter(gameObject);
-        tween.OnMouseEnter();
+        
+        if (useTween)
+            tween.OnMouseEnter();
+        else
+            tweenDifficulty.OnMouseEnter();
     }
 
     public void OnPointerExit(BaseEventData eventData)
     {
         UIManager.Instance.OnPointerExit(gameObject);
-        tween.OnMouseExit();
+        
+        if (useTween)
+            tween.OnMouseExit();
+        else
+            tweenDifficulty.OnMouseExit();
     }
 
     public void OnPointerClick(BaseEventData eventData)
     {
-        
-        tween.OnMouseClick();
+        if (useTween)
+            tween.OnMouseClick();
+        else
+            tweenDifficulty.OnMouseClick();
     }
 
     public void OnPointerDown(BaseEventData eventData)
     {
-        tween.OnMouseDown();
+        if (useTween)
+            tween.OnMouseDown();
+        else
+            tweenDifficulty.OnMouseDown();
     }
 
     public void OnPointerUp(BaseEventData eventData)
     {
-        tween.OnMouseUp();
+        if (useTween)
+            tween.OnMouseUp();
+        else
+            tweenDifficulty.OnMouseUp();
     }
 
 }
