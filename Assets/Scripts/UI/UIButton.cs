@@ -1,64 +1,111 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class UIButton : MonoBehaviour
 {
+    public bool activateSubMenu = false;
+    public bool deactivateSubMenu = false;
+    [CanBeNull] public ControllerAutoSelect submenuAutoSelect;
+    
     private Tween tween;
+    private SlotTween slotTween;
     private TweenDifficulty tweenDifficulty;
+    private bool active = false;
+    
+    enum ButtonType
+    {
+        None,
+        Tween,
+        SlotTween,
+        TweenDifficulty,
+    }
 
-    private bool useTween;
+    private ButtonType buttonType;
 
     private void Awake()
     {
         tween = GetComponent<Tween>();
         tweenDifficulty = GetComponent<TweenDifficulty>();
+        slotTween = GetComponent<SlotTween>();
+        
+        if(tween != null)
+            buttonType = ButtonType.Tween;
+        else if (tweenDifficulty != null)
+            buttonType = ButtonType.TweenDifficulty;
+        else if (slotTween != null)
+            buttonType = ButtonType.SlotTween;
+        else
+            Debug.LogError("UIButton has no tween or tween difficulty or slot Tween");
 
-        if (tween != null)
-            useTween = true;
+        if (active) {
+            OnPointerEnter(null);
+            active = false;
+        }
+        
+        Debug.Log(this.name + " on " + buttonType.ToString());
     }
 
     public void OnPointerEnter(BaseEventData eventData)
     {
-        UIManager.Instance.OnPointerEnter(gameObject);
+        if (buttonType == ButtonType.None) {
+            active = true;
+            return;
+        }
         
-        if (useTween)
+        UIManager.Instance.OnPointerEnter(gameObject);
+
+        if (buttonType == ButtonType.Tween)
             tween.OnMouseEnter();
-        else
+        else if (buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseEnter();
+        else
+            slotTween.OnEnter();
     }
 
-    public void OnPointerExit(BaseEventData eventData)
+    public void OnPointerExit(BaseEventData eventData, bool callUIManager = true)
     {
-        UIManager.Instance.OnPointerExit(gameObject);
+        if(callUIManager)
+            UIManager.Instance.OnPointerExit(gameObject);
         
-        if (useTween)
+        if (buttonType == ButtonType.Tween)
             tween.OnMouseExit();
-        else
+        else if(buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseExit();
+        else
+            slotTween.OnExit();
     }
 
     public void OnPointerClick(BaseEventData eventData)
     {
-        if (useTween)
+        OnPointerExit(null, false);
+        
+        if(activateSubMenu)
+            UIManager.Instance.OpenedSubmenu(submenuAutoSelect.AutoSelect);
+        else if (deactivateSubMenu)
+            UIManager.Instance.CloseSubmenu();
+        
+        if (buttonType == ButtonType.Tween)
             tween.OnMouseClick();
-        else
+        else if(buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseClick();
+        else
+            slotTween.OnClick();
     }
 
     public void OnPointerDown(BaseEventData eventData)
     {
-        if (useTween)
+        if (buttonType == ButtonType.Tween)
             tween.OnMouseDown();
-        else
+        else if (buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseDown();
     }
 
     public void OnPointerUp(BaseEventData eventData)
     {
-        if (useTween)
+        if (buttonType == ButtonType.Tween)
             tween.OnMouseUp();
-        else
+        else if (buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseUp();
     }
-
 }

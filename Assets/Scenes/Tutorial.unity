@@ -1090,6 +1090,7 @@ GameObject:
   - component: {fileID: 590874927}
   - component: {fileID: 590874928}
   - component: {fileID: 2655044793469874226}
+  - component: {fileID: 2655044793469874228}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1137,7 +1138,19 @@ MonoBehaviour:
       m_Calls: []
   m_ControlsChangedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 590874923}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: DeviceChangeEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
@@ -1219,6 +1232,102 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 24e665a5-1649-4eee-9ff4-f2c8111399aa
     m_ActionName: Player/Pause[/Keyboard/escape,/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2655044793469874228}
+        m_TargetAssemblyTypeName: UIInputManager, Assembly-CSharp
+        m_MethodName: Up
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5898cef2-6010-4a8c-b83e-57f3d1219743
+    m_ActionName: UI/Up[/Keyboard/w,/Keyboard/upArrow,/Gamepad/dpad/up,/Gamepad/leftStick/up]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2655044793469874228}
+        m_TargetAssemblyTypeName: UIInputManager, Assembly-CSharp
+        m_MethodName: Down
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 10ed65ba-000b-427c-8a5b-4b6d19c579c1
+    m_ActionName: UI/Down[/Keyboard/s,/Keyboard/downArrow,/Gamepad/dpad/down,/Gamepad/leftStick/down]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2655044793469874228}
+        m_TargetAssemblyTypeName: UIInputManager, Assembly-CSharp
+        m_MethodName: Left
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d1136b4d-a615-49d7-b974-aec17b8f4bdc
+    m_ActionName: UI/Left[/Keyboard/a,/Keyboard/leftArrow,/Gamepad/dpad/left,/Gamepad/leftStick/left]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2655044793469874228}
+        m_TargetAssemblyTypeName: UIInputManager, Assembly-CSharp
+        m_MethodName: Right
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f91500d1-0607-4d3b-9621-6b5a61721da2
+    m_ActionName: UI/Right[/Keyboard/d,/Keyboard/rightArrow,/Gamepad/dpad/right,/Gamepad/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2655044793469874228}
+        m_TargetAssemblyTypeName: UIInputManager, Assembly-CSharp
+        m_MethodName: Action
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 874e4bb6-c403-4d92-97e0-04ee8a90f7d4
+    m_ActionName: UI/Action[/Keyboard/enter,/Gamepad/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2655044793469874228}
+        m_TargetAssemblyTypeName: UIInputManager, Assembly-CSharp
+        m_MethodName: Back
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d989d592-f5bd-43b4-93a3-98fe6cf0482e
+    m_ActionName: UI/Back[/Keyboard/escape,/Gamepad/buttonEast,/Gamepad/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2813,6 +2922,50 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1047771060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1047771061}
+  - component: {fileID: 1047771062}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1047771061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047771060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1200295149}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1047771062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047771060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c850939b9778849b851f0a8f84c853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1051494269 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1583977346538716701, guid: cc36011cdac4973409d29e18983f744f, type: 3}
@@ -3275,6 +3428,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlanetMaterial: {fileID: 2100000, guid: 7ff049b8776e22c4c800e65e91b2e663, type: 2}
   UIMaterial: {fileID: 2100000, guid: 4b2ed7efb457adf47b77e8a28f231cd0, type: 2}
+--- !u!1 &1150884572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150884573}
+  - component: {fileID: 1150884574}
+  m_Layer: 0
+  m_Name: ControllerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1150884573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150884572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1200295149}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150884574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150884572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6894df474ee4830b11c8026e50fdfea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1173642698
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,6 +3579,8 @@ Transform:
   - {fileID: 107506432}
   - {fileID: 1651822612}
   - {fileID: 791045681}
+  - {fileID: 1047771061}
+  - {fileID: 1150884573}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15711,6 +15910,18 @@ PrefabInstance:
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameLoader, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5637179608117766271, guid: aad7e906a21460143a77b52a86a667af, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637179608117766271, guid: aad7e906a21460143a77b52a86a667af, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 7545763117651137471}
+    - target: {fileID: 5637179608117766271, guid: aad7e906a21460143a77b52a86a667af, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 7545763117651137471}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
       value: Quit
@@ -15727,6 +15938,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5637179608117766256, guid: aad7e906a21460143a77b52a86a667af, type: 3}
   m_PrefabInstance: {fileID: 1167928752734488012}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1167928752734488019 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5637179608117766271, guid: aad7e906a21460143a77b52a86a667af, type: 3}
+  m_PrefabInstance: {fileID: 1167928752734488012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167928752734488014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1202020757310778247
 GameObject:
   m_ObjectHideFlags: 0
@@ -15966,6 +16188,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 689072701}
     - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: PlayerInput
+      value: 
+      objectReference: {fileID: 590874922}
+    - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: UpgradeMenu
       value: 
       objectReference: {fileID: 7260575687721279553}
@@ -16148,7 +16374,11 @@ PrefabInstance:
     - target: {fileID: 1583977346538716709, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: AutoSelect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7545763117651137466}
+    - target: {fileID: 1583977346538716709, guid: cc36011cdac4973409d29e18983f744f, type: 3}
+      propertyPath: PlayerInput
+      value: 
+      objectReference: {fileID: 590874922}
     - target: {fileID: 1583977346538716709, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: InputManager
       value: 
@@ -21263,6 +21493,19 @@ MonoBehaviour:
   minHeight: 2.3
   maxJumpTime: 1
   fallMultiplier: 2
+--- !u!114 &2655044793469874228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590874918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a27346f46633d07bf59b26dc4e0770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputManager: {fileID: 590874923}
 --- !u!114 &2660433213526908933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23205,6 +23448,18 @@ PrefabInstance:
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PauseManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5637179608117766271, guid: aad7e906a21460143a77b52a86a667af, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637179608117766271, guid: aad7e906a21460143a77b52a86a667af, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 1167928752734488019}
+    - target: {fileID: 5637179608117766271, guid: aad7e906a21460143a77b52a86a667af, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 1167928752734488019}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
       value: Continue
@@ -23225,6 +23480,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5637179608117766256, guid: aad7e906a21460143a77b52a86a667af, type: 3}
   m_PrefabInstance: {fileID: 7545763117651137464}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7545763117651137471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5637179608117766271, guid: aad7e906a21460143a77b52a86a667af, type: 3}
+  m_PrefabInstance: {fileID: 7545763117651137464}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545763117651137466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8142261074235467597
 GameObject:
   m_ObjectHideFlags: 0

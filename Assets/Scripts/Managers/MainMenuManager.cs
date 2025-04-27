@@ -3,15 +3,15 @@ using UnityEngine.InputSystem;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public ControllerAutoSelect ControllerAutoSelect;
     public PlayerInput PlayerInput;
     public GameLoader gameLoader;
     public GameObject Player;
-    public GameObject MainMenu;
 
     private void Start()
     {
-        MainMenu.SetActive(false);
         PlayerInput.SwitchCurrentActionMap("UI");
+        UIManager.Instance.OpenedSubmenu(ControllerAutoSelect.AutoSelect);
     }
 
     public void StartGame()

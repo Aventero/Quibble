@@ -6,17 +6,17 @@ public class ControllerAutoSelect : MonoBehaviour
 
     void Start()
     {
-        activateButton();
+        //activateButton();
     }
 
     public void Select()
     {
-        activateButton();
+        //activateButton();
     }
 
     private void OnEnable()
     {
-        activateButton();
+        //activateButton();
     }
 
     private void activateButton()
