@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIButton : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class UIButton : MonoBehaviour
 
     private ButtonType buttonType;
 
-    private void Awake()
+    private void Start()
     {
         tween = GetComponent<Tween>();
         tweenDifficulty = GetComponent<TweenDifficulty>();
@@ -42,8 +43,6 @@ public class UIButton : MonoBehaviour
             OnPointerEnter(null);
             active = false;
         }
-        
-        Debug.Log(this.name + " on " + buttonType.ToString());
     }
 
     public void OnPointerEnter(BaseEventData eventData)
@@ -76,6 +75,12 @@ public class UIButton : MonoBehaviour
             slotTween.OnExit();
     }
 
+    // Wrapper method so it can be called from a button event
+    public void OnPointerExit(BaseEventData eventData)
+    {
+        OnPointerExit(eventData, true);
+    }
+
     public void OnPointerClick(BaseEventData eventData)
     {
         OnPointerExit(null, false);
@@ -89,8 +94,10 @@ public class UIButton : MonoBehaviour
             tween.OnMouseClick();
         else if(buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseClick();
-        else
+        else {
             slotTween.OnClick();
+            GetComponent<Button>().onClick.Invoke();
+        }
     }
 
     public void OnPointerDown(BaseEventData eventData)

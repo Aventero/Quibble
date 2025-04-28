@@ -1738,7 +1738,7 @@ PrefabInstance:
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1091859574}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1769,7 +1769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Select
+      value: SelectActiveButton
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1785,11 +1785,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: ControllerAutoSelect, Assembly-CSharp
+      value: UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_IntArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
@@ -3513,7 +3517,7 @@ PrefabInstance:
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1091859574}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -3544,7 +3548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Select
+      value: SelectActiveButton
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -3560,11 +3564,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: ControllerAutoSelect, Assembly-CSharp
+      value: UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_IntArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
@@ -5469,7 +5477,7 @@ PrefabInstance:
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1091859574}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -5500,7 +5508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Select
+      value: SelectActiveButton
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5516,11 +5524,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: ControllerAutoSelect, Assembly-CSharp
+      value: UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_IntArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
@@ -8591,6 +8603,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 827364804}
@@ -8605,7 +8621,11 @@ PrefabInstance:
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1091859574}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1091859574}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -8623,6 +8643,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
@@ -8636,7 +8660,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Select
+      value: SelectActiveButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: SelectActiveButton
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -8652,7 +8680,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: ControllerAutoSelect, Assembly-CSharp
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
@@ -8664,6 +8700,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
@@ -8680,6 +8720,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054998064509206960, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: UnityEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3235700622577502115, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}

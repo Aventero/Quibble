@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class UpgradeMenuManager : MonoBehaviour
 {
     public GameObject UpgradeMenu;
-    public Button AutoSelect;
+    public GameObject AutoSelect;
     public TMPro.TMP_Text Congrats;
     public TMPro.TMP_Text Stage;
 
@@ -141,10 +140,7 @@ public class UpgradeMenuManager : MonoBehaviour
         player.PlayerControls.FindAction("Pause").Disable();
 
         UpgradeMenuVisibility(true);
-
-        // Check if controller is connected
-        if (Gamepad.all.Count > 0)
-            AutoSelect.Select();
+        UIManager.Instance.OpenedSubmenu(AutoSelect);
 
         if (updateText)
             UpdateUpgradeText();

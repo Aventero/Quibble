@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -40,10 +39,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenedSubmenu(GameObject firstSelection)
     {
-        Assert.IsNotNull(firstSelection);
-        
         firstSelection.GetComponent<UIButton>().OnPointerEnter(null);
-        Debug.LogWarning("Opening SubMenu with Auto Select: " + firstSelection.name + " (" + activeButtons.Count + ")");
     }
 
     public void CloseSubmenu()
@@ -51,10 +47,7 @@ public class UIManager : MonoBehaviour
         activeButtons.Peek().GetComponent<UIButton>().OnPointerExit(null);
         
         if (activeButtons.Count > 0)
-        {
            activeButtons.Peek().GetComponent<UIButton>().OnPointerEnter(null);
-           Debug.LogWarning("Closing Submenu: Now using the " + activeButtons.Peek().name + " (" + activeButtons.Count + ")");
-        }
     }
     
     public void OnPointerEnter(GameObject button)
@@ -63,9 +56,7 @@ public class UIManager : MonoBehaviour
             if (activeButtons.Peek().gameObject == button)
                 return;
         
-        Debug.Log("OnPointerEnter " + button.name);
         activeButtons.Push(button);
-        Debug.LogWarning("Active Buttons: " + activeButtons.Peek().name + " (" + activeButtons.Count + ")");
     }
 
     public void OnPointerExit(GameObject button)
@@ -76,6 +67,10 @@ public class UIManager : MonoBehaviour
     public void ActivateActiveButton()
     {
        activeButtons.Peek().GetComponent<UIButton>().OnPointerClick(null);
+    }
+
+    public void SelectActiveButton() {
+        activeButtons.Peek().GetComponent<UIButton>().OnPointerEnter(null);
     }
     
     public void SelectButtonAbove()
@@ -91,8 +86,6 @@ public class UIManager : MonoBehaviour
         
         button.GetComponent<UIButton>().OnPointerExit(null); 
         newActiveButton.gameObject.GetComponent<UIButton>().OnPointerEnter(null);
-        
-        Debug.LogWarning("Active Buttons: " + activeButtons.Peek().name + " (" + activeButtons.Count + ")");
     }
 
     public void SelectButtonBelow()
@@ -108,7 +101,6 @@ public class UIManager : MonoBehaviour
         
         button.GetComponent<UIButton>().OnPointerExit(null); 
         newActiveButton.gameObject.GetComponent<UIButton>().OnPointerEnter(null);
-        Debug.LogWarning("Active Buttons: " + activeButtons.Peek().name + " (" + activeButtons.Count + ")");
     }
 
     public void SelectButtonLeft()
@@ -124,7 +116,6 @@ public class UIManager : MonoBehaviour
         
         button.GetComponent<UIButton>().OnPointerExit(null);
         newActiveButton.gameObject.GetComponent<UIButton>().OnPointerEnter(null);
-        Debug.LogWarning("Active Buttons: " + activeButtons.Peek().name + " (" + activeButtons.Count + ")");
     }
 
     public void SelectButtonRight()
@@ -140,6 +131,5 @@ public class UIManager : MonoBehaviour
         
         button.GetComponent<UIButton>().OnPointerExit(null); 
         newActiveButton.gameObject.GetComponent<UIButton>().OnPointerEnter(null);
-        Debug.LogWarning("Active Buttons: " + activeButtons.Peek().name + " (" + activeButtons.Count + ")");
     }
 }

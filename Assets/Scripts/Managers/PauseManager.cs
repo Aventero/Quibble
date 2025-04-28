@@ -35,14 +35,12 @@ public class PauseManager : MonoBehaviour
         
         // Auto select if a controller is used
         if(ControllerManager.Instance.ActiveController())
-            AutoSelect.GetComponent<UIButton>().OnPointerEnter(null);
-            
+            UIManager.Instance.OpenedSubmenu(AutoSelect);
     }
 
     public void DisablePauseMenu()
     {
         Player.GetComponent<PlayerController>().enabled = true;
-        
         PlayerInput.SwitchCurrentActionMap("Player");
         
         Time.timeScale = 1f;
