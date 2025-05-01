@@ -38,27 +38,25 @@ public class UIManager : MonoBehaviour
             
             if (activeButtons.Count == 0)
                 Debug.LogWarning("Activating: " + activeButtons.Peek().name);
-            
-            // TODO: Check if this is even called when the controller is being used -> Switch from keyboard to controller
-            // TODO: Show the active Button
-            //activeButtons.Peek().GetComponent<UIButton>().OnPointerEnter(null);
-            
-            //Debug.Log("Activating fallback: " + fallbackKeyboardButton.name);
-            //OpenSubmenu(fallbackKeyboardButton);
-            //SelectActiveButton();
+;
+            SelectActiveButton();
         };
     }
 
     public void OpenSubmenu(GameObject firstSelection)
     {
-        firstSelection.GetComponent<UIButton>().OnPointerEnter(null);
-        Debug.LogWarning("UIManager: OpenSubmenu: (" + activeButtons.Count + ")");
+        if(ControllerManager.Instance.ActiveController())
+            firstSelection.GetComponent<UIButton>().OnPointerEnter(null);
+        else
+            activeButtons.Push(firstSelection);
     }
 
     public void CloseSubmenu()
     {
-        Debug.LogWarning("UIManager: CloseSubMenu: (" + activeButtons.Count + ")");
-        activeButtons.Peek().GetComponent<UIButton>().OnPointerExit(null);
+        if(ControllerManager.Instance.ActiveController())
+            activeButtons.Peek().GetComponent<UIButton>().OnPointerExit(null);
+        else if(activeButtons.Count > 0)
+            activeButtons.Pop();
         
         if (activeButtons.Count > 0)
            activeButtons.Peek().GetComponent<UIButton>().OnPointerEnter(null);
@@ -66,7 +64,9 @@ public class UIManager : MonoBehaviour
     
     public void OnPointerEnter(GameObject button)
     {
-        Debug.LogWarning("UIManager: OnPointerEnter: (" + activeButtons.Count + ")");
+        if(!ControllerManager.Instance.ActiveController())
+            return;
+            
         if (activeButtons.Count > 0)
             if (activeButtons.Peek().gameObject == button)
                 return;
@@ -76,16 +76,25 @@ public class UIManager : MonoBehaviour
 
     public void OnPointerExit(GameObject button)
     {
+        if(!ControllerManager.Instance.ActiveController())
+            return;
+
         activeButtons.Pop();
     }
 
     public void ActivateActiveButton()
     {
-       activeButtons.Peek().GetComponent<UIButton>().OnPointerClick(null);
+        if (activeButtons.Count > 0)
+            activeButtons.Peek().GetComponent<UIButton>().OnPointerClick(null);
+        else
+            Debug.LogError("<UIManager> ActivateActiveButton Count is ZERO");
     }
 
     public void SelectActiveButton() {
-        activeButtons.Peek().GetComponent<UIButton>().OnPointerEnter(null);
+        if (activeButtons.Count > 0)
+            activeButtons.Peek().GetComponent<UIButton>().OnPointerEnter(null);
+        else
+            Debug.LogError("<UIManager> SelectActiveButton Count is ZERO");
     }
     
     public void SelectButtonAbove()
@@ -99,7 +108,7 @@ public class UIManager : MonoBehaviour
             if (activeButtonGameObject.GetComponent<UIDropDown>().IsDropdownOpen())
                 return;
         
-        var navigation = getNavigation(activeButtonGameObject);
+        var navigation = GetNavigation(activeButtonGameObject);
         var newActiveButton = navigation.selectOnUp;
 
         if (newActiveButton == null)
@@ -120,7 +129,7 @@ public class UIManager : MonoBehaviour
             if (activeButtonGameObject.GetComponent<UIDropDown>().IsDropdownOpen())
                 return;
         
-        var navigation = getNavigation(activeButtonGameObject);
+        var navigation = GetNavigation(activeButtonGameObject);
         var newActiveButton = navigation.selectOnDown;
         
         if (newActiveButton == null)
@@ -141,7 +150,7 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        var navigation = getNavigation(activeButtonGameObject);
+        var navigation = GetNavigation(activeButtonGameObject);
         var newActiveButton = navigation.selectOnLeft;
 
         if (newActiveButton == null)
@@ -162,7 +171,7 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        var navigation = getNavigation(activeButtonGameObject);
+        var navigation = GetNavigation(activeButtonGameObject);
         var newActiveButton = navigation.selectOnRight;
 
         if (newActiveButton == null)
@@ -172,7 +181,7 @@ public class UIManager : MonoBehaviour
         newActiveButton.gameObject.GetComponent<UIButton>().OnPointerEnter(null);
     }
 
-    private Navigation getNavigation(GameObject button)
+    private Navigation GetNavigation(GameObject button)
     {
         if (button.GetComponent<Slider>() != null)
             return button.GetComponent<Slider>().navigation;

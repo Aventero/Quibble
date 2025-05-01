@@ -141,8 +141,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
         UpgradeMenuVisibility(true);
         
-        if(ControllerManager.Instance.ActiveController())
-            UIManager.Instance.OpenSubmenu(AutoSelect);
+        UIManager.Instance.OpenSubmenu(AutoSelect);
 
         if (updateText)
             UpdateUpgradeText();

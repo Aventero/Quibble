@@ -24,8 +24,7 @@ public class DeathManager : MonoBehaviour
         
         playerInput.SwitchCurrentActionMap("UI");
         
-        if(ControllerManager.Instance.ActiveController())
-            UIManager.Instance.OpenSubmenu(AutoSelect);
+        UIManager.Instance.OpenSubmenu(AutoSelect);
 
         // Disable gravity on meteors
         GameObject[] meteorites = GameObject.FindGameObjectsWithTag("Meteorite");
