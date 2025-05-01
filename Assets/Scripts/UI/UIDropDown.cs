@@ -17,7 +17,7 @@ public class UIDropDown : UISelectable{
     }
 
     public override void OnPointerExit() {
-        dropdown.image.color = planetColoringManager.GetCurrentColorUI();
+        dropdown.image.color = dropdown.colors.normalColor;
     }
 
     public override void OnPointerClick() {
@@ -29,8 +29,6 @@ public class UIDropDown : UISelectable{
             dropdown.Hide();
             isDropdownOpen = true;
         }
-        
-        Debug.Log("Dropdown OnPointerClick: " + isDropdownOpen);
     }
 
     public bool IsDropdownOpen() {

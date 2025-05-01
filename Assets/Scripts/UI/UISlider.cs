@@ -21,7 +21,7 @@ public class UISlider : UISelectable{
     }
 
     public override void OnPointerExit() {
-        slider.image.color = planetColoringManager.GetCurrentColorUI();
+        slider.image.color = slider.colors.normalColor;
     }
 
     public override void OnPointerClick() { }

@@ -57,6 +57,7 @@ public class UIButton : MonoBehaviour
             return;
         }
         
+        AudioManager.Instance.Play("MenuHover");
         UIManager.Instance.OnPointerEnter(gameObject);
 
         if (buttonType == ButtonType.Tween)
@@ -93,6 +94,11 @@ public class UIButton : MonoBehaviour
     public void OnPointerClick(BaseEventData eventData)
     {
         OnPointerExit(null, false);
+        
+        if(buttonType == ButtonType.SlotTween)
+            AudioManager.Instance.Play("UpgradeSelect");
+        else
+            AudioManager.Instance.Play("MenuSelect");
         
         if(activateSubMenu)
             UIManager.Instance.OpenSubmenu(submenuAutoSelect.AutoSelect);
