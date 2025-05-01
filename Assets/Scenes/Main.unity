@@ -16772,6 +16772,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -944628639613478452, guid: db6b46cae26b0744e901e1ecc22ba5f1, type: 3}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_DefaultActionMap
       value: Player
       objectReference: {fileID: 0}
@@ -16785,7 +16789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_ActionId
@@ -16810,6 +16814,10 @@ PrefabInstance:
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_ActionId
       value: d989d592-f5bd-43b4-93a3-98fe6cf0482e
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionId
+      value: da08dfba-667b-4065-9cee-9c5d5ba3ea33
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_ActionName
@@ -16838,6 +16846,10 @@ PrefabInstance:
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_ActionName
       value: UI/Back[/Keyboard/escape]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionName
+      value: UI/StickNavigation[/DualSenseGamepadHID/leftStick/up,/DualSenseGamepadHID/rightStick/up,/DualSenseGamepadHID/leftStick/down,/DualSenseGamepadHID/rightStick/down,/DualSenseGamepadHID/leftStick/left,/DualSenseGamepadHID/rightStick/left,/DualSenseGamepadHID/leftStick/right,/DualSenseGamepadHID/rightStick/right]
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.size
@@ -16885,6 +16897,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
@@ -16948,6 +16964,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1891469235}
@@ -16992,6 +17012,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1891469245}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1891469245}
+    - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -17017,6 +17041,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
@@ -17058,6 +17086,10 @@ PrefabInstance:
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NavigateUI
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -17112,6 +17144,10 @@ PrefabInstance:
       value: UIInputController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIInputManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ControlsChangedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.InputSystem.PlayerInput, Unity.InputSystem
       objectReference: {fileID: 0}
@@ -17157,6 +17193,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836074082465255193, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5836074082465255194, guid: 03652186e853c7946b2cd6110c0ba889, type: 3}

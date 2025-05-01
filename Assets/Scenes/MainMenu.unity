@@ -14272,8 +14272,24 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d989d592-f5bd-43b4-93a3-98fe6cf0482e
     m_ActionName: UI/Back[/Keyboard/escape,/Gamepad/buttonEast,/Gamepad/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1587523560}
+        m_TargetAssemblyTypeName: UIInputManager, Assembly-CSharp
+        m_MethodName: NavigateUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: da08dfba-667b-4065-9cee-9c5d5ba3ea33
+    m_ActionName: UI/StickNavigation
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

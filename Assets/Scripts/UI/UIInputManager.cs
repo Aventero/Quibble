@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,12 +6,43 @@ public class UIInputManager : MonoBehaviour
     public InputManager inputManager;
     
     private bool paused;
+    private bool stickMovement;
     
     private void Start()
     {
         InputManager.OnPaused += OnPaused;
     }
     
+    public void NavigateUI(InputAction.CallbackContext context)
+    {
+        Vector2 moveInput = context.ReadValue<Vector2>();
+
+        if(moveInput.x == 0 && moveInput.y == 0) {
+            stickMovement = false;
+            return;
+        }
+
+        if(stickMovement)
+            return;
+
+        if (moveInput.y == 1){
+            UIManager.Instance.SelectButtonAbove();
+            stickMovement = true;
+        } else if(moveInput.y == -1){
+            UIManager.Instance.SelectButtonBelow();
+            stickMovement = true;
+        }
+
+        if(moveInput.x == 1) {
+            UIManager.Instance.SelectButtonRight();
+            stickMovement = true;
+        } else if(moveInput.x == -1) {
+            UIManager.Instance.SelectButtonLeft();
+            stickMovement = true;
+        }
+        
+    }
+
     public void Up(InputAction.CallbackContext context)
     {
         // Not a complete button press
