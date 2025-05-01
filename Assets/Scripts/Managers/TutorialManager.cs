@@ -32,6 +32,7 @@ public class TutorialManager : MonoBehaviour
         upgradeMenuManager.AutoStartNextStage = false;
 
         // Get input controlls and deactivate everything
+        Player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Player");
         playerControls = Player.GetComponent<PlayerInput>().currentActionMap;
         playerControls.Disable();
         playerControls.FindAction("Pause").Enable();
@@ -212,10 +213,6 @@ public class TutorialManager : MonoBehaviour
             slot.GetComponent<Button>().interactable = true;
             slot.GetComponent<Image>().raycastTarget = true;
         }
-
-        // Select first one if controller is connected
-        if (Gamepad.all.Count > 0)
-            UpgradeSlots[0].GetComponent<Button>().Select();
     }
 
     private void UpgradeSelected()

@@ -1328,8 +1328,24 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d989d592-f5bd-43b4-93a3-98fe6cf0482e
     m_ActionName: UI/Back[/Keyboard/escape,/Gamepad/buttonEast,/Gamepad/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2655044793469874228}
+        m_TargetAssemblyTypeName: UIInputManager, Assembly-CSharp
+        m_MethodName: NavigateUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: da08dfba-667b-4065-9cee-9c5d5ba3ea33
+    m_ActionName: UI/StickNavigation[/DualSenseGamepadHID/leftStick/up,/DualSenseGamepadHID/rightStick/up,/DualSenseGamepadHID/leftStick/down,/DualSenseGamepadHID/rightStick/down,/DualSenseGamepadHID/leftStick/left,/DualSenseGamepadHID/rightStick/left,/DualSenseGamepadHID/leftStick/right,/DualSenseGamepadHID/rightStick/right]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -16182,7 +16198,7 @@ PrefabInstance:
     - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: AutoSelect
       value: 
-      objectReference: {fileID: 7260575687468260187}
+      objectReference: {fileID: 7260575687727371628}
     - target: {fileID: 1583977346538716699, guid: cc36011cdac4973409d29e18983f744f, type: 3}
       propertyPath: HeightText
       value: 
@@ -22746,12 +22762,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 7260575688887428629}
+    m_SelectOnRight: {fileID: 7260575687727371626}
   m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -22794,6 +22810,7 @@ GameObject:
   - component: {fileID: 1350187357866634305}
   - component: {fileID: 7260575687468260190}
   - component: {fileID: 7260575687468260191}
+  - component: {fileID: 7260575687468260192}
   m_Layer: 5
   m_Name: Slot 1
   m_TagString: Untagged
@@ -22829,6 +22846,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056d12ce21536614192fe2b74f2fe0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7260575687468260192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260575687468260189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74cc18432b6fa3d49f78aca04b2bcfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateSubMenu: 0
+  deactivateSubMenu: 0
+  submenuAutoSelect: {fileID: 0}
 --- !u!1 &7260575687721279553
 GameObject:
   m_ObjectHideFlags: 0
@@ -22947,12 +22979,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 7260575687468260187}
+    m_SelectOnRight: {fileID: 7260575688887428629}
   m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -23025,6 +23057,7 @@ GameObject:
   - component: {fileID: 4630626111662828978}
   - component: {fileID: 7260575687727371630}
   - component: {fileID: 7260575687727371631}
+  - component: {fileID: 7260575687727371632}
   m_Layer: 5
   m_Name: Slot 2
   m_TagString: Untagged
@@ -23080,6 +23113,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056d12ce21536614192fe2b74f2fe0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7260575687727371632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260575687727371628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74cc18432b6fa3d49f78aca04b2bcfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateSubMenu: 0
+  deactivateSubMenu: 0
+  submenuAutoSelect: {fileID: 0}
 --- !u!95 &7260575688887428624
 Animator:
   serializedVersion: 4
@@ -23171,12 +23219,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 7260575687727371626}
+    m_SelectOnRight: {fileID: 7260575687468260187}
   m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -23219,6 +23267,7 @@ GameObject:
   - component: {fileID: 9108582533006993770}
   - component: {fileID: 9108582533006993771}
   - component: {fileID: 9108582533006993772}
+  - component: {fileID: 9108582533006993773}
   m_Layer: 5
   m_Name: Slot 3
   m_TagString: Untagged
@@ -24178,3 +24227,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056d12ce21536614192fe2b74f2fe0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9108582533006993773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260575688887428631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74cc18432b6fa3d49f78aca04b2bcfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateSubMenu: 0
+  deactivateSubMenu: 0
+  submenuAutoSelect: {fileID: 0}
