@@ -17516,7 +17516,7 @@ PrefabInstance:
     - target: {fileID: 3183888074429453317, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 776578762}
+      objectReference: {fileID: 1885531727}
     - target: {fileID: 3183888074429453317, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
@@ -17724,7 +17724,7 @@ PrefabInstance:
     - target: {fileID: 6101761515299996273, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
-      objectReference: {fileID: 1662826818}
+      objectReference: {fileID: 1885531727}
     - target: {fileID: 6101761515299996286, guid: c44248f1f4f2c1a4c83cf8e784b24857, type: 3}
       propertyPath: m_Name
       value: Quit

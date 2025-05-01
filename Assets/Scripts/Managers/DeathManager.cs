@@ -23,7 +23,9 @@ public class DeathManager : MonoBehaviour
         TMP_Text.SetText("You completed " + GameManager.Instance.CurrentStage + " stages!");
         
         playerInput.SwitchCurrentActionMap("UI");
-        UIManager.Instance.OpenedSubmenu(AutoSelect);
+        
+        if(ControllerManager.Instance.ActiveController())
+            UIManager.Instance.OpenSubmenu(AutoSelect);
 
         // Disable gravity on meteors
         GameObject[] meteorites = GameObject.FindGameObjectsWithTag("Meteorite");

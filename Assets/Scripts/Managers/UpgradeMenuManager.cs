@@ -140,7 +140,9 @@ public class UpgradeMenuManager : MonoBehaviour
         player.PlayerControls.FindAction("Pause").Disable();
 
         UpgradeMenuVisibility(true);
-        UIManager.Instance.OpenedSubmenu(AutoSelect);
+        
+        if(ControllerManager.Instance.ActiveController())
+            UIManager.Instance.OpenSubmenu(AutoSelect);
 
         if (updateText)
             UpdateUpgradeText();

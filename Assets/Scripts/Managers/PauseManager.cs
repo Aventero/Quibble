@@ -35,7 +35,7 @@ public class PauseManager : MonoBehaviour
         
         // Auto select if a controller is used
         if(ControllerManager.Instance.ActiveController())
-            UIManager.Instance.OpenedSubmenu(AutoSelect);
+            UIManager.Instance.OpenSubmenu(AutoSelect);
     }
 
     public void DisablePauseMenu()

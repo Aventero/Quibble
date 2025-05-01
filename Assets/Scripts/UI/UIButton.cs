@@ -12,6 +12,7 @@ public class UIButton : MonoBehaviour
     private Tween tween;
     private SlotTween slotTween;
     private TweenDifficulty tweenDifficulty;
+    private UISelectable uiSelectable;
     private bool active = false;
     
     enum ButtonType
@@ -20,6 +21,7 @@ public class UIButton : MonoBehaviour
         Tween,
         SlotTween,
         TweenDifficulty,
+        UISelectable,
     }
 
     private ButtonType buttonType;
@@ -29,8 +31,11 @@ public class UIButton : MonoBehaviour
         tween = GetComponent<Tween>();
         tweenDifficulty = GetComponent<TweenDifficulty>();
         slotTween = GetComponent<SlotTween>();
-        
-        if(tween != null)
+        uiSelectable = GetComponent<UISelectable>();
+
+        if (uiSelectable != null)
+            buttonType = ButtonType.UISelectable;
+        else if(tween != null)
             buttonType = ButtonType.Tween;
         else if (tweenDifficulty != null)
             buttonType = ButtonType.TweenDifficulty;
@@ -58,8 +63,10 @@ public class UIButton : MonoBehaviour
             tween.OnMouseEnter();
         else if (buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseEnter();
-        else
+        else if (buttonType == ButtonType.SlotTween)
             slotTween.OnEnter();
+        else
+            uiSelectable.OnPointerEnter();
     }
 
     public void OnPointerExit(BaseEventData eventData, bool callUIManager = true)
@@ -71,8 +78,10 @@ public class UIButton : MonoBehaviour
             tween.OnMouseExit();
         else if(buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseExit();
-        else
+        else if (buttonType == ButtonType.SlotTween)
             slotTween.OnExit();
+        else
+            uiSelectable.OnPointerExit();
     }
 
     // Wrapper method so it can be called from a button event
@@ -86,7 +95,7 @@ public class UIButton : MonoBehaviour
         OnPointerExit(null, false);
         
         if(activateSubMenu)
-            UIManager.Instance.OpenedSubmenu(submenuAutoSelect.AutoSelect);
+            UIManager.Instance.OpenSubmenu(submenuAutoSelect.AutoSelect);
         else if (deactivateSubMenu)
             UIManager.Instance.CloseSubmenu();
         
@@ -94,10 +103,11 @@ public class UIButton : MonoBehaviour
             tween.OnMouseClick();
         else if(buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseClick();
-        else {
+        else if (buttonType == ButtonType.SlotTween){
             slotTween.OnClick();
             GetComponent<Button>().onClick.Invoke();
-        }
+        } else
+            uiSelectable.OnPointerClick();
     }
 
     public void OnPointerDown(BaseEventData eventData)
@@ -106,6 +116,8 @@ public class UIButton : MonoBehaviour
             tween.OnMouseDown();
         else if (buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseDown();
+        else
+            uiSelectable.OnPointerDown();
     }
 
     public void OnPointerUp(BaseEventData eventData)
@@ -114,5 +126,7 @@ public class UIButton : MonoBehaviour
             tween.OnMouseUp();
         else if (buttonType == ButtonType.TweenDifficulty)
             tweenDifficulty.OnMouseUp();
+        else
+            uiSelectable.OnPointerUp();
     }
 }

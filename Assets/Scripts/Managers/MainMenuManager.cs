@@ -11,7 +11,7 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         PlayerInput.SwitchCurrentActionMap("UI");
-        UIManager.Instance.OpenedSubmenu(ControllerAutoSelect.AutoSelect);
+        UIManager.Instance.OpenSubmenu(ControllerAutoSelect.AutoSelect);
     }
 
     public void StartGame()
