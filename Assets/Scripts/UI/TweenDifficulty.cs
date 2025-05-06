@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -18,7 +16,7 @@ public class TweenDifficulty : MonoBehaviour
     public UnityEvent UnityEvent;
     private bool isWobbling = false;
 
-    private void Start()
+    private void Awake()
     {
         RectTransform = GetComponent<RectTransform>();
         Image = GetComponent<Image>();

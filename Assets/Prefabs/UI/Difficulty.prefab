@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5962652822796282306}
   - component: {fileID: 5962652822796282307}
   - component: {fileID: 2054998064509206960}
+  - component: {fileID: 3235700622577502115}
   m_Layer: 5
   m_Name: Difficulty
   m_TagString: Untagged
@@ -142,10 +143,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2054998064509206960}
-          m_TargetAssemblyTypeName: TweenDifficulty, Assembly-CSharp
-          m_MethodName: OnMouseEnter
-          m_Mode: 1
+        - m_Target: {fileID: 3235700622577502115}
+          m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+          m_MethodName: OnPointerEnter
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -154,26 +155,14 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 5962652822796282307}
-          m_TargetAssemblyTypeName: PlayAudio, Assembly-CSharp
-          m_MethodName: Play
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: MenuHover
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2054998064509206960}
-          m_TargetAssemblyTypeName: TweenDifficulty, Assembly-CSharp
-          m_MethodName: OnMouseExit
-          m_Mode: 1
+        - m_Target: {fileID: 3235700622577502115}
+          m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+          m_MethodName: OnPointerExit
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -186,10 +175,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2054998064509206960}
-          m_TargetAssemblyTypeName: TweenDifficulty, Assembly-CSharp
-          m_MethodName: OnMouseDown
-          m_Mode: 1
+        - m_Target: {fileID: 3235700622577502115}
+          m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+          m_MethodName: OnPointerDown
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -198,26 +187,14 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 5962652822796282307}
-          m_TargetAssemblyTypeName: PlayAudio, Assembly-CSharp
-          m_MethodName: Play
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: MenuSelect
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2054998064509206960}
-          m_TargetAssemblyTypeName: TweenDifficulty, Assembly-CSharp
-          m_MethodName: OnMouseUp
-          m_Mode: 1
+        - m_Target: {fileID: 3235700622577502115}
+          m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+          m_MethodName: OnPointerUp
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -230,10 +207,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2054998064509206960}
-          m_TargetAssemblyTypeName: TweenDifficulty, Assembly-CSharp
-          m_MethodName: OnMouseClick
-          m_Mode: 1
+        - m_Target: {fileID: 3235700622577502115}
+          m_TargetAssemblyTypeName: UIButton, Assembly-CSharp
+          m_MethodName: OnPointerClick
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -269,6 +246,21 @@ MonoBehaviour:
   UnityEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3235700622577502115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5962652822796282312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74cc18432b6fa3d49f78aca04b2bcfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateSubMenu: 0
+  deactivateSubMenu: 0
+  submenuAutoSelect: {fileID: 0}
 --- !u!1 &5962652822955806688
 GameObject:
   m_ObjectHideFlags: 0

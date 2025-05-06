@@ -1,26 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public ControllerAutoSelect ControllerAutoSelect;
+    public PlayerInput PlayerInput;
     public GameLoader gameLoader;
     public GameObject Player;
 
     private void Start()
     {
-        Player.GetComponent<PlayerInput>().currentActionMap.FindAction("Pause").Disable();
+        PlayerInput.SwitchCurrentActionMap("UI");
+        UIManager.Instance.OpenSubmenu(ControllerAutoSelect.AutoSelect);
     }
 
     public void StartGame()
     {
+        PlayerInput.SwitchCurrentActionMap("Player");
         Player.GetComponent<PlayerInput>().currentActionMap.FindAction("Pause").Enable();
         gameLoader.LoadGameScene();
     }
 
     public void LoadTutorial()
     {
+        PlayerInput.SwitchCurrentActionMap("Player");
         Player.GetComponent<PlayerInput>().currentActionMap.FindAction("Pause").Enable();
         gameLoader.LoadTutorialScene();
     }

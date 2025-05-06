@@ -25,6 +25,7 @@
 
 # Visual Studio cache directory
 .vs/
+.vscode/
 
 # Gradle cache directory
 .gradle/
@@ -72,3 +73,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Materials/MainMenuPlanet.mat
 Assets/Materials/MainPlanet.mat
+
+# MacOS auto-generated files
+.DS_Store

@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class UpgradeMenuManager : MonoBehaviour
 {
     public GameObject UpgradeMenu;
-    public Button AutoSelect;
+    public GameObject AutoSelect;
     public TMPro.TMP_Text Congrats;
     public TMPro.TMP_Text Stage;
 
     public string[] CongratulationWords;
+    public PlayerInput PlayerInput;
 
     [Header("Upgrades")]
     public Upgrade[] upgrades;
@@ -48,6 +47,7 @@ public class UpgradeMenuManager : MonoBehaviour
             return;
 
         StartCoroutine(ShowAfterDelay(delay, updateText));
+        PlayerInput.SwitchCurrentActionMap("UI");
 
         // Generate tier
         int tier = GenerateTier();
@@ -70,7 +70,7 @@ public class UpgradeMenuManager : MonoBehaviour
     public void Start()
     {
         RangeText.SetText(System.Math.Round(PlayerStats.Instance.Range, 2) + " m");
-        AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 0) + " °");
+        AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 0) + " ï¿½");
         HeightText.SetText(System.Math.Round(PlayerStats.Instance.Jump, 2) + " m");
         SpeedText.SetText(System.Math.Round(PlayerStats.Instance.Movement, 2) + " m/s");
 
@@ -88,7 +88,7 @@ public class UpgradeMenuManager : MonoBehaviour
                 break;
             case Upgrade.UpgradeType.ANGLE:
                 PlayerStats.Instance.AngleLevel += effect;
-                AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 0) + " °");
+                AngleText.SetText(System.Math.Round(PlayerStats.Instance.Angle, 0) + " ï¿½");
                 StartCoroutine(LerpColor(1f, 0f, 1f, AngleText));
                 break;
             case Upgrade.UpgradeType.HEAL:
@@ -113,6 +113,7 @@ public class UpgradeMenuManager : MonoBehaviour
 
         // Hide upgrade menu
         UpgradeMenuVisibility(false);
+        PlayerInput.SwitchCurrentActionMap("Player");
         player.PlayerControls.FindAction("Pause").Enable();
         visible = false;
 
@@ -139,10 +140,8 @@ public class UpgradeMenuManager : MonoBehaviour
         player.PlayerControls.FindAction("Pause").Disable();
 
         UpgradeMenuVisibility(true);
-
-        // Check if controller is connected
-        if (Gamepad.all.Count > 0)
-            AutoSelect.Select();
+        
+        UIManager.Instance.OpenSubmenu(AutoSelect);
 
         if (updateText)
             UpdateUpgradeText();

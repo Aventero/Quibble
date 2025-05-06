@@ -13,6 +13,7 @@ public class Intro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MainMenu.SetActive(false);
         if (StateManager.StartupDone)
         {
             // Reveal the menu on any other launch

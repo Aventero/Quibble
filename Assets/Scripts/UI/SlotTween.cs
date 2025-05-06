@@ -6,7 +6,7 @@ public class SlotTween : MonoBehaviour
 {
     RectTransform RectTransform;
 
-    private void Start()
+    private void Awake()
     {
         RectTransform = GetComponent<RectTransform>();
     }

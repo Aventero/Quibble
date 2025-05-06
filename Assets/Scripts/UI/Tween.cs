@@ -18,8 +18,7 @@ public class Tween : MonoBehaviour
     public UnityEvent UnityEvent;
     private bool isWobbling = false;
 
-
-    private void Start()
+    private void Awake()
     {
         RectTransform = GetComponent<RectTransform>();
         Image = GetComponent<Image>();
