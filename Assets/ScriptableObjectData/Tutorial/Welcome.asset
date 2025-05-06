@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Welcome
   m_EditorClassIdentifier: 
   parts:
-  - Welcome to Quibble!
-  - "It\xB4s good to see you here!"
-  - I will teach you how to play this game
-  - "Let\xB4s start with the basics"
+  - Willkommen bei Quibble!
+  - "Es ist sch\xF6n dich hier zu sehen!"
+  - Ich werde dir zeigen wie man das Spiel spielt
+  - Lass uns mit den Grundlagen anfangen
   - <SECONDARYTRIGGER>
-  - Move around by pressing 'A' or 'D'
+  - Du kannst dich mit 'A' oder 'D' bewegen
   - <TRIGGER>

@@ -253,9 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 7808916445401822876}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: 'Restart
-
-'
+      value: Neustart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad7e906a21460143a77b52a86a667af, type: 3}
@@ -507,9 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 5058782876731297992}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: 'Quit
-
-'
+      value: "Hauptmen\xFC"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad7e906a21460143a77b52a86a667af, type: 3}

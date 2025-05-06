@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: -200}
+  m_AnchoredPosition: {x: 140.22, y: -200}
   m_SizeDelta: {x: 280.45, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2517011980460700476
@@ -689,7 +689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.y
@@ -745,7 +745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: Restart
+      value: Neustart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad7e906a21460143a77b52a86a667af, type: 3}
@@ -795,7 +795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.y
@@ -851,7 +851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: Quit
+      value: Verlassen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad7e906a21460143a77b52a86a667af, type: 3}
@@ -912,7 +912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_SizeDelta.y
@@ -948,7 +948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.000013351
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -988,7 +988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_text
-      value: Volume
+      value: "Lautst\xE4rke"
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_fontSize
@@ -1102,7 +1102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1170,7 +1170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: Continue
+      value: Fortfahren
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_fontStyle
@@ -1235,7 +1235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1307,7 +1307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_text
-      value: Game Paused
+      value: Spiel Pausiert
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_fontColor.b

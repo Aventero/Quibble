@@ -20,7 +20,7 @@ public class DeathManager : MonoBehaviour
 
         // Show death screen
         DeathMenu.SetActive(true);
-        TMP_Text.SetText("You completed " + GameManager.Instance.CurrentStage + " stages!");
+        TMP_Text.SetText("Du hast " + GameManager.Instance.CurrentStage + " Etappen geschafft!");
         
         playerInput.SwitchCurrentActionMap("UI");
         

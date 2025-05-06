@@ -214,15 +214,16 @@ MonoBehaviour:
   Congrats: {fileID: 0}
   Stage: {fileID: 0}
   CongratulationWords:
-  - Amazing!
-  - You're the best!
-  - You can do it!
-  - Keep going!
-  - You might reach the end!
-  - Great!
-  - Beautiful!
-  - You're breathtaking!
-  - You're wonderful!
+  - Wunderbar!!
+  - Du bist der Beste!
+  - Du schaffst das!
+  - Weiter so!
+  - Oh oh, wie lange schaffst du das noch?
+  - Sehr gut!
+  - Tadellos!
+  - "Wundersch\xF6n!"
+  - Sehr gut, weiter so!
+  PlayerInput: {fileID: 0}
   upgrades:
   - {fileID: 11400000, guid: 585a4f31b1fd3c244879113419f2da1c, type: 2}
   - {fileID: 11400000, guid: 6f2f9e6bfeed7174e9698d05b3b6b23d, type: 2}
@@ -254,6 +255,7 @@ MonoBehaviour:
   DeathMenu: {fileID: 0}
   AutoSelect: {fileID: 0}
   TMP_Text: {fileID: 0}
+  playerInput: {fileID: 0}
 --- !u!114 &1583977346538716709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e922848916cdda2419c62a479930131b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerInput: {fileID: 0}
   Player: {fileID: 0}
   PauseMenu: {fileID: 0}
   AutoSelect: {fileID: 0}

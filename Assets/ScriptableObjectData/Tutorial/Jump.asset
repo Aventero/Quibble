@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Jump
   m_EditorClassIdentifier: 
   parts:
-  - Good job!
-  - In order to reach higher places you can perform a jump
+  - Sehr gut!
+  - "Mit einem Sprung kommst du an h\xF6here Orte "
   - <SECONDARYTRIGGER>
-  - Just try it - Press 'W' or 'Space' to jump
+  - "Versuch entweder 'W' oder 'Leertaste' zu dr\xFCcken, um zu springen"
   - <TRIGGER>

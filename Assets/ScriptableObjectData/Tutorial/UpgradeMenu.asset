@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: UpgradeMenu
   m_EditorClassIdentifier: 
   parts:
-  - After each stage you will be greeted by the upgrade screen
-  - Here you can choose one random upgrade
-  - Upgrades are split into 4 different tiers
-  - Common, Rare, Epic and Legendary
-  - The effect of the upgrade will scale with its tier
-  - Have a look at the current upgrades!
+  - "Nach jeder Etappe kannst du dir ein Upgrade im Upgrade Men\xFC aussuchen"
+  - Hier kannst du dir ein Upgrade aussuchen
+  - "Es gibt 4 verschiedene Stufen f\xFCr Upgrades"
+  - Common, Rare, Epic und Legendary
+  - "Die Wirkung der Upgrades erh\xF6ht sich mit der Stufe"
+  - "Schau dir schon einmal die verf\xFCgbaren Upgrades an!"
   - <TRIGGER>

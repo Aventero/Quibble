@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Success
   m_EditorClassIdentifier: 
   parts:
-  - Nice one!
+  - Tadellos!
   - <SECONDARYTRIGGER>
-  - A game of Quibble is split into various stages
-  - In each stage a set amount of meteorites will appear
-  - For every hit meteorite your stage bar will fill up
-  - If all meteorites are gone you will advance to the next stage
-  - Try to hit another meteorite!
+  - Quibble ist in viele Etappen aufgeteilt.
+  - In jeder Etappe wird eine feste Anzahl an Meteoriten auftreten
+  - "Jedes Mal, wenn du einen Meteoriten triffst, f\xFCllt sich die Fortschrittsanzeige"
+  - "Wenn alle Meteoriten getroffen wurden, wirst du zur n\xE4chsten Etappe weitergeleitet"
+  - Versuch, einen weiteren Meteoriten zu treffen!
   - <TRIGGER>

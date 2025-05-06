@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Health
   m_EditorClassIdentifier: 
   parts:
-  - Ouch! That one hurt!
-  - Did you see how the meteorite lowered the planets health?
-  - If the health reaches zero you will lose your planet!
-  - "So let\xB4s start defending it!"
-  - Use your sword to hit the meteorite while it is still flying around!
+  - Ouch! Das tat ziemlich weh!
+  - Hast du gesehen, wie der Meteorite das Leben des Planeten verringert hat?
+  - Wenn das Leben null erreicht, verlierst du!
+  - Also lass uns anfangen, den Planeten zu verteidigen!
+  - Benutz dein Schwert, um die Meteroiten im Flug zu treffen!
   - <TRIGGER>

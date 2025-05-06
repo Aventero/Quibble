@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Attack
   m_EditorClassIdentifier: 
   parts:
-  - Great!
-  - "Now let\xB4s talk about how you will defend your planet"
+  - "Sehr sch\xF6n!"
+  - "Nun lass uns dar\xFCber reden wie du den Planeten verteidigen kannst"
   - <SECONDARYTRIGGER>
-  - Press 'Left Mouse' or 'Enter' to wield your sword
+  - "Dr\xFCck die 'linke Maustaste' oder 'Enter', um das Schwert zu schwingen"
   - <TRIGGER>

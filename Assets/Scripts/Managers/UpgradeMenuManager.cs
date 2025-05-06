@@ -125,7 +125,7 @@ public class UpgradeMenuManager : MonoBehaviour
     private void UpdateUpgradeText()
     {
         Congrats.SetText(CongratulationWords[Random.Range(0, CongratulationWords.Length)]);
-        Stage.SetText("Stage " + GameManager.Instance.CurrentStage + " cleared!");
+        Stage.SetText("Etappe " + GameManager.Instance.CurrentStage + " geschafft!");
     }
 
     public void UpgradeMenuVisibility(bool visible)

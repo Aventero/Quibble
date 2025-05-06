@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Final
   m_EditorClassIdentifier: 
   parts:
-  - Did you see how the upgrade improved your ability?
-  - Your upgrade will now be active for the rest of the game!
-  - "And that\xB4s it!"
-  - Now you know everything to play this game!
-  - Thank your for completing the tutorial!
+  - "Hast du gesehen, wie deine F\xE4higkeit sich durch das Upgrade verbessert hat?"
+  - Upgrades bleiben bis zum Ende aktiv!
+  - Und das wars
+  - "Jetzt wei\xDFt du alles f\xFCrs Spielen."
+  - "Vielen Dank f\xFCrs Abschlie\xDFen vom Tutorial!"
+  - "Viel Spa\xDF bei Quibble!"
   - <TRIGGER>

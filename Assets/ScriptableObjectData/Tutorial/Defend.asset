@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Defend
   m_EditorClassIdentifier: 
   parts:
-  - Awesome!
-  - You are now able to defend your planet!
+  - Ausgezeichnet!
+  - Jetzt kannst du den Planeten verteidigen!
   - <TRIGGER>
   - ...?
-  - Huh? What is that?
+  - Huh? Was war das?

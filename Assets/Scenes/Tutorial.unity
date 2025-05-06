@@ -3405,7 +3405,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c5d484dfc3375534f8d5df015c1986cb, type: 2}
   - {fileID: 11400000, guid: fad469ce0ed1d3a4cac5b818c5a1369f, type: 2}
   - {fileID: 11400000, guid: a9673f465a4dcbb4887c6fa5a6542808, type: 2}
-  timeBetweenExplanations: 2.5
+  timeBetweenExplanations: 3
   explanationBox: {fileID: 1844886440}
   explanationText: {fileID: 1076607652}
 --- !u!114 &1142127146
@@ -15860,7 +15860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.y
@@ -15940,7 +15940,7 @@ PrefabInstance:
       objectReference: {fileID: 2904240348991790334}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: Quit
+      value: "Hauptmen\xFC"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad7e906a21460143a77b52a86a667af, type: 3}
@@ -21652,7 +21652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_SizeDelta.y
@@ -21732,7 +21732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_text
-      value: Volume
+      value: "Lautst\xE4rke"
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_fontSize
@@ -22504,7 +22504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: -100}
+  m_AnchoredPosition: {x: 137.95, y: -100}
   m_SizeDelta: {x: 225.5, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6590362404534092858
@@ -23456,7 +23456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.y
@@ -23540,7 +23540,7 @@ PrefabInstance:
       objectReference: {fileID: 1167928752734488019}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: Continue
+      value: Fortsetzen
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_fontStyle
@@ -23614,7 +23614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tutorial cleared!
+  m_text: Tutorial geschafft!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba57226fa2777b145a5eca641dc9e652, type: 2}
   m_sharedMaterial: {fileID: 5889216015807779532, guid: ba57226fa2777b145a5eca641dc9e652, type: 2}
@@ -23807,7 +23807,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose your next upgrade!
+  m_text: "W\xE4hle dein n\xE4chstes Upgrade!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba57226fa2777b145a5eca641dc9e652, type: 2}
   m_sharedMaterial: {fileID: 5889216015807779532, guid: ba57226fa2777b145a5eca641dc9e652, type: 2}
@@ -23967,7 +23967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_SizeDelta.y
@@ -24051,7 +24051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_text
-      value: Game Paused
+      value: Spiel Pausiert
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_fontColor.b

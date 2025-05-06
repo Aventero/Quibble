@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Zoom
   m_EditorClassIdentifier: 
   parts:
-  - Splendid!
-  - You can adjust the zoom to see more of your surroundings
+  - Wunderbar!
+  - "Du kannst das Zoom-Level erh\xF6hen oder reduzieren, um mehr von der Umgebung
+    zu sehen\n"
   - <SECONDARYTRIGGER>
-  - Use 'Mouse Wheel' to zoom in and out!
+  - Mit dem Mausrad kannst du rein- oder rauszoomen!
   - <TRIGGER>

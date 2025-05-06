@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
             UpgradeMenuManager.SetVisible(true);
             StartCoroutine(ShowUpgradeWindow());
         }
-        StageText.SetText("Stage: " + CurrentStage);
+        StageText.SetText("Etappe: " + CurrentStage);
     }
 
     private void IncreaseMeteoriteHits()

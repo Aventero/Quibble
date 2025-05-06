@@ -452,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 5637179609462203861}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: Back
+      value: "Zur\xFCck"
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_fontColor.b
@@ -1300,7 +1300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_text
-      value: Volume
+      value: "Lautst\xE4rke"
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_fontSize
@@ -1945,7 +1945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5962652822955806718, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: m_text
-      value: Hard
+      value: Schwer
       objectReference: {fileID: 0}
     - target: {fileID: 5962652822955806718, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: m_fontColor.b
@@ -3724,9 +3724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5962652822955806718, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: m_text
-      value: 'Medium
-
-'
+      value: Mittel
       objectReference: {fileID: 0}
     - target: {fileID: 5962652822955806718, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: m_fontColor.b
@@ -5048,7 +5046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 154.69824, y: -100}
+  m_AnchoredPosition: {x: 157, y: -100}
   m_SizeDelta: {x: 309.3964, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1479537206
@@ -5742,7 +5740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5962652822955806718, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: m_text
-      value: Extreme
+      value: Extrem
       objectReference: {fileID: 0}
     - target: {fileID: 5962652822955806718, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: m_fontColor.b
@@ -6686,7 +6684,7 @@ PrefabInstance:
       objectReference: {fileID: 1453267487}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_text
-      value: Graphics
+      value: Grafik
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608813866566, guid: 9d55147812e545d4998a29f84ba5dfab, type: 3}
       propertyPath: m_margin.x
@@ -7131,7 +7129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 5637179608117766257, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_SizeDelta.y
@@ -7291,7 +7289,7 @@ PrefabInstance:
       objectReference: {fileID: 1453267487}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: Back
+      value: "Zur\xFCck"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad7e906a21460143a77b52a86a667af, type: 3}
@@ -7748,7 +7746,7 @@ PrefabInstance:
       objectReference: {fileID: 1716232055}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: Settings
+      value: Einstellungen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad7e906a21460143a77b52a86a667af, type: 3}
@@ -8107,7 +8105,7 @@ PrefabInstance:
       objectReference: {fileID: 1965225462}
     - target: {fileID: 5637179608813866566, guid: aad7e906a21460143a77b52a86a667af, type: 3}
       propertyPath: m_text
-      value: Difficulty
+      value: Schwierigkeitsgrad
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aad7e906a21460143a77b52a86a667af, type: 3}
@@ -8934,6 +8932,10 @@ PrefabInstance:
     - target: {fileID: 5962652822796282313, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962652822955806718, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
+      propertyPath: m_text
+      value: Einfach
       objectReference: {fileID: 0}
     - target: {fileID: 5962652822955806718, guid: 7c3e33b509fc0ba468b9980585ad7172, type: 3}
       propertyPath: m_fontColor.b
